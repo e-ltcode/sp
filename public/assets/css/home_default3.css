@@ -1,0 +1,1878 @@
+.Calendar {
+	display: -ms-flexbox;
+	display: flex;
+	margin-top: 1.5625rem;
+	-ms-flex-positive: 1;
+	flex-grow: 1
+}
+
+.Calendar__Row {
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-positive: 1;
+	flex-grow: 1
+}
+
+.Calendar__Cell {
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-positive: 1;
+	flex-grow: 1;
+	margin-right: 1.25rem;
+	margin-left: 1.25rem;
+	-ms-flex-preferred-size: 1px;
+	flex-basis: 1px;
+	width: 50%;
+	padding-bottom: .625rem
+}
+
+.CalendarBlock {
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-flow: column;
+	flex-flow: column
+}
+
+@media(max-width:767px) {
+	.CalendarBlock {
+		display: none
+	}
+}
+
+.CalendarBlock__Header {
+	height: 10.4375rem;
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-align: center;
+	align-items: center;
+	border-bottom: 1px solid #d7d7d7
+}
+
+.CalendarBlock__HeaderText {
+	display: -ms-flexbox;
+	display: flex;
+	font-size: 1.875rem
+}
+
+.CalendarBlock__HeaderText p {
+	font-weight: 300
+}
+
+.CalendarBlock__HeaderText p span {
+	font-weight: 500
+}
+
+.CalendarBlock__HeaderIcon {
+	display: -ms-flexbox;
+	display: flex;
+	margin-right: 2.9375rem;
+	-ms-flex-align: center;
+	align-items: center
+}
+
+.CalendarBlock__Body {
+	display: -ms-flexbox;
+	display: flex
+}
+
+@media(max-width:1384px) {
+	.CalendarBlock__Body {
+		padding: 0
+	}
+}
+
+.Event {
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-flow: column;
+	flex-flow: column;
+	-ms-flex-positive: 0;
+	flex-grow: 0;
+	width: 100%
+}
+
+.Event__TopBlock {
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-align: center;
+	align-items: center;
+	height: 2.75rem
+}
+
+.Event__Date {
+	display: block;
+	font-size: 1.25rem
+}
+
+.Event__ParticipateBlock {
+	display: -ms-flexbox;
+	display: flex;
+	text-align: right;
+	-ms-flex-positive: 1;
+	flex-grow: 1;
+	-ms-flex-pack: end;
+	justify-content: flex-end
+}
+
+.Event__Participate {
+	display: inline-block;
+	color: #fff;
+	font-size: .9375rem;
+	background-color: #5c6bc0;
+	padding: .5rem .9375rem;
+	border-radius: .1875rem;
+	white-space: nowrap;
+	border: 0
+}
+
+.Event__Participate--finished {
+	background-color: #d7d7d7
+}
+
+.Event__Participate:hover {
+	text-decoration: none;
+	color: #fff
+}
+
+.Event--finished {
+	background-color: #d7d7d7
+}
+
+.Event__ImageBlock {
+	-ms-flex-pack: center;
+	justify-content: center;
+	-ms-flex-positive: 1;
+	flex-grow: 1;
+	-ms-flex-negative: 1;
+	flex-shrink: 1;
+	-ms-flex-preferred-size: auto;
+	flex-basis: auto;
+	padding: 1.25rem;
+	position: relative;
+	-ms-flex-align: start;
+	align-items: flex-start;
+	padding-bottom: 5.3125rem
+}
+
+.Event__ImageBlock div.frameContainer {
+	min-height: 200px;
+	max-height: 320px;
+	position: relative;
+	padding-bottom: 56.25%;
+	padding-top: 25px;
+	height: 0;
+	width: 100%;
+	margin: auto
+}
+
+.Event__ImageBlock div.frameContainer>iframe {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%
+}
+
+.Event__Image {
+	width: 100%;
+	background-size: 100% auto;
+	background-repeat: no-repeat;
+	background-position: center
+}
+
+.Event__Image>img {
+	display: block;
+	width: 100%;
+	max-height: 320px
+}
+
+.Event__InfoBlock {
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-positive: 1;
+	flex-grow: 1;
+	-ms-flex-flow: column;
+	flex-flow: column;
+	box-shadow: 0 0 14px #f0f0f0;
+	margin-top: 1.5625rem
+}
+
+.Event__InfoBlock--empty {
+	-ms-flex-align: center;
+	align-items: center;
+	-ms-flex-pack: center;
+	justify-content: center
+}
+
+.Event__DetailsBlock {
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-positive: 1;
+	flex-grow: 1;
+	-ms-flex-flow: column;
+	flex-flow: column;
+	position: relative;
+	overflow: hidden
+}
+
+.Event__TextDetailsBlock {
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-positive: 0;
+	flex-grow: 0;
+	-ms-flex-flow: column;
+	flex-flow: column;
+	z-index: 5;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0
+}
+
+.Event__TextDetailsBlock--fill {
+	top: 0
+}
+
+.Event__NameBlock {
+	display: -ms-flexbox;
+	display: flex;
+	font-size: 1.125rem;
+	padding-right: 1.25rem;
+	padding-bottom: .9375rem;
+	padding-left: 1.875rem;
+	min-height: 5.3125rem
+}
+
+.Event__NameBlock--top {
+	background: rgba(56, 56, 56, .5);
+	color: #fff;
+	border-top-left-radius: .1875rem;
+	border-top-right-radius: .1875rem
+}
+
+.Event__Name {
+	padding-right: .625rem
+}
+
+.Event__DescriptionBlock {
+	display: none;
+	-ms-flex-positive: 1;
+	flex-grow: 1;
+	padding-top: 1.25rem;
+	padding-left: 1.25rem;
+	padding-right: 1.25rem;
+	background: #fff;
+	overflow-y: auto
+}
+
+.Event__DescriptionBlock--fill {
+	display: inline-block;
+	position: absolute;
+	top: 5.3125rem;
+	bottom: 0;
+	left: 0;
+	right: 0
+}
+
+.Event__PrizeBlock {
+	padding: 1.25rem;
+	padding-top: .9375rem;
+	border-top: solid 1px #e1e1e1;
+	min-height: 8.125rem;
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-flow: row;
+	flex-flow: row
+}
+
+.Event__PrizeIcon {
+	padding-right: .625rem
+}
+
+.Event__SoonIcon {
+	width: auto;
+	height: auto;
+	font-size: 50px;
+	color: #eaeaea
+}
+
+.Event__CodeBlock {
+	background-repeat: no-repeat;
+	background-size: auto 1.375rem;
+	background-position: left;
+	padding-top: .75rem;
+	padding-bottom: .75rem;
+	color: #fff;
+	font-size: 1.125rem;
+	z-index: 1
+}
+
+@media(max-width:768px) {
+	.Event__CodeBlock {
+		background-size: auto 2rem
+	}
+}
+
+.icon-prize {
+	color: #63bd6f
+}
+
+.icon-prize.finished {
+	color: #d7d7d7
+}
+
+.text-prize {
+	vertical-align: middle;
+	display: inline;
+	padding-top: 1.25rem
+}
+
+.desktopBrush {
+	background-image: url(/app/images/home/brush_Desktop.png)
+}
+
+.desktopBrushFinished {
+	background-image: url(/app/images/home/brush_grey_Desktop.png)
+}
+
+.mobBrush {
+	background-image: url(/app/images/home/brush_Mob.png)
+}
+
+.mobBrushFinished {
+	background-image: url(/app/images/home/brush_grey_Mob.png)
+}
+
+.AnnouncementsCarousel .carousel-inner>.item.active,
+.AnnouncementsCarousel .carousel-inner>.item.next.left,
+.AnnouncementsCarousel .carousel-inner>.item.prev.right {
+	display: -ms-flexbox;
+	display: flex
+}
+
+.AnnouncementsCarousel__Navigate {
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-align: center;
+	align-items: center
+}
+
+.AnnouncementsCarousel__Navigate>a {
+	text-decoration: none;
+	color: #fff
+}
+
+.AnnouncementsCarousel__Navigate.prev {
+	padding-right: 2.7125rem;
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-align: center;
+	align-items: center
+}
+
+.AnnouncementsCarousel__Navigate.next {
+	padding-left: 2.7125rem;
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-align: center;
+	align-items: center
+}
+
+.ann-block-layout-mobile {
+	display: none
+}
+
+@media(max-width:768px) {
+	.ann-block-layout-mobile {
+		background-color: gray;
+		display: block
+	}
+	.ann-block-layout-mobile .header-layout {
+		position: relative
+	}
+	.ann-block-layout-mobile .header-layout .header {
+		min-height: 80px;
+		background-size: cover;
+		background-image: url(/app/images/home/announcement_calendar_background.png);
+		text-align: center
+	}
+	.ann-block-layout-mobile .header-layout .header div {
+		line-height: 15px;
+		position: absolute;
+		-ms-flex-line-pack: center;
+		align-content: center;
+		width: 100%;
+		top: 32.5px;
+		font-family: 'Open Sans';
+		font-size: 15px;
+		font-weight: 600
+	}
+	.ann-block-layout-mobile .header-layout .horizontal-line {
+		height: 1px;
+		width: 92%;
+		background-color: #d7d7d7;
+		margin-left: auto;
+		margin-right: auto
+	}
+	.ann-block-layout-mobile .header-layout .body {
+		position: relative
+	}
+	.ann-block-layout-mobile .header-layout .body .next-arrow,
+	.ann-block-layout-mobile .header-layout .body .prev-arrow {
+		position: absolute;
+		top: 24px;
+		z-index: 10
+	}
+	.ann-block-layout-mobile .header-layout .body a[role=button] {
+		-webkit-text-decoration-color: initial;
+		text-decoration-color: initial;
+		-webkit-text-decoration-line: none!important;
+		text-decoration-line: none!important;
+		-webkit-text-decoration-style: none!important;
+		text-decoration-style: none!important
+	}
+	.ann-block-layout-mobile .header-layout .body .next-arrow a::before,
+	.ann-block-layout-mobile .header-layout .body .prev-arrow a::before {
+		color: #000;
+		font-size: 18px
+	}
+	.ann-block-layout-mobile .header-layout .body .prev-arrow {
+		left: 30px
+	}
+	.ann-block-layout-mobile .header-layout .body .next-arrow {
+		right: 30px
+	}
+	.ann-block-layout-mobile .header-layout .body .ann-header {
+		margin-top: 24px;
+		width: 100%;
+		text-align: center
+	}
+	.ann-block-layout-mobile .header-layout .body .ann-header .full-date {
+		font-family: 'Open Sans';
+		font-weight: 600;
+		font-style: normal;
+		font-stretch: normal;
+		line-height: 1.25rem;
+		letter-spacing: normal;
+		color: #333
+	}
+	.ann-block-layout-mobile .header-layout .body .ann-header .full-date .time {
+		margin-left: 15px
+	}
+	.ann-block-layout-mobile .header-layout .body .ann-header .full-date .time::before {
+		margin-right: 5px
+	}
+	.ann-block-layout-mobile .header-layout .body .ann-header .participate-button {
+		margin-top: 21px
+	}
+	.ann-block-layout-mobile .header-layout .body .ann-details {
+		box-shadow: 0 3.5px 12px 0 #f0f2f4;
+		margin: 10px 15px 20px 15px;
+		border-radius: 2px
+	}
+	.ann-block-layout-mobile .header-layout .body .ann-details .quiz-details-layout {
+		position: relative;
+		width: 100%;
+		padding-bottom: 70px
+	}
+	.ann-block-layout-mobile .header-layout .body .ann-details .quiz-details-layout .image-block {
+		-ms-flex-pack: center;
+		justify-content: center;
+		position: relative
+	}
+	.ann-block-layout-mobile .header-layout .body .ann-details .quiz-details-layout .image-block .code {
+		position: absolute;
+		top: .625rem;
+		left: .625rem;
+		padding: .3125rem .625rem;
+		background-color: #fff;
+		opacity: .9;
+		border-radius: 16px;
+		color: #000;
+		z-index: 2
+	}
+	.ann-block-layout-mobile .header-layout .body .ann-details .quiz-details-layout .image-block .code.open {
+		display: none
+	}
+	.ann-block-layout-mobile .header-layout .body .ann-details .quiz-details-layout .image-block .carouselPlayer {
+		position: absolute;
+		height: 100%;
+		width: 100%;
+		top: 0;
+		left: 0;
+		z-index: 1
+	}
+	.ann-block-layout-mobile .header-layout .body .ann-details .quiz-details-layout .image-block .frameContainer {
+		min-height: 200px;
+		max-height: 320px;
+		position: relative;
+		padding-bottom: 56.25%;
+		padding-top: 25px;
+		height: 0;
+		width: 100%;
+		margin: auto
+	}
+	.ann-block-layout-mobile .header-layout .body .ann-details .quiz-details-layout .image-block .frameContainer>iframe {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%
+	}
+	.ann-block-layout-mobile .header-layout .body .ann-details .quiz-details-layout .image-block .image {
+		width: 100%;
+		background-size: 100% auto;
+		background-repeat: no-repeat;
+		background-position: center
+	}
+	.ann-block-layout-mobile .header-layout .body .ann-details .quiz-details-layout .image-block .image>img {
+		display: block;
+		width: 100%;
+		max-height: 320px
+	}
+	.ann-block-layout-mobile .header-layout .body .ann-details .quiz-details-layout .quiz-title {
+		position: absolute;
+		font-size: 1rem;
+		padding: .625rem;
+		padding-top: 0;
+		padding-bottom: .9375rem;
+		min-height: 5.3125rem;
+		width: 100%
+	}
+	.ann-block-layout-mobile .header-layout .body .ann-details .quiz-details-layout .quiz-title .title-text {
+		padding-right: .625rem
+	}
+	.ann-block-layout-mobile .header-layout .body .ann-details .quiz-details-layout .quiz-title .title-text {
+		display: inline
+	}
+	.ann-block-layout-mobile .header-layout .body .ann-details .quiz-details-layout .quiz-title .details-button {
+		float: right
+	}
+	.ann-block-layout-mobile .header-layout .body .ann-details .quiz-details-layout .quiz-title.open {
+		position: absolute;
+		width: 100%;
+		top: 0;
+		z-index: 100;
+		background: rgba(56, 56, 56, .5);
+		color: #fff;
+		border-top-left-radius: .1875rem;
+		border-top-right-radius: .1875rem
+	}
+	.ann-block-layout-mobile .header-layout .body .ann-details .quiz-details-layout .quiz-description {
+		display: none;
+		padding-top: 1.25rem;
+		padding-left: 1.25rem;
+		padding-right: 1.25rem;
+		background: #fff;
+		overflow-y: scroll
+	}
+	.ann-block-layout-mobile .header-layout .body .ann-details .quiz-details-layout .quiz-description.open {
+		display: inline-block;
+		position: absolute;
+		top: 5.3125rem;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		overflow-y: auto;
+		-webkit-overflow-scrolling: touch;
+		z-index: 100
+	}
+	.ann-block-layout-mobile .header-layout .body .ann-details .prize-details {
+		border-top: solid 1px #e1e1e1;
+		padding: 1.25rem;
+		padding-top: 0
+	}
+	.ann-block-layout-mobile .header-layout .body .ann-details .prize-details .prize-name {
+		height: 100%;
+		display: -ms-flexbox;
+		display: flex
+	}
+	.ann-block-layout-mobile .header-layout .body .ann-details .prize-details .prize-name span {
+		vertical-align: middle;
+		line-height: 3.75rem
+	}
+	.ann-block-layout-mobile .header-layout .body .ann-details .prize-details .prize-name span::before {
+		padding-right: .625rem
+	}
+}
+
+.Calendar__Row {
+	margin-left: -15px;
+	margin-right: -15px
+}
+
+.quizPreview {
+	padding-top: 100px
+}
+
+.quizPreview .Calendar__Row {
+	margin: 0
+}
+
+.ann-block-layout-mobile,
+.header-layout {
+	background: 0 0
+}
+
+.ann-block-layout-mobile .quizList {
+	max-width: 530px;
+	width: 100%;
+	margin: 0 auto
+}
+
+.ann-block-layout-mobile .next-arrow a:before,
+.ann-block-layout-mobile .prev-arrow a:before {
+	font-size: 27px!important;
+	color: #fff!important
+}
+
+.quizList {
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-direction: column;
+	flex-direction: column;
+	width: calc(100%/3);
+	padding-left: 15px;
+	padding-right: 15px;
+	position: relative
+}
+
+.quizList__item {
+	background: #fff;
+	padding-bottom: 16px
+}
+
+.quizList__item__noo {
+	height: 100%;
+	padding-bottom: 0
+}
+
+.quizList__item__soon {
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-direction: column;
+	flex-direction: column;
+	-ms-flex-align: center;
+	align-items: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+	height: 100%
+}
+
+.quizList__item__soon__desc {
+	font-family: 'Roboto Slab', serif;
+	color: #5d6cd7;
+	font-weight: 700;
+	font-size: 32px;
+	line-height: 42px;
+	text-align: center;
+	padding-top: 20%
+}
+
+.quizList__img {
+	min-height: 216px;
+	overflow: hidden;
+	position: relative
+}
+
+.quizList__img>div {
+	width: 100%;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+	height: 100%;
+	position: absolute
+}
+
+.quizList__img>div>img {
+	display: block;
+	width: 100%;
+	max-height: 320px
+}
+
+.quizList__img .frameContainer {
+	height: 100%
+}
+
+.quizList__img .frameContainer iframe {
+	height: 100%;
+	width: 100%
+}
+
+.quizList__data {
+	font-size: 24px;
+	line-height: 32px;
+	color: #5d6cd7;
+	font-weight: 700;
+	padding: 16px 18px 0 18px;
+	font-family: 'Roboto Slab', serif
+}
+
+.quizList__title {
+	font-size: 17px;
+	line-height: 20px;
+	color: #2f2f2f;
+	margin: 16px 18px;
+	height: 40px;
+	overflow: hidden
+}
+
+.quizList__relative {
+	position: relative;
+	border-top: 1px solid rgba(0, 0, 0, .12);
+	padding-bottom: 15px;
+	margin-top: 25px
+}
+
+.quizList__btnSlide {
+	width: 24px;
+	height: 24px;
+	border: 2px solid #5d6cd7;
+	border-radius: 50%;
+	cursor: pointer;
+	position: relative;
+	margin: 0 auto;
+	background: #fff;
+	position: absolute;
+	top: -11px;
+	left: 50%;
+	margin-left: -12px;
+	z-index: 1
+}
+
+.quizList__btnSlide:before {
+	content: "";
+	position: absolute;
+	top: 36%;
+	left: 20%;
+	width: 12px;
+	height: 7.5px;
+	background: url(/app/images/home/Shape.svg) no-repeat;
+	transform: rotate(180deg)
+}
+
+.quizList__btnSlide.showIco:before {
+	transform: rotate(0)
+}
+
+.quizList__desc {
+	height: 165px;
+	overflow: hidden;
+	border-bottom: 1px solid rgba(0, 0, 0, .12);
+	padding: 0 18px 16px 18px;
+	position: relative;
+	display: none
+}
+
+.quizList__desc p {
+	font-weight: 300;
+	font-size: 14px;
+	line-height: 16px;
+	letter-spacing: -.01em;
+	color: #888
+}
+
+.quizList__prize {
+	height: 35px;
+	margin: 16px 18px
+}
+
+.quizList__prize__name {
+	font-size: 14px;
+	line-height: 16px;
+	color: #7d89df
+}
+
+.quizList__code {
+	margin-top: 23px;
+	margin-bottom: 10px;
+	padding: 0 18px
+}
+
+.quizList__code__desc {
+	background: #a7d269;
+	border-radius: 3px;
+	color: #fff;
+	padding: 9px 14px;
+	font-size: 19px;
+	line-height: 22px;
+	position: relative
+}
+
+.quizList__code__desc__name {
+	font-weight: 300
+}
+
+.quizList__code__desc__rez {
+	font-weight: 700
+}
+
+.quizList__code__desc__copyCode input {
+	width: 154px;
+	background: 0 0;
+	border: none
+}
+
+.quizList__code__desc__copyCode input:focus {
+	border: none;
+	outline: 0
+}
+
+.quizList__code__desc__copyCode a:before {
+	content: "";
+	position: absolute;
+	right: 14px;
+	top: 5px;
+	width: 24px;
+	height: 24px;
+	background: url(/app/images/home/copy.svg) no-repeat
+}
+
+.quizList__code__desc__copyCode a:after {
+	content: "";
+	position: absolute;
+	top: 4px;
+	right: 45px;
+	height: 75%;
+	border-left: 1px solid #fff
+}
+
+.quizList__participate {
+	padding: 0 18px;
+	text-transform: uppercase;
+	text-align: center
+}
+
+.quizList__participate a {
+	display: block;
+	padding: 10px 0;
+	font-size: 16px;
+	line-height: 19px;
+	letter-spacing: .02em;
+	color: #fff;
+	background: #5d6cd7;
+	border-radius: 3px
+}
+
+.quizList__participate>div {
+	width: 100%;
+	padding: 10px 0;
+	font-size: 16px;
+	line-height: 19px
+}
+
+.quizList .gameDetails__Prize_Icon {
+	display: inline
+}
+
+.tablet-block {
+	display: none
+}
+
+@media(max-width:992px) and (min-width:700px) {
+	.tablet-block {
+		display: block
+	}
+	.quizList {
+		width: 50%
+	}
+	.ann-block-layout-mobile {
+		display: none
+	}
+}
+
+@media(max-width:992px) and (min-width:767px) {
+	.CalendarBlock {
+		display: none
+	}
+}
+
+@media(max-width:768px) {
+	.ann-block-layout-mobile .header-layout .body .next-arrow,
+	.ann-block-layout-mobile .header-layout .body .prev-arrow {
+		top: 50%
+	}
+}
+
+@media(max-width:699px) {
+	.tablet-block {
+		display: none
+	}
+	.ann-block-layout-mobile .quizList {
+		max-width: 320px;
+		width: 100%
+	}
+	.ann-block-layout-mobile .next-arrow,
+	.ann-block-layout-mobile .prev-arrow {
+		background: #8bc34a;
+		box-shadow: 0 4px 4px rgba(0, 0, 0, .25);
+		border-radius: 50%
+	}
+	.ann-block-layout-mobile .next-arrow a:before,
+	.ann-block-layout-mobile .prev-arrow a:before {
+		font-size: 16px!important;
+		padding: 0 10px;
+		line-height: 34px
+	}
+	.ann-block-layout-mobile .header-layout {
+		max-width: 360px;
+		width: 100%;
+		margin: 0 auto
+	}
+	.ann-block-layout-mobile .header-layout .body .prev-arrow {
+		left: -5px
+	}
+	.ann-block-layout-mobile .header-layout .body .next-arrow {
+		right: -5px
+	}
+}
+
+.partner-logo>.logo-list {
+	margin: 3.125rem 0;
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-pack: justify;
+	justify-content: space-between;
+	-ms-flex-align: center;
+	align-items: center;
+	padding: 0;
+	list-style: none;
+	-ms-flex-wrap: wrap;
+	flex-wrap: wrap
+}
+
+.partner-logo>.logo-list li {
+	margin-bottom: 1.25rem
+}
+
+@media(max-width:1024px) {
+	.partner-logo>.logo-list li img {
+		width: 70%
+	}
+	.partner-logo>.logo-list .logo-small img {
+		width: 45%!important
+	}
+}
+
+@media(max-width:800px) {
+	.partner-logo>.logo-list li {
+		width: 23%!important
+	}
+	.partner-logo>.logo-list li img {
+		width: 60%
+	}
+	.partner-logo>.logo-list .logo-small {
+		width: 10%!important;
+		margin-right: .1875rem
+	}
+}
+
+@media(max-width:600px) {
+	.partner-logo>.logo-list li img {
+		width: 70%
+	}
+}
+
+.LineBlock {
+	border-bottom: 1px solid #e7e7e7
+}
+
+@media(max-width:1024px) {
+	body.modal-open .layoutNew {
+		overflow-x: visible
+	}
+}
+
+.layoutNew {
+	font-family: Roboto
+}
+
+.layoutNew .mobileHederBtn_ru {
+	padding-left: .375rem;
+	padding-right: .375rem
+}
+
+@media(max-width:1024px) {
+	.layoutNew {
+		overflow-x: hidden
+	}
+}
+
+.layoutNew a {
+	cursor: pointer!important
+}
+
+.layoutNew a.whiteLink {
+	color: #fff;
+	text-decoration: underline
+}
+
+.layoutNew a.whiteLink:active,
+.layoutNew a.whiteLink:hover {
+	color: #a0cc80
+}
+
+.layoutNew .SubHeaderDescription {
+	font-size: 1.375rem
+}
+
+@media(max-width:1200px) {
+	.layoutNew .SubHeaderDescription {
+		font-size: 1.125rem
+	}
+}
+
+@media(max-width:480px) {
+	.layoutNew .SubHeaderDescription {
+		font-size: .875rem
+	}
+}
+
+.layoutNew .SubHeaderText {
+	font-size: 1.75rem
+}
+
+@media(max-width:1200px) {
+	.layoutNew .SubHeaderText {
+		font-size: 1.5rem
+	}
+}
+
+@media(max-width:480px) {
+	.layoutNew .SubHeaderText {
+		font-size: 1.25rem
+	}
+}
+
+.layoutNew .TitleText {
+	font-size: 32px;
+	font-weight: 600;
+	font-family: 'Roboto Slab'
+}
+
+@media(max-width:992px) {
+	.layoutNew .TitleText {
+		font-size: 26px
+	}
+}
+
+@media(max-width:480px) {
+	.layoutNew .TitleText {
+		font-size: 20px
+	}
+}
+
+.layoutNew .AutoHeight {
+	height: auto
+}
+
+.layoutNew .HeaderTextSVG {
+	height: 9.375rem
+}
+
+.layoutNew .AutoHeight {
+	height: auto
+}
+
+.layoutNew .BlueColor {
+	color: #5564cc
+}
+
+@media(min-width:992px) {
+	.layoutNew .AbsoluteMD {
+		position: absolute
+	}
+}
+
+.layoutNew .WhiteBox {
+	background: #fff;
+	border-radius: 1.25rem;
+	border: .625rem solid #f5f7fa;
+	padding: 0
+}
+
+@media(max-width:480px) {
+	.layoutNew .WhiteBox {
+		height: 370px
+	}
+}
+
+.layoutNew .WhiteBox .HeaderText {
+	font-size: 32px;
+	margin-top: 40px
+}
+
+@media(max-width:992px) {
+	.layoutNew .WhiteBox .HeaderText {
+		font-size: 26px;
+		margin-top: 30px
+	}
+}
+
+@media(max-width:480px) {
+	.layoutNew .WhiteBox .HeaderText {
+		margin-top: 20px;
+		font-size: 20px
+	}
+}
+
+.layoutNew .WhiteBox .Description {
+	font-size: 22px;
+	margin-top: 20px;
+	color: #878c96
+}
+
+@media(max-width:992px) {
+	.layoutNew .WhiteBox .Description {
+		font-size: 18px;
+		margin-top: 15px
+	}
+}
+
+@media(max-width:768px) {
+	.layoutNew .WhiteBox .Description {
+		margin-top: 20px;
+		font-size: 18px
+	}
+}
+
+@media(max-width:480px) {
+	.layoutNew .WhiteBox .Description {
+		font-size: 18px
+	}
+}
+
+.layoutNew .WhiteBox>div.row {
+	margin-left: .3125rem
+}
+
+.layoutNew .WhiteBox .Link {
+	margin-top: 10px
+}
+
+.layoutNew .WhiteBox .Link a {
+	color: #5d6cd7;
+	font-size: 18px
+}
+
+.layoutNew .BackgroundSVG {
+	z-index: 100;
+	height: auto
+}
+
+.layoutNew .AboveBackground {
+	z-index: 200
+}
+
+.layoutNew .HowToPlayContainer {
+	margin-left: 1.875rem;
+	margin-right: 1.875rem
+}
+
+.layoutNew .HowToPlayContainer .HowToPlayMenu {
+	font-size: 24px;
+	font-family: 'Roboto Slab';
+	color: #8c9eff
+}
+
+@media(max-width:1200px) {
+	.layoutNew .HowToPlayContainer .HowToPlayMenu {
+		font-size: 18px
+	}
+}
+
+.layoutNew .HowToPlayContainer .HowToPlayMenu .selected {
+	color: #f67ecb
+}
+
+.layoutNew .HowToPlayContainer .HowToPlayMenu .bullet {
+	cursor: pointer;
+	margin-top: 2rem
+}
+
+@media(max-width:992px) {
+	.layoutNew .HowToPlayContainer .HowToPlayMenu .bullet {
+		margin-top: 1.25rem
+	}
+}
+
+.layoutNew .HowToPlayContainer .HowToPlayMenu .bullet.selected svg.notselected {
+	display: none
+}
+
+.layoutNew .HowToPlayContainer .HowToPlayMenu .bullet.selected svg.selected {
+	display: block
+}
+
+.layoutNew .HowToPlayContainer .HowToPlayMenu .bullet svg.selected {
+	display: none
+}
+
+.layoutNew .HowToPlayContainer .HowToPlaySlides .WhiteBox {
+	margin-bottom: 20px
+}
+
+@media(max-width:768px) {
+	.layoutNew .HowToPlayContainer .HowToPlaySlides .WhiteBox {
+		height: auto
+	}
+	.layoutNew .HowToPlayContainer .HowToPlaySlides .WhiteBox svg {
+		max-width: 310px;
+		width: 100%;
+		float: right
+	}
+}
+
+.layoutNew .HowToPlayContainer .HowToPlaySlides .WhiteBox .row {
+	padding-left: 10px
+}
+
+.layoutNew .HowToPlayContainer .HowToPlaySlides .WhiteBox .HeaderText {
+	padding-top: 10.625rem;
+	font-size: 4rem
+}
+
+@media(max-width:1200px) {
+	.layoutNew .HowToPlayContainer .HowToPlaySlides .WhiteBox .HeaderText {
+		padding-top: 9.375rem;
+		font-size: 2.875rem
+	}
+}
+
+@media(max-width:992px) {
+	.layoutNew .HowToPlayContainer .HowToPlaySlides .WhiteBox .HeaderText {
+		padding-top: 0;
+		font-size: 1.875rem
+	}
+}
+
+@media(max-width:480px) {
+	.layoutNew .HowToPlayContainer .HowToPlaySlides .WhiteBox .HeaderText {
+		padding-top: 0;
+		font-size: 1.625rem
+	}
+}
+
+@media(max-width:540px) {
+	.layoutNew .HowToPlayContainer .HowToPlaySlides .WhiteBox .HeaderText {
+		padding-top: 0;
+		font-size: 1.25rem
+	}
+}
+
+.layoutNew .HowToPlayContainer .HowToPlaySlides .WhiteBox .Description {
+	font-size: 1.375rem
+}
+
+@media(max-width:1200px) {
+	.layoutNew .HowToPlayContainer .HowToPlaySlides .WhiteBox .Description {
+		font-size: 1.125rem
+	}
+}
+
+@media(max-width:480px) {
+	.layoutNew .HowToPlayContainer .HowToPlaySlides .WhiteBox .Description {
+		font-size: 1.0625rem
+	}
+}
+
+.layoutNew .HowToPlayContainer .HowToPlaySlides .WhiteBox svg {
+	display: block;
+	border-radius: .625rem
+}
+
+.layoutNew .HowToPlayContainer .WhiteBox {
+	border: 0
+}
+
+@media(max-width:992px) {
+	.layoutNew .HowToPlayContainer .fixTableMBHow {
+		margin-bottom: 28px
+	}
+}
+
+.layoutNew .WhyMyquiz .WhiteBox {
+	padding-bottom: .625rem
+}
+
+@media(min-width:992px) {
+	.layoutNew .WhyMyquiz .WhiteBox {
+		height: 31.25rem
+	}
+}
+
+@media(min-width:1200px) {
+	.layoutNew .WhyMyquiz .WhiteBox {
+		height: 25rem
+	}
+}
+
+@media(max-width:992px) {
+	.layoutNew .WhyMyquiz .WhiteBox {
+		height: inherit
+	}
+}
+
+.layoutNew .visible-xxs {
+	display: none
+}
+
+@media(max-width:540px) {
+	.layoutNew .visible-xxs {
+		display: block!important
+	}
+}
+
+@media(max-width:540px) {
+	.layoutNew .hidden-xxs {
+		display: none!important
+	}
+}
+
+.layoutNew .burger__Stick {
+	background-color: #fff!important
+}
+
+.layoutNew .Connect__ValidationMessage>.validation-summary-errors {
+	background: #f9e4a0;
+	color: #4948bd;
+	border-radius: .25rem
+}
+
+.layoutNew .Connect__ValidationMessage>.validation-summary-errors:after {
+	border-color: transparent transparent #f9e4a0 transparent
+}
+
+@media(max-width:768px) {
+	.layoutNew .Connect__ValidationMessage>.validation-summary-errors:after {
+		border-color: #f9e4a0 transparent transparent transparent
+	}
+}
+
+.layoutNew .LiveDemo .modal-body {
+	padding: 0!important
+}
+
+.layoutNew .LiveDemo .modal-body .btnCancel {
+	padding-left: 0;
+	padding-right: .4375rem
+}
+
+.layoutNew .LiveDemo .modal-body .btnSubmit {
+	padding-left: .4375rem;
+	padding-right: 0
+}
+
+.layoutNew .LiveDemo .demoText {
+	background-color: #66bb6a;
+	padding-top: .9375rem;
+	color: #fff;
+	border-radius: .375rem 0 0 .375rem
+}
+
+.layoutNew .LiveDemo .demoForm {
+	padding-top: .9375rem
+}
+
+.layoutNew .LiveDemo .demoForm input,
+.layoutNew .LiveDemo .demoForm label,
+.layoutNew .LiveDemo .demoForm select {
+	color: #5564cc
+}
+
+.layoutNew .LiveDemo .demoForm input:placeholder {
+	color: #888
+}
+
+.layoutNew .LiveDemo .demoForm .close {
+	padding-right: .9375rem
+}
+
+@media(min-width:992px) {
+	.layoutNew .LiveDemo .modal-dialog {
+		width: 80%!important
+	}
+}
+
+.layoutNew .LiveDemo .iti.iti--allow-dropdown {
+	width: 100%
+}
+
+.layoutNew .LiveDemoMsg .modal-content {
+	background: 0 0;
+	border: 0;
+	box-shadow: none!important
+}
+
+.layoutNew .LiveDemoMsg .modal-dialog {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	height: 50%;
+	margin: auto
+}
+
+.layoutNew .LiveDemoMsg .modal-message-thank-you {
+	max-width: 100%;
+	width: 100%;
+	height: auto
+}
+
+.layoutNew .LiveDemo .requiredCheckbox label,
+.layoutNew .LiveDemoMsg .requiredCheckbox label {
+	margin-left: 10px;
+	margin-top: 2px!important
+}
+
+.layoutNew .LiveDemo .requiredCheckbox.has-error.has-danger label,
+.layoutNew .LiveDemoMsg .requiredCheckbox.has-error.has-danger label {
+	color: #c65252
+}
+
+.layoutNew .LiveDemo .requiredCheckbox.has-error.has-danger label:after,
+.layoutNew .LiveDemoMsg .requiredCheckbox.has-error.has-danger label:after {
+	content: '*'
+}
+
+.layoutNew .LiveDemo .form-check,
+.layoutNew .LiveDemoMsg .form-check {
+	display: -ms-flexbox;
+	display: flex
+}
+
+.layoutNew .LiveDemo .form-check input[type=checkbox],
+.layoutNew .LiveDemoMsg .form-check input[type=checkbox] {
+	zoom: 1.5;
+	margin: 2px 0 0
+}
+
+.layoutNew .row-eq-height {
+	display: -ms-flexbox;
+	display: flex
+}
+
+.layoutNew .StartYourOwn .HeaderText {
+	font-family: Roboto
+}
+
+.layoutNew .footer .HeaderDescription {
+	font-family: 'Roboto Slab'
+}
+
+.layoutNew .footer .Underline {
+	text-decoration: underline
+}
+
+.layoutNew .RobotoSlab {
+	font-family: 'Roboto Slab'
+}
+
+.layoutNew .Roboto {
+	font-family: Roboto
+}
+
+.layoutNew .glyphicon {
+	font-family: mq
+}
+
+.layoutNew .glyphicon-chevron-left:before {
+	content: "H"
+}
+
+.layoutNew .glyphicon-chevron-right:before {
+	content: "E"
+}
+
+.layoutNew .carousel-control.left,
+.layoutNew .carousel-control.right {
+	background: 0 0
+}
+
+.layoutNew .InlineButton a {
+	display: inline-block!important;
+	width: auto!important;
+	margin-left: 1.25rem;
+	margin-right: 1.25rem
+}
+
+.layoutNew .InlineButton div {
+	display: inline-block
+}
+
+.layoutNew .fixLineBetweenBlocks {
+	margin-top: -1px
+}
+
+@media(max-width:768px) {
+	.layoutNew .DescriptionXSFooterMTop {
+		margin-top: 30px
+	}
+}
+
+@media(max-width:768px) {
+	.layoutNew .XsTextLeft {
+		text-align: left
+	}
+}
+
+@media(max-width:768px) {
+	.layoutNew .XsMB10 {
+		margin-bottom: 10px
+	}
+}
+
+.layoutNew .HowToPlay a {
+	text-decoration: underline
+}
+
+.layoutNew .CallbackMarginBottom {
+	margin-bottom: 14.5rem
+}
+
+.layoutNew .blockRocketStars {
+	color: #fff;
+	position: relative;
+	z-index: 999;
+	padding-top: 180px;
+	padding-bottom: 248px
+}
+
+.layoutNew .blockRocketStars .HeaderText {
+	margin-bottom: 60px
+}
+
+@media(max-width:767px) {
+	.layoutNew .blockRocketStars .HeaderText {
+		margin-bottom: 44px
+	}
+}
+
+@media(max-width:767px) {
+	.layoutNew .blockRocketStars .callbackCreate {
+		margin-top: 44px
+	}
+}
+
+@media screen and (min-width:992px) and (max-width:1200px) {
+	.layoutNew .blockRocketStars {
+		padding: 75px 0
+	}
+}
+
+@media screen and (min-width:768px) and (max-width:991px) {
+	.layoutNew .blockRocketStars {
+		padding: 57px 0 25px
+	}
+}
+
+@media(max-width:767px) {
+	.layoutNew .blockRocketStars {
+		padding: 38px 10px 10px
+	}
+	.layoutNew .blockRocketStars .SubHeaderDescription {
+		font-size: 18px
+	}
+}
+
+.layoutNew .blockRocketStars .imgRocket {
+	position: static
+}
+
+.layoutNew .blockRocketStars .imgRocket img {
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	top: auto;
+	width: 50%;
+	transform: translate(0, 17%);
+	height: auto
+}
+
+@media(max-width:991px) {
+	.layoutNew .blockRocketStars .imgRocket img {
+		position: relative;
+		height: auto;
+		width: 100%;
+		transform: translate(0, 0)
+	}
+}
+
+.layoutNew .blockRocketStars .row {
+	position: relative
+}
+
+@media screen and (min-width:768px) and (max-width:800px) {
+	.layoutNew .fixBlockMob {
+		display: -ms-flexbox;
+		display: flex;
+		width: 100%;
+		-ms-flex-direction: row;
+		flex-direction: row;
+		-ms-flex-wrap: wrap;
+		flex-wrap: wrap
+	}
+	.layoutNew .fixBlockMob .mobTableElStat {
+		position: static
+	}
+	.layoutNew .fixBlockMob .mobTableElStat+svg {
+		position: absolute;
+		top: 0
+	}
+	.layoutNew .fixBlockMob .mobTableElStat .fixMobPB {
+		padding-bottom: 20px
+	}
+	.layoutNew .fixBlockMob .mobTableElStat .fixMobPBs {
+		padding-bottom: 8px
+	}
+}
+
+@media(min-width:1200px) {
+	.layoutNew .indentMobMyQuiz {
+		padding-bottom: 33px
+	}
+	.layoutNew .indentModEngage {
+		padding-top: 215px
+	}
+	.layoutNew .indentModEngage .MdPaddingBottom {
+		padding-bottom: .875rem
+	}
+	.layoutNew .fixHeightCaretLg {
+		margin-top: 60px
+	}
+	.layoutNew .fixHeightCaretLgBlock {
+		margin-top: 35px
+	}
+	.layoutNew .fixStyleHeadline h1 {
+		margin-top: 5px;
+		padding-bottom: 75px
+	}
+	.layoutNew .indentMobUsemyQiez {
+		padding-top: 95px
+	}
+	.layoutNew .identWaveWhy {
+		margin-top: 130px
+	}
+	.layoutNew .spacerSeeHow {
+		margin-top: 120px
+	}
+}
+
+@media screen and (min-width:768px) and (max-width:992px) {
+	.layoutNew .fixHeightCaretLgBlock {
+		margin-top: 20px
+	}
+	.layoutNew .spacerSeeHow {
+		margin-top: 0
+	}
+	.layoutNew .indentMobMyQuiz {
+		padding-top: 45px
+	}
+	.layoutNew .indentModEngage {
+		padding-top: 50px
+	}
+	.layoutNew .indentModEngage h1 {
+		padding-bottom: 0
+	}
+	.layoutNew .fixWidthAdapt {
+		padding-left: 0;
+		padding-right: 0
+	}
+	.layoutNew .fixWidthAdapt #EventCarousel {
+		margin-left: 0;
+		margin-right: 0
+	}
+	.layoutNew .fixStyleHeadline h1 {
+		padding-bottom: 34px
+	}
+	.layoutNew .indentMobWave {
+		margin-top: 50px
+	}
+	.layoutNew .identWaveWhy {
+		margin-top: 0
+	}
+	.layoutNew .indentMobUsemyQiez {
+		padding-top: 120px
+	}
+}
+
+@media screen and (min-width:415px) and (max-width:767px) {
+	.layoutNew .indentMobWave {
+		margin-top: 85px
+	}
+	.layoutNew .HeaderText {
+		font-size: 36px
+	}
+	.layoutNew .WhiteBox .HeaderText {
+		font-size: 26px
+	}
+	.layoutNew .indentMobMyQuiz {
+		padding: 38px 15px 11px
+	}
+	.layoutNew .indentModEngage {
+		margin-top: 103px
+	}
+	.layoutNew .indentMobHowWork {
+		margin-top: 130px
+	}
+	.layoutNew .identWaveWhy {
+		margin-top: 35px
+	}
+	.layoutNew .indentPBWhy {
+		padding-bottom: 20px
+	}
+	.layoutNew .mobStyleHeadline {
+		font-size: 26px;
+		margin-top: 49px;
+		padding-bottom: 59px
+	}
+	.layoutNew .indentMobUsemyQiez {
+		margin-top: 134px
+	}
+	.layoutNew .indentMobGetMore {
+		margin-top: -7px
+	}
+}
+
+@media(max-width:414px) {
+	.layoutNew .heightDescSlide {
+		margin-top: .75rem
+	}
+	.layoutNew .fixWidthAdapt #EventCarousel {
+		margin-left: 0;
+		margin-right: 0
+	}
+	.layoutNew .indentMobWave {
+		margin-top: 65px
+	}
+	.layoutNew .indentMobMyQuiz {
+		padding: 32px 15px 0
+	}
+	.layoutNew .indentModEngage {
+		margin-top: 83px
+	}
+	.layoutNew .indentMobHowWork {
+		margin-top: 110px;
+		margin-bottom: 0
+	}
+	.layoutNew .indentMobMTHowWork {
+		margin-top: -18px
+	}
+	.layoutNew .identWaveWhy {
+		margin-top: 50px
+	}
+	.layoutNew .indentPBWhy {
+		padding-bottom: 0
+	}
+	.layoutNew .mobStyleHeadline {
+		font-size: 20px;
+		padding-bottom: 46px
+	}
+	.layoutNew .indentMobUsemyQiez {
+		margin-top: 114px
+	}
+	.layoutNew .indentMobGetMore {
+		margin-top: -17px
+	}
+	.layoutNew .fixStyleHeadline h1 {
+		padding-bottom: 29px
+	}
+	.layoutNew .ieWhiteText {
+		padding-bottom: 14px
+	}
+	.layoutNew .blockRocketStars {
+		padding-top: 77px
+	}
+	.layoutNew .blockRocketStars .callbackCreate {
+		margin-top: 35px
+	}
+	.layoutNew .HowToPlayContainer .fixTableMBHow {
+		margin-bottom: 20px
+	}
+}
+
+@media(max-width:768px) {
+	.layoutNew .widthWaveAdapt {
+		width: 101%
+	}
+	.layoutNew .widthWaveAdaptYt {
+		width: 102%
+	}
+	.layoutNew .XsMtUse {
+		margin-top: 60px
+	}
+	.layoutNew .XsMbUse {
+		margin-bottom: 60px
+	}
+}
+
+.layoutNew .callbackCreate {
+	margin-top: 55px;
+	padding: 0
+}
+
+@media screen and (min-width:992px) {
+	.layoutNew .perfectFor .WhiteBox {
+		min-height: 398px
+	}
+}
+
+@media(max-width:460px) {
+	.layoutNew .perfectFor .WhiteBox {
+		min-height: 398px
+	}
+}
+
+@media screen and (min-width:1201px) and (max-width:1300px) {
+	.layoutNew .engage_title_rus {
+		font-size: 3rem;
+		position: relative;
+		top: -20px
+	}
+}
+
+@media screen and (min-width:993px) and (max-width:1417px) {
+	.layoutNew .footer_desc_ru {
+		display: block;
+		margin-bottom: 35px
+	}
+}
+
+@media(max-width:767px) {
+	.layoutNew .mobileCopy_ru a {
+		display: block
+	}
+	.layoutNew .mobileCopy_ru a[href^="/user-agreement"] {
+		margin-top: 10px
+	}
+	.layoutNew .mobileCopy_ru span {
+		display: none
+	}
+	.layoutNew .mobileFixMRText {
+		margin-right: 0
+	}
+}
+
+@media screen and (min-width:768px) and (max-width:991px) {
+	.layoutNew .mobileCopy_ru {
+		text-align: left
+	}
+	.layoutNew .perfectFor .WhiteBox {
+		min-height: 380px
+	}
+}
+
+@media(max-width:435px) {
+	.layoutNew .InvitationNew .mobileHederBtn_ru {
+		width: 100%
+	}
+	.layoutNew .InvitationNew .mobileHederBtn_ru+.mobileHederBtn_ru {
+		margin-top: 24px
+	}
+}
+
+.layoutNew .sliderThree_ru img {
+	width: 100%;
+	height: auto
+}

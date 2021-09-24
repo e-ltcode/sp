@@ -1,0 +1,386 @@
+.li{
+
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+    z-index: 1;
+    position: absolute;
+    display: list-item;
+    text-align: -webkit-match-parent;
+    background-color: white;
+    
+}
+
+.label {
+    display: inline-block;
+    margin-bottom: .5rem;
+}
+
+.p, label {
+    margin: 0;
+}
+
+ul li {
+    list-style-type: none;
+}
+
+.text-uppercase {
+    text-transform: uppercase!important;
+}
+.quiz-option-selector li {
+    width: 50%;
+    float: left;
+    padding: 7px;
+}
+.wizard-forms{
+    min-height: calc(100vh - 240px);
+}
+.quiz-option-selector li label{
+    
+        z-index: 2;
+        width: 100%;
+        
+        padding: 15px;
+        cursor: pointer;
+        position: relative;
+        border-radius: 4px;
+        background-color: #fff;
+        border: 2px solid #e7e7e7;
+        background-color: white;
+    
+}
+.quiz-option-selector li .exp-option-box {
+    display: none;
+}
+.button, input, optgroup, select, textarea {
+    margin: 0;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+}
+
+.quiz-option-selector li label .exp-number {
+    float: left;
+    width: 75px;
+    height: 68px;
+    z-index: 2;
+    display: block;
+    color: #446d76;
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 68px;
+    position: relative;
+    margin-right: 45px;
+    text-align: center;
+    background-color: #fff;
+    border: 2px solid #e7e7e7;
+}
+
+.quiz-option-selector li label .exp-number {
+    float: left;
+    width: 75px;
+    height: 68px;
+    z-index: 2;
+    display: block;
+    color: #446d76;
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 68px;
+    position: relative;
+    margin-right: 45px;
+    text-align: center;
+    background-color: #fff;
+    border: 2px solid #e7e7e7;
+}
+
+.quiz-option-selector li label .exp-label {
+    z-index: 2;
+    color: #446d76;
+    font-size: 23px;
+    text-align: left;
+    font-weight: 600;
+    position: relative;
+}
+.quiz-option-selector li label .checkmark-border {
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+    z-index: 1;
+    position: absolute;
+}
+.quiz-option-selector {
+    margin: 0 auto;
+    max-width: 1135px;
+    padding-top: 40px;
+    padding-bottom: 60px;
+}
+
+.wizard-forms {
+    padding: 90px;
+}
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1.5;
+    background: #f9f9f9;
+    color: #2f3146;
+    font-family: "Jost", sans-serif;
+    -moz-osx-font-smoothing: antialiased;
+    -webkit-font-smoothing: antialiased;
+    background-size: cover;
+}
+
+.quiz-progress-area {
+
+    box-sizing: border-box;
+}
+.quiz-progress-area  {
+    max-width: 400px;
+}
+.quiz-progress-area  .progress-bar {
+    border-radius: 4px;
+    background-image: linear-gradient(
+14deg
+, #eb3252 0%, #f82c28 100%);
+}
+
+.quiz-progress-area .progress-bar span {
+    top: -65px;
+    width: 275px;
+    height: 40px;
+    line-height: 40px;
+    position: absolute;
+    border-radius: 4px;
+    background-image: linear-gradient(
+14deg
+, #eb3252 0%, #f82c28 100%);
+}
+
+.progress-bar span {
+    left: auto;
+    right: -130px;
+}
+
+.progress {
+    height: 20px;
+    margin-bottom: 20px;
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 2px rgb(0 0 0 / 10%);
+    box-shadow: inset 0 1px 2px rgb(0 0 0 / 10%);
+}
+
+.actions {
+    width: 100%;
+    border-radius: 4px;
+    padding-bottom: 30px;
+    background-color: #3875a7;
+    vertical-align: bottom;
+}
+/* .actions li span, .actions li button {
+    width: 100%;
+    display: block;
+    border: none;
+} */
+
+.actions li {
+    FONT-WEIGHT: 300;
+    color: #3c3c3c;
+    height: 65px;
+    width: 300px;
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+    text-align: center;
+    line-height: 65px;
+    border-radius: 3px;
+    display: inline-block;
+    background-color: #fff;
+    text-transform: uppercase;
+    transition: 0.3s all ease-in-out;
+}
+
+.js-btn-prev{
+
+    font-size: 20px;
+    width: 50%;
+    height: 65px;
+    border-radius: 7px;
+    outline: none;
+
+
+}
+.js-btn-next{
+
+    font-size: 20px;
+    width: 50%;
+    height: 65px;
+    border-radius: 7px;
+    outline: none;
+
+
+}
+
+.prev {
+    position: relative;
+    left: 2%;
+   
+    text-align: left;
+    text-transform: uppercase;
+    font-weight: 700;
+    
+}
+
+.next {
+    position: relative;
+    text-align: right;
+    right: 2%;
+    
+    min-height: 65px;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+.js-btn-prev:hover {
+    background-color: #9d43ac;
+    color: white;
+  }
+.js-btn-next:hover {
+    background-color: #9d43ac;
+    color: white;
+  }
+
+
+/*.container {
+    width: 1289px;
+}*/
+
+::selection {
+    color: white;
+    background: #9d43ac;
+  }
+
+  .progress-bar {
+
+    background-color: #9d43ac;
+
+  }
+
+  
+
+h1 {
+    
+        font-size: 200%;
+        font-weight: 700;
+        padding-bottom: 1%;
+        padding-top: 1%;
+        
+    
+  }
+  .cntr{
+    text-align: center;
+    align-items: center;
+    display: flex;
+
+  }
+
+  .cntr2{
+    text-align: justify;
+    align-items: center;
+    display: flex;
+  }
+
+  @media screen and (max-width: 787px){
+    .adjust{
+      height: 150px !important;
+  
+    }
+    
+  }
+
+  @media screen and (max-width: 547px){
+    .adjust{
+        height: 230px !important;
+  
+    }
+    
+  }
+
+  @media screen and (max-width: 1136px){
+    .js-btn-prev{
+        left: 7%;
+        width: 60%;
+  
+    }
+    .js-btn-next{
+     
+        right: 7% ;
+        width: 60%;
+  
+    }
+    
+  }
+
+  @media screen and (max-width: 1008px){
+    .js-btn-prev{
+        left: 7%;
+        width: 70% !important;
+  
+    }
+    .js-btn-next{
+     
+        right: 7% ;
+        width: 70% !important;
+  
+    }
+    
+  }
+  @media screen and (max-width: 746px){
+    .js-btn-prev{
+        left: 7%;
+        width: 85% !important;
+  
+    }
+    .js-btn-next{
+     
+        right: 7% ;
+        width: 85% !important;
+  
+    }
+    
+  }
+  @media screen and (max-width: 630px){
+    .js-btn-prev{
+        left: 7%;
+        width: 95% !important;
+  
+    }
+    .js-btn-next{
+     
+        right: 7% ;
+        width: 95% !important;
+  
+    }
+    
+  }
+
+  @media screen and (max-width: 575px){
+    .last{
+        flex-wrap: inherit !important;
+  
+    }
+    
+    
+  }
+  
+  
+
+ 
+  
+  

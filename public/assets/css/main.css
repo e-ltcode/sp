@@ -1,0 +1,254 @@
+
+.eventBanner .row {
+  background: url( https://myquizhub-waveaccess.netdna-ssl.com/app/images/home_us/home_video_bg.png?ver=20210910.6.37901 );
+  background-size: cover;
+  background-repeat: no-repeat;
+  font-family: 'Montserrat';
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 36px;
+  padding: 25px;
+  margin-top: 50px;
+  display: flex;
+  color: #333;
+  border-radius:8px;
+}
+.eventBanner .row img{
+  width:100%;
+  border-radius:10px;
+}
+.eventBanner .row div{
+  justify-self:center;
+  display: flex;
+  align-self: center;
+  text-align:center;
+}
+.eventBanner .btn.btn-success {
+  min-width: 150px !important;
+  border-radius: 65px;
+  font-weight: 600;
+  font-size: 18px;
+  background-color: #65C15D;
+  font-family: "Montserrat"
+}
+
+.eventBanner .btn.btn-success:hover {
+  background: #97DE6B;
+}
+
+#salesOffer > div {
+  max-width: 700px;
+  border-radius: 16px;
+  color: #333;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 28px;
+}
+
+#salesOffer h1 {
+  font-weight: bold;
+  font-size: 30px;
+  line-height: 36px;
+}
+
+#salesOffer h2 {
+  font-weight: bold;
+  font-size: 30px;
+  line-height: 28px;
+}
+
+#salesOffer h2 .h2-subtext {
+  font-size: 18px;
+}
+
+#salesOffer a {
+  color: #6049EB;
+}
+
+#salesOffer .note {
+  color: #EB842B;
+  margin-bottom:0px;
+}
+
+#salesOffer .otherPlans {
+  color: #65C15D;
+}
+
+#salesOffer .oldPrice {
+  text-decoration: line-through;
+  color: #333;
+  font-weight: 600;
+}
+
+#salesOffer .row {
+  margin-bottom: 20px;
+}
+
+#salesOffer .no-bottom-margin {
+  margin-bottom: 0px;
+}
+
+#salesOffer .row:last-child {
+  margin-bottom: 0px;
+}
+.layoutNew #salesOffer.LiveDemo .demoForm .close {
+  padding-right: 0px;
+}
+.layoutNew .JoinForm .input-group button
+{
+  background-color: #c76dcd;
+  width: 6.25rem;
+  }#c76dcd
+
+  .layouts{
+
+
+    background: #4282ab !important;
+
+
+  }
+  .layout {
+    min-height: 100vh;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-flow: column;
+    flex-flow: column;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    background: #4282ab;
+  }
+
+  #salesOffer button.close {
+    margin:18px;
+    margin-bottom:0px;
+  }
+
+  #salesOffer button.btn-primary {
+    border: 2px solid rgba(101, 193, 93, 0.5);
+    background: #65C15D;
+    border-radius: 100px;
+    font-size:18px;
+  }
+
+  #salesOffer button.btn-primary:hover {
+    background: #97DE6B;
+  }
+
+  @media only screen and (max-width : 1000px) {
+    .eventBanner .row {
+      padding: 0;
+      padding-bottom: 20px;
+      margin-top: 25px;
+      display: block;
+      font-size: 24px;
+      line-height: 32px;
+    }
+    @media (max-width: 460px) {
+      .iti-mobile .layoutNew {        
+        position: relative;
+        z-index: 1041;        
+      }
+    }
+    .eventBanner .btn.btn-success {
+      font-size: 18px;
+      line-height: 22px;
+    }
+    .eventBanner .row div{
+      margin-top:20px;
+    }
+    .eventBanner .row div {
+      display: block;
+    }
+
+    #salesOffer h1 {
+      font-size: 24px;
+      line-height: 28px;
+    }
+
+    #salesOffer h2 {
+      font-size: 24px;
+      line-height: 24px;
+    }
+  }
+  .iti__flag {
+    background-image: url("https://myquizhub-waveaccess.netdna-ssl.com/Scripts/intl-tel-input/img/flags.png?ver=20210910.6.37901");
+  }
+  .qimage{
+    width: 100%;
+    padding-top: 80px;
+  }
+  .layoutNew .indentModEngage{
+    padding-top: 0px;
+  }
+
+  .layoutNew .XlMarginTop{
+    margin-top: 0rem;
+  }
+
+  .info-wrapper {
+    position: fixed;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    z-index: 9999;
+    background: #964d4d;
+    text-align: center;
+  }
+  .info-row {
+    display: none;
+    margin: 5px;
+    padding: 5px;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 1rem !important;
+  }
+
+  .info-row .close {
+    cursor: pointer;
+    background: #ffffff;
+    color: #000;
+    height: 35px;
+    width: 95px;
+    padding: 5px;
+    margin: 0;
+    border-radius: 4px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    font-size: 1rem !important;
+    font-weight:normal;
+  }
+  .info-row-cell {
+    display: table-cell;
+    vertical-align: middle;
+  }
+
+  .info-row-cell button{
+    opacity:1;
+  }
+  .info-row-cell button:hover {
+    opacity:1;
+  }
+
+  .info-message {
+    white-space:pre-line;
+  }
+  h1{
+    color: #4282ab;
+  }
+
+
+  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .iti__flag {
+      background-image: url("https://myquizhub-waveaccess.netdna-ssl.com/Scripts/intl-tel-input/img/flags@2x.png?ver=20210910.6.37901");} }
+
+      @media only screen and (max-width : 1000px){
+        .hiddenLessThen1000{
+          display:none;
+        }
+      }
+      @media only screen and (min-width : 1001px){
+        .hiddenMoreThen1000{
+          display:none;
+        }
+      }
