@@ -28,7 +28,7 @@
 							@foreach($list['data'] as $key=>$val)
 							<tr class="list_{{$val[$module['db_key']]}}">
 								<td>{{$i++}}</td>
-								<td><img src="{{ asset('storage/'.$val['image']) }}"></td>
+								<td><img src="{{ url('storage/app/public/'.$val['image']) }}"></td>
 								<td>{{$val['quiz_title']}}</td>
 								<td>{{$val['quiz_description']}}</td>
 								<td>{{$val['price']}}</td>

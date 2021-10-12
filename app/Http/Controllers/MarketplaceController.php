@@ -103,7 +103,8 @@ class MarketplaceController extends Controller
     public function quiz_attempts(){
         $data = [];
         $data['attempts'] = QuizAttempt::with('quiz.questions.answers','attempt_question.answer')->where('std_id',Auth::user()->id)->get()->toArray();
-        
+        if(!empty($data['attempts'])){
+            
         foreach($data['attempts'] as $k => $v){
             $count_question = count($v['quiz']['questions']);
             $data['attempts'][$k]['total_questions'] = $count_question;
@@ -116,7 +117,9 @@ class MarketplaceController extends Controller
             $data['attempts'][$k]['correct_questions'] = $correct_counter;
 
         }
+        }
         // dd($data['attempts']);
+
         return view('quiz_attempts',$data);
     }
     public function checkout(Request $request,$id=null)
@@ -140,17 +143,24 @@ class MarketplaceController extends Controller
     public function add_to_cart(Request $request)
     {
         $data = [];
-        $rows = Quiz::where('id',$request->id)->get()->first()->toArray();
 
+        $rows = Quiz::where('id',$request->id)->get()->first()->toArray();
+        // dd($rows);
         $row = [
             'quiz_id' => $rows['id'],
             'price' => $rows['price'],
             'user_id' => Auth::user()->id,
         ];
         $object = new CartItem;
+        $object_update = CartItem::where('quiz_id',$request->id);
+        if(!empty($object_update->get()->toArray())){
+            $object_update->update($row);
+        }else{
         $object->insert($row);
+        }
         $response = array('flag'=>true,'msg'=>'Quiz is added to cart.','action'=>'reload','url' => url('/marketplace'));
-        return redirect()->back();
+        // echo "<script> alert('Item added successfully') </script>";
+        return redirect(url('/marketplace?add_to_cart=true'));
 
         
     }

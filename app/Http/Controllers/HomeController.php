@@ -19,9 +19,7 @@ class HomeController extends Controller
      */
     public function index(Request $request,$check=null)
     {
-
-
-
+        // dd(Auth::user()->order_items);
         if(Auth::check()){
 
             $obj = Quiz::with(['order_items'=>function($query){
@@ -35,11 +33,12 @@ class HomeController extends Controller
             }])->withCount('questions')->withCount('quiz_attempts');
 
         }else{
-            $obj = Quiz::with('order_items')->withCount('questions');
-            $paid_obj = Quiz::with('order_items')->withCount('questions');
-            $free_obj = Quiz::with('order_items')->withCount('questions');
+            $obj = Quiz::withCount('questions');
+            $paid_obj = Quiz::withCount('questions');
+            $free_obj = Quiz::withCount('questions');
         }
 
+        $data['type'] = @$request->type;
 
         if(!empty($request->search)){
 
@@ -58,8 +57,8 @@ class HomeController extends Controller
         
         
         $data['free_quizes'] = $free_obj->get();
+        // dd($data);
         
-        // dd($data['quizes']->toArray());
         return view('home',$data);
     }
 
@@ -68,6 +67,14 @@ class HomeController extends Controller
     {
         $data = [];
         return view('home_page',$data);
+    }
+    public function privacy(){
+        $data = [];
+        return view('privacy_policy',$data);
+    }
+    public function terms(){
+        $data = [];
+        return view('terms_condition',$data);
     }
 
 

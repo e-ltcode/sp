@@ -20,7 +20,7 @@ return [
 		'mcqs'
 	],
 	'payment_type' => [
-		'Cash',
+		'Paypal',
 	],
 	'order_status' => [
 		'pending',

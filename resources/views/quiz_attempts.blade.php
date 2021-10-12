@@ -4,7 +4,12 @@
 
 
 <style type="text/css">
-
+/*.footer-section {
+    margin-top: 100px;
+    position: absolute;
+    width: 100%;
+    bottom: 0px;
+}*/
   table { 
     width: 100%; 
     border-collapse: collapse; 
@@ -89,7 +94,7 @@ only screen and (max-width: 760px),
 </style>
 
 
-<div class="container mt-5 pt-5 text-right">
+<div class="container mt-5 pt-5 text-right" style="min-height: 400px;">
 
       <h2 class="text-center">Result of All Quiz Attempt</h2>
   <table>
@@ -103,15 +108,29 @@ only screen and (max-width: 760px),
       </tr>
     </thead>
     <tbody>
+      @if(!empty($attempts))
       @foreach($attempts as $key => $val)
+      @if($val['total_questions']>0)
+      @php($result = ceil($val['correct_questions']/$val['total_questions']*100))
+      @else
+      @php($result = 0)
+      @endif
       <tr>
         <td data-column="Attempt Id">{{ $val['id'] }}</td>
         <td data-column="Quiz Title">{{ $val['quiz']['quiz_title'] }}</td>
         <td data-column="Result">{{ $val['correct_questions'].'/'.$val['total_questions'] }}</td>
-        <td data-column="Percentage">{{ ceil($val['correct_questions']/$val['total_questions']*100) }}%</td>
-        <td data-column="Percentage" class="text-center"><a href="{{ url('view_quiz').'/'.$val['quiz_id'] }}" class="btn btn-sm btn-info">View Answers</a></td>
+        <td data-column="Percentage">{{ $result }}%</td>
+        <td data-column="Percentage" class="text-center"><a href="{{ url('view_quiz').'/'.$val['quiz_id'] }}" class="btn btn-sm btn-outline-info">View Answers</a></td>
       </tr>
-      @endforeach  
+      @endforeach 
+      @else
+      <script type="text/javascript">
+        // alert('No Data Found')
+      </script>
+      <tr>
+        No data Found
+      </tr>
+      @endif 
     </tbody>
 
   </table>

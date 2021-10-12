@@ -36,7 +36,7 @@ a:hover, a:focus {
 	color: #373e18;
 }
 section {
-    float: left;
+    /*float: left;*/
     width: 100%;
 	padding-bottom:3em;
 }

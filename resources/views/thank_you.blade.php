@@ -8,6 +8,9 @@
 		padding-top: 40px;
 		padding-bottom: 80px;
 	}
+	.footer-section{
+		margin-top: 0px !important;
+	}
 	.thankyou-msg p {
 		font-size: 20px;
 		padding: 25px 0px 20px;
@@ -66,7 +69,7 @@
 		<div class="thankyou-msg text-center">
 			<img src="{{ asset('assets/images/th.png') }}" alt="">
 			<p>Your submission has been received</p>
-			<h2>Thankyou for Taking Quiz!</h2>
+			<h2>Thank you for Taking Quiz!</h2>
 			<a href="{{ url('/quiz_attempts') }}">Check Out My Quizzes -></a>
 		</div>
 	</div>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Question;
+use App\Models\QuizAttempt;
 use App\Models\Answer;
 use App\Models\Quiz;
 use App\Models\Course;
@@ -121,6 +122,12 @@ class QuizController extends Controller
         if($request->isMethod('post')){
             $data = $request->all();
             $this->cleanData($data);   
+                
+            if ($request->hasFile('image')) {
+                $file = $request->file('image');
+                $filename = Storage::putFile($this->directory, $file);
+                $data['image'] = $filename;
+            }
             
             $Obj         = Quiz::find($id);
             $Obj->update($data);
@@ -240,6 +247,8 @@ class QuizController extends Controller
     }
     public function delete($id) {
         Quiz::destroy($id);
+        Question::where('quiz_id',$id)->delete();
+        QuizAttempt::where('quiz_id',$id)->delete();
         $response = array('flag'=>true,'msg'=>$this->singular.' has been deleted.');
         echo json_encode($response); return;
     }

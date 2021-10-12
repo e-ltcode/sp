@@ -10,7 +10,9 @@
 	z-index: 99999;
 	background: #fff
 }
-
+/*.fcbtn {
+	margin-bottom: 10px !important;
+}*/
 .preloader .cssload-speeding-wheel {
 	position: absolute;
 	top: calc(50% - 3.5px);
@@ -5478,7 +5480,8 @@ ul#themecolors li:first-child {
 	-webkit-transition: all .3s;
 	-moz-transition: all .3s;
 	transition: all .3s;
-	padding: 8px 20px
+	padding: 8px 20px;
+	margin-bottom: 20px !important;
 }
 
 .fcbtn:after {

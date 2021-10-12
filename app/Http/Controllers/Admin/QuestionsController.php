@@ -79,7 +79,6 @@ class QuestionsController extends Controller
                 $answer_obj->create($temp);
             }
 
-
             $response = array('flag'=>true,'msg'=>$this->singular.' is added sucessfully.','action'=>'reload');
             echo json_encode($response); return;
         }

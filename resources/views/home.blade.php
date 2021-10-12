@@ -1,28 +1,22 @@
 @extends('layouts.header')
 
 @section('content')
-
-<div class="row-sm-12 search">
- <form class="example container" >
-  <input class="otln" type="text" placeholder="Enter Search Term.." name="search">
-</form>
-</div>
 <div class="container py-3">
    <ul class="nav nav-pills" role="tablist">
       <li class="nav-item active topnav">
-         <a class="nav-link active" data-toggle="pill" href="#All">ALL</a>
+         <a class="nav-link {{ ($type != 'free' && $type != 'paid')?'active':'' }}" data-toggle="pill" href="#All">ALL</a>
       </li>
       <li class="nav-item topnav">
-         <a class="nav-link " data-toggle="pill" href="#Paid">PAID</a>
+         <a class="nav-link {{ ($type == 'paid')?'active':'' }}" data-toggle="pill" href="#Paid">PAID</a>
       </li>
       <li class="nav-item topnav">
-         <a class="nav-link" data-toggle="pill" href="#Free">FREE</a>
+         <a class="nav-link {{ ($type == 'free')?'active':'' }}" data-toggle="pill" href="#Free">FREE</a>
       </li>
    </ul>
    <hr style="width: 100%;">
 </div>
-<div class="tab-content">
-   <div id="All" class="container tab-pane active">
+<div class="tab-content" style="min-height: 400px">
+   <div id="All" class="container tab-pane {{ ($type != 'free' && $type != 'paid')?'active':'fade' }}">
       <br>
       <div class="container mid">
          <div class="row hover">
@@ -33,9 +27,6 @@
                      <img src="{{ url('storage/app/public').'/'.$quiz['image'] }}" class="img-responsive" alt="Avatar" style="width:100%;height: 240px;">
                   </div>
                   <div class="jss87 jss960">
-                     <div class="jss87 jss88 jss95 jss125 jss961">
-                        <img src="https://front.myquiz.org/assets/images/myquiz.svg">
-                     </div>
                      <div class="jss87 jss88 jss95 jss105 jss117">
                         <svg class="ques" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                            <path d="M10.9997 8.00016C11.9197 8.00016 12.6597 7.2535 12.6597 6.3335C12.6597 5.4135 11.9197 4.66683 10.9997 4.66683C10.0797 4.66683 9.33301 5.4135 9.33301 6.3335C9.33301 7.2535 10.0797 8.00016 10.9997 8.00016ZM5.99968 7.3335C7.10634 7.3335 7.99301 6.44016 7.99301 5.3335C7.99301 4.22683 7.10634 3.3335 5.99968 3.3335C4.89301 3.3335 3.99968 4.22683 3.99968 5.3335C3.99968 6.44016 4.89301 7.3335 5.99968 7.3335ZM10.9997 9.3335C9.77968 9.3335 7.33301 9.94683 7.33301 11.1668V12.6668H14.6663V11.1668C14.6663 9.94683 12.2197 9.3335 10.9997 9.3335ZM5.99968 8.66683C4.44634 8.66683 1.33301 9.44683 1.33301 11.0002V12.6668H5.99968V11.1668C5.99968 10.6002 6.21968 9.60683 7.57968 8.8535C6.99968 8.7335 6.43968 8.66683 5.99968 8.66683Z" fill="#878D9A">
@@ -69,21 +60,26 @@
                         </div>
                      </div>
                      <hr>
-
+                     {{-- @dd($quiz); --}}
                      @if($quiz['status'] == 'completed' )
                      <a href="{{ url('generate_quiz_attempt').'/'.$quiz['id'] }}/" class="btn btn-success butn box pt-3">
                         Retake Quiz
                      </a>
-                     @elseif( $quiz['price'] == 0 || $quiz['status'] == 'purchased')
+                     @elseif($quiz['questions_count'] == 0)
+                     <a href="{{ url('marketplace?questions=0') }}" class="btn btn-success butn box pt-3">
+                        Not Available (no question)
+                     </a>
+                     {{-- @dd(count($quiz['questions'])) --}}
+                     @elseif( $quiz['price'] == 0 || count($quiz['order_items'])>0)
                      <a href="{{ url('generate_quiz_attempt').'/'.$quiz['id'] }}/" class="btn btn-success butn box pt-3">
                         Take Quiz
                      </a>
                      @else
-                     <a href="{{ url('marketplace/add_to_cart').'?id='.$quiz['id'] }}" class="btn btn-success butn box pt-3">
+                     <a href="{{ url('marketplace/add_to_cart').'?id='.$quiz['id'] }}" class="btn btn-success butn box pt-3 add_to_cart">
                         Add to cart
                      </a>
                      @endif
-
+                     {{-- @dd($_GET) --}}
                   </div>
                </div>
             </div>
@@ -91,7 +87,7 @@
          </div>
       </div>
    </div>
-   <div id="Paid" class="container tab-pane fade">
+   <div id="Paid" class="container tab-pane {{ ($type == 'paid')?'active':'fade' }}">
       <br>
       <div class="container mid">
          <div class="row hover">
@@ -102,9 +98,6 @@
                      <img src="{{ url('storage/app/public').'/'.$paid_quiz['image'] }}" class="img-responsive" alt="Avatar" style="width:100%;height: 240px;">
                   </div>
                   <div class="jss87 jss960">
-                     <div class="jss87 jss88 jss95 jss125 jss961">
-                        <img src="https://front.myquiz.org/assets/images/myquiz.svg">
-                     </div>
                      <div class="jss87 jss88 jss95 jss105 jss117">
                         <svg class="ques" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                            <path d="M10.9997 8.00016C11.9197 8.00016 12.6597 7.2535 12.6597 6.3335C12.6597 5.4135 11.9197 4.66683 10.9997 4.66683C10.0797 4.66683 9.33301 5.4135 9.33301 6.3335C9.33301 7.2535 10.0797 8.00016 10.9997 8.00016ZM5.99968 7.3335C7.10634 7.3335 7.99301 6.44016 7.99301 5.3335C7.99301 4.22683 7.10634 3.3335 5.99968 3.3335C4.89301 3.3335 3.99968 4.22683 3.99968 5.3335C3.99968 6.44016 4.89301 7.3335 5.99968 7.3335ZM10.9997 9.3335C9.77968 9.3335 7.33301 9.94683 7.33301 11.1668V12.6668H14.6663V11.1668C14.6663 9.94683 12.2197 9.3335 10.9997 9.3335ZM5.99968 8.66683C4.44634 8.66683 1.33301 9.44683 1.33301 11.0002V12.6668H5.99968V11.1668C5.99968 10.6002 6.21968 9.60683 7.57968 8.8535C6.99968 8.7335 6.43968 8.66683 5.99968 8.66683Z" fill="#878D9A">
@@ -143,7 +136,12 @@
                      <a href="{{ url('generate_quiz_attempt').'/'.$paid_quiz['id'] }}/" class="btn btn-success butn box pt-3">
                         Retake Quiz
                      </a>
-                     @elseif( $paid_quiz['price'] == 0 || $paid_quiz['status'] == 'purchased')
+                     @elseif($paid_quiz['questions_count'] == 0)
+                     <a href="{{ url('marketplace?questions=0') }}" class="btn btn-success butn box pt-3">
+                        Not Available (no question)
+                     </a>
+                     {{-- @dd($paid_quiz); --}}
+                     @elseif( $paid_quiz['price'] == 0 || count($quiz['order_items'])>0)
                      <a href="{{ url('generate_quiz_attempt').'/'.$paid_quiz['id'] }}/" class="btn btn-success butn box pt-3">
                         Take Quiz
                      </a>
@@ -160,7 +158,7 @@
          </div>
       </div>
    </div>
-   <div id="Free" class="container tab-pane fade">
+   <div id="Free" class="container tab-pane {{ ($type == 'free')?'active':'fade' }}">
       <br>
       <div class="container mid">
          <div class="row hover">
@@ -171,9 +169,6 @@
                      <img src="{{ url('storage/app/public').'/'.$free_quiz['image'] }}" class="img-responsive" alt="Avatar" style="width:100%;height: 240px;">
                   </div>
                   <div class="jss87 jss960">
-                     <div class="jss87 jss88 jss95 jss125 jss961">
-                        <img src="https://front.myquiz.org/assets/images/myquiz.svg">
-                     </div>
                      <div class="jss87 jss88 jss95 jss105 jss117">
                         <svg class="ques" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                            <path d="M10.9997 8.00016C11.9197 8.00016 12.6597 7.2535 12.6597 6.3335C12.6597 5.4135 11.9197 4.66683 10.9997 4.66683C10.0797 4.66683 9.33301 5.4135 9.33301 6.3335C9.33301 7.2535 10.0797 8.00016 10.9997 8.00016ZM5.99968 7.3335C7.10634 7.3335 7.99301 6.44016 7.99301 5.3335C7.99301 4.22683 7.10634 3.3335 5.99968 3.3335C4.89301 3.3335 3.99968 4.22683 3.99968 5.3335C3.99968 6.44016 4.89301 7.3335 5.99968 7.3335ZM10.9997 9.3335C9.77968 9.3335 7.33301 9.94683 7.33301 11.1668V12.6668H14.6663V11.1668C14.6663 9.94683 12.2197 9.3335 10.9997 9.3335ZM5.99968 8.66683C4.44634 8.66683 1.33301 9.44683 1.33301 11.0002V12.6668H5.99968V11.1668C5.99968 10.6002 6.21968 9.60683 7.57968 8.8535C6.99968 8.7335 6.43968 8.66683 5.99968 8.66683Z" fill="#878D9A">
@@ -207,12 +202,16 @@
                         </div>
                      </div>
                      <hr>
-
+                     {{-- @dd(); --}}
                      @if($free_quiz['status'] == 'completed' )
                      <a href="{{ url('generate_quiz_attempt').'/'.$free_quiz['id'] }}/" class="btn btn-success butn box pt-3">
                         Retake Quiz
                      </a>
-                     @elseif( $free_quiz['price'] == 0 || $free_quiz['status'] == 'purchased')
+                     @elseif($free_quiz['questions_count'] == 0)
+                     <a href="{{ url('marketplace?questions=0') }}" class="btn btn-success butn box pt-3">
+                       Not Available (no question)
+                     </a>
+                     @elseif( $free_quiz['price'] == 0 || count($quiz['order_items'])>0)
                      <a href="{{ url('generate_quiz_attempt').'/'.$free_quiz['id'] }}/" class="btn btn-success butn box pt-3">
                         Take Quiz
                      </a>
@@ -229,5 +228,20 @@
          </div>
       </div>
    </div>
+</div>
+@endsection
 
-   @endsection
+@section('scripts')
+<script type="text/javascript">
+
+   if(window.location.href == '{{ url('/marketplace?add_to_cart=true') }}'){
+      alert('Item added successfully'); 
+      window.location.href = '{{ url('/marketplace') }}'   
+   }
+
+   if(window.location.href == '{{ url('/marketplace?questions=0') }}'){
+      alert('Not enough questions to take quiz.'); 
+      window.location.href = '{{ url('/marketplace') }}'   
+   }
+</script>
+@endsection

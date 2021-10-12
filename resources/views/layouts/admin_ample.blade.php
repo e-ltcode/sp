@@ -5,9 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
     <meta name="author" content="">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('ample/plugins/images/favicon.png') }}">
+    <meta http-equiv="refresh" content="{{ config('session.lifetime') * 60 }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('assets/images/favicon_new.ico') }}">
     <title>{{@$page_title}}</title>
     <!-- Bootstrap Core CSS -->
     <link href="{{ asset('ample/bootstrap/dist/css/bootstrap.min.css') }}" rel="stylesheet">
@@ -66,7 +68,7 @@
                         <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
                             {{-- <button class="right-side-toggle waves-effect waves-light btn-info btn-circle pull-right m-l-20"><i class="ti-settings text-white"></i></button> --}}
                             <ol class="breadcrumb">
-                                <li><a href="{{url('dashboard')}}">Dashboard</a></li>
+                                <li><a href="{{url('admin')}}">Dashboard</a></li>
                                 <li class="active">{{@$page_title}}</li>
                             </ol>
                         </div>
@@ -199,6 +201,7 @@
         $('.datatable-custom').DataTable(); 
     }
     } );
+
 </script>
 </body>
 

@@ -49,11 +49,12 @@ class CartItemsController extends Controller
             'db_key' => $this->db_key
         ];
 
-        if(CartItem::where('user_id',Auth::user()->id)->count() == 0){
-        return redirect(url('marketplace'));
-        }else{
+        // if(CartItem::where('user_id',Auth::user()->id)->count() == 0){
+        // echo "<script>alert('Cart Is Empty')</script>";
+        // return redirect(url('marketplace'));
+        // }else{
         return view($this->view.'list',$data);
-        }
+        
 
 
     	// return view('admin/course_lang/list');
@@ -124,7 +125,7 @@ class CartItemsController extends Controller
             foreach ($data as $key => $value) {
                 $data = ['status'=>'purchased'];
                 $new_data = Quiz::find($value['quiz_id']);
-                $new_data->update($data);
+                // $new_data->update($data);
             }
             $response = array(
                 'flag'=>true,

@@ -1,588 +1,429 @@
 @extends('layouts.header')
 @section('content')
 <style type="text/css">
-	.btn-primary {
-		color: #fff !important;
-		background-color: #007bff !important;
-		border-color: #007bff !important;
-	}
-	.btn-success {
-		color: #fff !important;
-		background-color: #28a745 !important;
-		border-color: #28a745 !important;
-	}
-	.account {
-		border-radius: 20px !important;
-		width: 100px !important;
-		padding: 6px 12px !important;
-	}
-	a:focus, a:hover {
-		text-decoration: none !important;
-	}	
-	@media screen and (min-width: 1200px) {
-		.img-fluid{
-			max-width: initial !important;
-		}
-		.container {
-			width: inherit !important;
-		}
-	}
+    .btn-primary {
+        color: #fff !important;
+        background-color: #007bff !important;
+        border-color: #007bff !important;
+    }
+    .carousel-item {
+        cursor: context-menu;
+    }
+    .btn-success {
+        color: #fff !important;
+        background-color: #28a745 !important;
+        border-color: #28a745 !important;
+    }
+    .account {
+        border-radius: 20px !important;
+        width: 100px !important;
+        padding: 6px 12px !important;
+    }
+    a:focus, a:hover {
+        text-decoration: none !important;
+    }	
+    @media screen and (min-width: 1200px) {
+        .img-fluid{
+            max-width: initial !important;
+        }
+        .container {
+            width: inherit !important;
+        }
+    }
+    .footer-section{
+        margin-top: 0px;
+    }
+    .heading {
+        text-align: center;
+        color: #454343;
+        font-size: 30px;
+        font-weight: 700;
+        position: relative;
+        margin-bottom: 70px;
+        text-transform: uppercase;
+        z-index: 999;
+    }
+    .white-heading{
+        color: #ffffff;
+    }
+    .heading:after {
+        content: ' ';
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        height: 40px;
+        width: 180px;
+        border-radius: 4px;
+        transform: translateX(-50%);
+        background: url(img/heading-line.png);
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+    .white-heading:after {
+        background: url(https://i.ibb.co/d7tSD1R/heading-line-white.png);
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+
+    .heading span {
+        font-size: 18px;
+        display: block;
+        font-weight: 500;
+    }
+    .white-heading span {
+        color: #ffffff;
+    }
+    /*-----Testimonial-------*/
+
+    .testimonial:after {
+        position: absolute;
+        top: -0 !important;
+        left: 0;
+        content: " ";
+        background: url(img/testimonial.bg-top.png);
+        background-size: 100% 100px;
+        width: 100%;
+        height: 100px;
+        float: left;
+        z-index: 99;
+    }
+
+    .testimonial {
+        min-height: 375px;
+        position: relative;
+        background: url(https://i.ibb.co/PTJDkgb/testimonials.jpg);
+        padding-top: 50px;
+        padding-bottom: 50px;
+        background-position: center;
+        background-size: cover;
+    }
+
+    #testimonial4 .carousel-inner .item{
+        overflow: hidden;
+    }
+
+    .testimonial4_indicators .carousel-indicators{
+        left: 0;
+        margin: 0;
+        width: 100%;
+        font-size: 0;
+        height: 20px;
+        bottom: 15px;
+        padding: 0 5px;
+        overflow-x: auto;
+        overflow-y: hidden;
+        position: absolute;
+        text-align: center;
+        white-space: nowrap;
+    }
+    .testimonial4_indicators .carousel-indicators li{
+        padding: 0;
+        width: 14px;
+        height: 14px;
+        border: none;
+        text-indent: 0;
+        margin: 2px 3px;
+        cursor: pointer;
+        display: inline-block;
+        background: #ffffff;
+        -webkit-border-radius: 100%;
+        border-radius: 100%;
+    }
+    .testimonial4_indicators .carousel-indicators .active{
+        padding: 0;
+        width: 14px;
+        height: 14px;
+        border: none;
+        margin: 2px 3px;
+        background-color: #9dd3af;
+        -webkit-border-radius: 100%;
+        border-radius: 100%;
+    }
+    .testimonial4_indicators .carousel-indicators::-webkit-scrollbar{
+        height: 3px;
+    }
+    .testimonial4_indicators .carousel-indicators::-webkit-scrollbar-thumb{
+        background: #eeeeee;
+        -webkit-border-radius: 0;
+        border-radius: 0;
+    }
+
+    .testimonial4_control_button .carousel-control{
+        top: 175px;
+        opacity: 1;
+        width: 40px;
+        bottom: auto;
+        height: 40px;
+        font-size: 10px;
+        cursor: pointer;
+        font-weight: 700;
+        overflow: hidden;
+        line-height: 38px;
+        text-shadow: none;
+        text-align: center;
+        position: absolute;
+        background: transparent;
+        border: 2px solid #ffffff;
+        text-transform: uppercase;
+        -webkit-border-radius: 100%;
+        border-radius: 100%;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+        -webkit-transition: all 0.6s cubic-bezier(0.3,1,0,1);
+        transition: all 0.6s cubic-bezier(0.3,1,0,1);
+    }
+    .testimonial4_control_button .carousel-control.left{
+        left: 7%;
+        top: 50%;
+        right: auto;
+    }
+    .testimonial4_control_button .carousel-control.right{
+        right: 7%;
+        top: 50%;
+        left: auto;
+    }
+    .testimonial4_control_button .carousel-control.left:hover,
+    .testimonial4_control_button .carousel-control.right:hover{
+        color: #000;
+        background: #fff;
+        border: 2px solid #fff;
+    }
+
+    .testimonial4_header{
+        top: 0;
+        left: 0;
+        bottom: 0;
+        width: 550px;
+        display: block;
+        margin: 30px auto;
+        text-align: center;
+        position: relative;
+    }
+    .testimonial4_header h4{
+        color: #ffffff;
+        font-size: 30px;
+        font-weight: 600;
+        position: relative;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+    }
+
+    .testimonial4_slide{
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 70%;
+        margin: auto;
+        padding: 20px;
+        position: relative;
+        text-align: center;
+    }
+    .testimonial4_slide img {
+        top: 0;
+        left: 0;
+        right: 0;
+        width: 136px;
+        height: 136px;
+        margin: auto;
+        display: block;
+        color: #f2f2f2;
+        font-size: 18px;
+        line-height: 46px;
+        text-align: center;
+        position: relative;
+        border-radius: 50%;
+        box-shadow: -6px 6px 6px rgba(0, 0, 0, 0.23);
+        -moz-box-shadow: -6px 6px 6px rgba(0, 0, 0, 0.23);
+        -o-box-shadow: -6px 6px 6px rgba(0, 0, 0, 0.23);
+        -webkit-box-shadow: -6px 6px 6px rgba(0, 0, 0, 0.23);
+    }
+    .testimonial4_slide p {
+        color: #ffffff;
+        font-size: 20px;
+        line-height: 1.4;
+        margin: 40px 0 20px 0;
+    }
+    .testimonial4_slide h4 {
+        color: #ffffff;
+        font-size: 22px;
+    }
+
+    .testimonial .carousel {
+        padding-bottom:50px;
+    }
+    .testimonial .carousel-control-next-icon, .testimonial .carousel-control-prev-icon {
+        width: 35px;
+        height: 35px;
+    }
+    /* ------testimonial  close-------*/
 </style>
 
-<div class="layout layouts layoutNew">
-	<div class="visually-hidden allSVG"></div>
 
-	<div class="row InvitationNew WhiteColor">
-		<div class="col-md-5 col-md-offset-2 col-xs-10 col-xs-offset-1 col-sm-10 col-sm-offset-1" style="padding: 100px 0px;">
-			<div>
-				<div class="visible-lg visible-md LgMarginTop"></div>
-				<div class="visible-xs visible-sm MdMarginTop"></div>
-			</div>
-			
-			<div>
-				<div class="visible-lg visible-md MdMarginTop"></div>
-				<div class="visible-xs visible-sm SmMarginTop"></div>
-			</div>
-			<div class="row">
-				<div class="col-md-12">
-					<h2 class="HeaderDescription">
-						Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.
-					</h2>
-				</div>
-			</div>
-			<div>
-				<div class="visible-lg visible-md MdMarginTop"></div>
-				<div class="visible-xs visible-sm SmMarginTop"></div>
-			</div>
-			<div class="row  WhiteColor">
-				<div class="col-md-12 SubHeaderDescription">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-				</div>
-			</div>
-			<br />
-			<div class="row  WhiteColor SubHeaderAlert">
-				<div class="col-md-12 SubHeaderDescription">
-					
-				</div>
-			</div>
-			<div class="row MdMarginTop">
-				<div class="col-lg-4 col-md-5 col-sm-4 col-xs-6">
-					<a href="/Account/Register" class="btn btn-success btn-block">Try for FREE</a>
-				</div>
-			</div>
-		</div>
-		
-	</div>
-	
-	
-	<svg class="XlMarginTop AutoHeight FullWidth waveClass indentMobWave widthWaveAdapt" viewBox="0 0 1920 145">
-		<use xlink:href="#wave1"></use>
-	</svg>
-	
-	
-	
-	
-	<div class="CenteredContainer fixLineBetweenBlocks">
-		<div class="AboveBackground">
-			<div class="LgMarginTop col-md-12 indentModEngage">
-				<div class="row">
-					<div class="col-md-8 col-md-offset-2">
-						<h1 class="HeaderText BlueColor text--center MdPaddingBottom ieWhiteText">
-							Engage & interact with your audience!
-						</h1>
-					</div>
-				</div>
-				<div class="row LgMarginTop heightDescSlide">
-					<div class="col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 fixWidthAdapt">
-						<div id="EventCarousel" class="carousel slide EventCarousel" data-ride="carousel">
-							<div class="EventCarousel__Window">
-								<!-- Wrapper for slides -->
-								<div class="carousel-inner" role="listbox">
-									<div class="item active">
-										<img alt="asus phone introduction" class="d-block w-100 lazy" alt="partners" src="quiz1.jpg">
-									</div>
-									<div class="item">
-										<img alt="hockey trivia" class="d-block w-100 lazy"  alt="partners" src="https://myquizhub-waveaccess.netdna-ssl.com/app/images/home/sliderPlaceholder.png?ver=20210910.6.37901">
-									</div>
-									<div class="item">
-										<img alt="movie quiz" class="d-block w-100 lazy"  alt="partners" src="https://myquizhub-waveaccess.netdna-ssl.com/app/images/home/sliderPlaceholder.png?ver=20210910.6.37901">
-									</div>
-									<div class="item">
-										<img alt="Dota 2 CUP" class="d-block w-100 lazy"  alt="partners" src="https://myquizhub-waveaccess.netdna-ssl.com/app/images/home/sliderPlaceholder.png?ver=20210910.6.37901">
-									</div>
-									<div class="item">
-										<img alt="hockey quiz" class="d-block w-100 lazy"  alt="partners" src="https://myquizhub-waveaccess.netdna-ssl.com/app/images/home/sliderPlaceholder.png?ver=20210910.6.37901">
-									</div>
-								</div>
-							</div>
-							
-							<a class="left carousel-control" href="#EventCarousel" data-slide="prev">
-								<span class="glyphicon glyphicon-chevron-left"></span>
-								<span class="sr-only">Previous</span>
-							</a>
-							<a class="right carousel-control" href="#EventCarousel" data-slide="next">
-								<span class="glyphicon glyphicon-chevron-right"></span>
-								<span class="sr-only">Next</span>
-							</a>
-							<div class="TestimonialCarousel__BottomPart carousel-indicators" id="EventCarousel__Indicators">
-								<span data-target="#EventCarousel" data-slide-to="0" class="TestimonialCarousel__Indicator active"></span>
-								<span data-target="#EventCarousel" data-slide-to="1" class="TestimonialCarousel__Indicator"></span>
-								<span data-target="#EventCarousel" data-slide-to="2" class="TestimonialCarousel__Indicator"></span>
-								<span data-target="#EventCarousel" data-slide-to="3" class="TestimonialCarousel__Indicator"></span>
-								<span data-target="#EventCarousel" data-slide-to="4" class="TestimonialCarousel__Indicator"></span>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<svg class="HeaderTextSVG FullWidth Absolute BackgroundSVG LandingBGColor2 hidden-xs hidden-sm hidden-md waveClass" viewBox="0 0 1920 958">
-			<use xlink:href="#wave2"></use>
-		</svg>
-		<svg class="HeaderTextSVG FullWidth Absolute BackgroundSVG LandingBGColor2 visible-sm visible-md visible-xs hidden-xxs waveClass" viewBox="0 0 320 260">
-			<use xlink:href="#wave2mobile"></use>
-		</svg>
-		<svg class="HeaderTextSVG FullWidth Absolute BackgroundSVG LandingBGColor2 visible-xxs" viewBox="0 0 320 386">
-			<use xlink:href="#3var3"></use>
-		</svg>
-	</div>
-	
-	<div class="fixLineBetweenBlocks hidden-xs ">
-		<div class="XlMarginTop visible-md visible-lg"></div>
-		<div class="LgMarginTop visible-sm visible-xs"></div>
-	</div>
-	
-	
-	
-	
-	
-	<div class="CenteredContainer fixLineBetweenBlocks" style="padding-top: 100px;">
-		<h1 class="HeaderText LgMarginTop WhiteColor indentMobHowWork">
-			How it works
-		</h1>
-	</div>
-	
-	
-	<div class="CenteredContainer HowToPlayContainer fixLineBetweenBlocks">
-		<div class="row">
-			<div class="LgMarginTop hidden-sm hidden-xs"></div>
-			<div class="MdMarginTop visible-xs indentMobMTHowWork"></div>
-			<div class="col-md-3 col-md-offset-0 HowToPlayMenu LgMarginBottom col-sm-10 col-sm-offset-1 hidden-xs hidden-sm">
-				<div class="bullet selected col-md-12 col-sm-6" linked-id="HowToPlaySlide1">
-					<div class="star">
-						<svg viewBox="0 0 29 30" class="selected">
-							<use xlink:href="#activestar"></use>
-						</svg>
-						<svg viewBox="0 0 29 30" class="notselected">
-							<use xlink:href="#star"></use>
-						</svg>
-					</div>
-					<div class="">
-						Designing a quiz
-					</div>
-				</div>
-				<div class="bullet col-md-12 col-sm-6" linked-id="HowToPlaySlide2">
-					<div class="star">
-						<svg viewBox="0 0 29 30" class="selected">
-							<use xlink:href="#activestar"></use>
-						</svg>
-						<svg viewBox="0 0 29 30" class="notselected ">
-							<use xlink:href="#star"></use>
-						</svg>
-					</div>
-					<div class="">
-						Inviting players
-					</div>
-				</div>
-				<div class="bullet col-md-12 col-sm-6" linked-id="HowToPlaySlide3">
-					<div class="star">
-						<svg viewBox="0 0 29 30" class="selected">
-							<use xlink:href="#activestar"></use>
-						</svg>
-						<svg viewBox="0 0 29 30" class="notselected ">
-							<use xlink:href="#star"></use>
-						</svg>
-					</div>
-					<div class="">
-						Checking in
-					</div>
-				</div>
-				<div class="bullet col-md-12 col-sm-6" linked-id="HowToPlaySlide4">
-					<div class="star">
-						<svg viewBox="0 0 29 30" class="selected">
-							<use xlink:href="#activestar"></use>
-						</svg>
-						<svg viewBox="0 0 29 30" class="notselected ">
-							<use xlink:href="#star"></use>
-						</svg>
-					</div>
-					<div class="">
-						Playing the game
-					</div>
-				</div>
-				<div class="bullet col-md-12 col-sm-6" linked-id="HowToPlaySlide5">
-					<div class="star">
-						<svg viewBox="0 0 29 30" class="selected">
-							<use xlink:href="#activestar"></use>
-						</svg>
-						<svg viewBox="0 0 29 30" class="notselected">
-							<use xlink:href="#star"></use>
-						</svg>
-					</div>
-					<div class="">
-						Leaderboard
-					</div>
-				</div>
-				<div class="bullet col-md-12 col-sm-6" linked-id="HowToPlaySlide6">
-					<div class="star">
-						<svg viewBox="0 0 29 30" class="selected">
-							<use xlink:href="#activestar"></use>
-						</svg>
-						<svg viewBox="0 0 29 30" class="notselected">
-							<use xlink:href="#star"></use>
-						</svg>
-					</div>
-					<div class="">
-						Rewarding
-					</div>
-				</div>
-			</div>
-			<div class="col-md-9 col-md-offset-0 col-sm-10 col-sm-offset-1 HowToPlaySlides SmPaddingBottom">
-				<div class="LgMarginTop visible-xxs visible-xs visible-sm"></div>
-				<div class="WhiteBox" id="HowToPlaySlide1">
-					<div class="visible-xxs visible-xs visible-sm col-xs-12">
-						<svg class="HeaderTextSVG FullWidth AutoHeight" viewBox="0 0 884 523" fill="none">
-							<use xlink:href="#slider1"></use>
-						</svg>
-					</div>
-					<div class="AbsoluteMD LgMarginBottom MdPaddingBottom fixTableMBHow">
-						<div class="col-md-12">
-							<div class="row BlueColor">
-								<div class="col-md-12">
-									<h1 class="HeaderText"> Lorem ipsum</h1>
-								</div>
-							</div>
-							<div class="row Description">
-								<div class="col-md-8  col-sm-10 col-xs-10 col-xxs-12">
-									Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-								</div>
-							</div>
-						</div>
-					</div>
-					<svg class="HeaderTextSVG FullWidth AutoHeight hidden-xxs hidden-xs hidden-sm" viewBox="0 0 884 523" fill="none">
-						<use xlink:href="#slider1"></use>
-					</svg>
-				</div>
-				<div class="WhiteBox hidden-lg hidden-md" id="HowToPlaySlide2">
-					<div class="visible-xxs visible-xs visible-sm col-xs-12">
-						<svg class="HeaderTextSVG FullWidth AutoHeight" viewBox="0 0 884 523" fill="none">
-							<use xlink:href="#slider2"></use>
-						</svg>
-					</div>
-					<div class="AbsoluteMD LgMarginBottom MdPaddingBottom fixTableMBHow">
-						<div class="col-md-12">
-							<div class="row BlueColor">
-								<div class="col-md-12">
-									<h1 class="HeaderText">Lorem ipsum</h1>
-								</div>
-							</div>
-							<div class="row Description">
-								<div class="col-md-8  col-sm-10 col-xs-10 col-xxs-12">
-									Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-								</div>
-							</div>
-						</div>
-					</div>
-					<svg class="HeaderTextSVG FullWidth AutoHeight hidden-xxs hidden-xs hidden-sm" viewBox="0 0 884 523" fill="none">
-						<use xlink:href="#slider2"></use>
-					</svg>
-				</div>
-				<div class="WhiteBox  hidden-lg hidden-md" id="HowToPlaySlide3">
-					<div class="visible-xxs visible-xs visible-sm col-xs-12">
-						<svg class="HeaderTextSVG FullWidth AutoHeight" viewBox="0 0 884 523" fill="none">
-							<use xlink:href="#slider3"></use>
-						</svg>
-					</div>
-					<div class="AbsoluteMD LgMarginBottom MdPaddingBottom fixTableMBHow">
-						<div class="col-md-12">
-							<div class="row BlueColor">
-								<div class="col-md-12 ">
-									<h1 class="HeaderText">Lorem ipsum</h1>
-								</div>
-							</div>
-							<div class="row Description">
-								<div class="col-md-8  col-sm-10 col-xs-10 col-xxs-12">
-									Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-								</div>
-							</div>
-						</div>
-					</div>
-					<svg class="HeaderTextSVG FullWidth AutoHeight hidden-xxs hidden-xs hidden-sm" viewBox="0 0 884 523" fill="none">
-						<use xlink:href="#slider3"></use>
-					</svg>
-				</div>
-				<div class="WhiteBox hidden-lg hidden-md" id="HowToPlaySlide4">
-					<div class="visible-xxs visible-xs visible-sm col-xs-12">
-						<svg class="HeaderTextSVG FullWidth AutoHeight" viewBox="0 0 884 523" fill="none">
-							<use xlink:href="#slider4"></use>
-						</svg>
-					</div>
-					<div class="AbsoluteMD LgMarginBottom MdPaddingBottom fixTableMBHow">
-						<div class="col-md-12">
-							<div class="row BlueColor">
-								<div class="col-md-12">
-									<h1 class="HeaderText">Lorem ipsum</h1>
-								</div>
-							</div>
-							<div class="row Description">
-								<div class="col-md-8  col-sm-10 col-xs-10 col-xxs-12">
-									Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-								</div>
-							</div>
-						</div>
-					</div>
-					<svg class="HeaderTextSVG FullWidth AutoHeight hidden-xxs hidden-xs hidden-sm" viewBox="0 0 884 523" fill="none">
-						<use xlink:href="#slider4"></use>
-					</svg>
-				</div>
-				<div class="WhiteBox hidden-lg hidden-md" id="HowToPlaySlide5">
-					<div class="visible-xxs visible-xs visible-sm col-xs-12">
-						<svg class="HeaderTextSVG FullWidth AutoHeight" viewBox="0 0 884 523" fill="none">
-							<use xlink:href="#slider5"></use>
-						</svg>
-					</div>
-					<div class="AbsoluteMD LgMarginBottom MdPaddingBottom fixTableMBHow">
-						<div class="col-md-12">
-							<div class="row BlueColor">
-								<div class="col-md-12">
-									<h1 class="HeaderText">Lorem ipsum</h1>
-								</div>
-							</div>
-							<div class="row Description">
-								<div class="col-md-8  col-sm-10 col-xs-10 col-xxs-12">
-									Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-								</div>
-							</div>
-						</div>
-					</div>
-					<svg class="HeaderTextSVG FullWidth AutoHeight hidden-xxs hidden-xs hidden-sm" viewBox="0 0 884 523" fill="none">
-						<use xlink:href="#slider5"></use>
-					</svg>
-				</div>
-				<div class="WhiteBox hidden-lg hidden-md" id="HowToPlaySlide6">
-					<div class="visible-xxs visible-xs visible-sm col-xs-12">
-						<svg class="HeaderTextSVG FullWidth AutoHeight" viewBox="0 0 884 523" fill="none">
-							<use xlink:href="#slider6"></use>
-						</svg>
-					</div>
-					<div class="AbsoluteMD LgMarginBottom MdPaddingBottom fixTableMBHow">
-						<div class="col-md-12">
-							<div class="row BlueColor">
-								<div class="col-md-12">
-									<h1 class="HeaderText">Lorem ipsum</h1>
-								</div>
-							</div>
-							<div class="row Description">
-								<div class="col-md-7  col-sm-10 col-xs-10 col-xxs-12">
-									Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-								</div>
-							</div>
-						</div>
-					</div>
-					<svg class="HeaderTextSVG FullWidth AutoHeight hidden-xxs hidden-xs hidden-sm" viewBox="0 0 884 523" fill="none">
-						<use xlink:href="#slider6"></use>
-					</svg>
-				</div>
-			</div>
-		</div>
-	</div>
-	
-	<svg class="XlMarginTop AutoHeight FullWidth waveClass identWaveWhy widthWaveAdapt" viewBox="0 0 1920 76">
-		<use xlink:href="#wave3"></use>
-	</svg>
-	
-	
-	<div class="LandingBGColor2 fixLineBetweenBlocks hidden-xs">
-		<div class="XlMarginTop visible-md visible-lg fixHeightCaretLg"></div>
-		<div class="LgMarginTop visible-sm visible-xs"></div>
-	</div>
-	
-	<div class="LandingBGColor2 fixLineBetweenBlocks">
-		<div class="col-md-12 text--center MdPaddingBottom">
-			<h1 class="HeaderText BlueColor indentPBWhy">Why myQuiz</h1>
-		</div>
-	</div>
-	
-	<div class="LandingBGColor2 fixLineBetweenBlocks hidden-xs">
-		<div class="LgMarginTop visible-md visible-lg fixHeightCaretLgBlock"></div>
-		<div class="LgMarginTop visible-sm visible-xs fixHeightCaretLgBlock"></div>
-	</div>
-	
-	<div class="LandingBGColor2 CenteredContainer WhyMyquiz fixLineBetweenBlocks">
-		<div class="row LgMarginBottom">
-			<div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-offset-0 col-md-4 col-lg-4 WhiteBox">
-				<div class="row">
-					<div class="col-md-12 LgMarginTop LgMarginBottom">
-						<div class="row BlueColor">
-							<div class="col-md-11">
-								<h2 class="HeaderText"> Lorem ipsum  <br /> Excepteur sint  </h2>
-							</div>
-						</div>
-						<div class="row Description">
-							<div class="col-md-11  col-sm-11 col-xs-11">
-								Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-offset-0 col-md-4 col-lg-4 WhiteBox">
-				<div class="row">
-					<div class="col-md-12 LgMarginTop LgMarginBottom">
-						<div class="row BlueColor">
-							<div class="col-md-11">
-								<h2 class="HeaderText"> Lorem ipsum  <br /> Excepteur sint  </h2>
-							</div>
-						</div>
-						<div class="row Description">
-							<div class="col-md-11  col-sm-11 col-xs-11">
-								Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-offset-0 col-md-4 col-lg-4 WhiteBox">
-				<div class="row">
-					<div class="col-md-12 LgMarginTop LgMarginBottom">
-						<div class="row BlueColor">
-							<div class="col-md-11">
-								<h2 class="HeaderText"> Lorem ipsum  <br /> Excepteur sint  </h2>
-							</div>
-						</div>
-						<div class="row Description">
-							<div class="col-md-11  col-sm-11 col-xs-11">
-								Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			
-			
-		</div>
-	</div>
-	
-	
-	
-	
-	<div class="XlMarginTop visible-md visible-lg "></div>
-	<div class="LgMarginTop visible-sm visible-xs hidden-xs spacerSeeHow"></div>
-	
-	
-	<div class="LandingBGColor2 fixLineBetweenBlocks">
-		<h1 class="HeaderText BlueColor MdPaddingBottom text--center indentMobUsemyQiez">
-			
-			Use myQuiz to:
-		</h1>
-	</div>
-	
-	
-	
-	<div class="LandingBGColor2 UseTo fixLineBetweenBlocks">
-		<div class="row LgMarginTop indentMobGetMore">
-			<div class="col-md-4 col-lg-4 hidden-lg hidden-md col-sm-4 col-xs-6 col-xs-offset-3 col-sm-offset-4 hidden-xs">
-				<svg class="HeaderTextSVG FullWidth AutoHeight" viewBox="0 0 553 555">
-					<use xlink:href="#useto1"></use>
-				</svg>
-			</div>
-			<div class="col-md-4 col-md-offset-2 col-lg-4 col-lg-offset2 col-sm-10 col-xs-10 col-xs-offset-1 col-sm-offset-1">
-				<div class="BlueColor TitleText MdMarginTop">
-					<h2 class="TitleText">  Lorem ipsum Excepteur sint <br /> consectetur adipiscing elit</h2>
-				</div>
-				<div class="Description MdMarginTop">
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
-				</div>
-			</div>
-			<div class="col-md-4 col-lg-4 visible-lg visible-md">
-				<svg class="HeaderTextSVG FullWidth AutoHeight" viewBox="0 0 553 555">
-					<use xlink:href="#useto1"></use>
-				</svg>
-			</div>
-		</div>
-		<div class="row XlMarginTop XsMtUse">
-			<div class="col-md-4 col-md-offset-2 col-lg-4 col-lg-offset2 col-sm-4 col-xs-6 col-xs-offset-3 col-sm-offset-4 hidden-xs">
-				<svg class="HeaderTextSVG FullWidth AutoHeight" viewBox="0 0 467 469">
-					<use xlink:href="#useto2"></use>
-				</svg>
-			</div>
-			<div class="col-md-4 col-lg-4  col-md-offset-0 col-sm-10 col-xs-10 col-xs-offset-1 col-sm-offset-1">
-				<div class="BlueColor TitleText MdMarginTop">
-					<h2 class="TitleText"> Lorem ipsum Excepteur sint  <br /> consectetur adipiscing elit</h2>
-				</div>
-				<div class="Description MdMarginTop">
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
-				</div>
-			</div>
-		</div>
-		<div class="row XlMarginTop XsMtUse">
-			<div class="col-md-4 col-lg-4 hidden-lg hidden-md col-sm-4 col-xs-6 col-xs-offset-3 col-sm-offset-4 hidden-xs">
-				<svg class="HeaderTextSVG FullWidth AutoHeight" viewBox="0 0 553 555">
-					<use xlink:href="#useto3"></use>
-				</svg>
-			</div>
-			<div class="col-md-4 col-md-offset-2 col-lg-4 col-lg-offset2 col-sm-10 col-xs-10 col-xs-offset-1 col-sm-offset-1">
-				<div class="BlueColor TitleText MdMarginTop">
-					<h2 class="TitleText">  Lorem ipsum Excepteur sint  <br /> consectetur adipiscing elit</h2>
-				</div>
-				<div class="Description MdMarginTop">
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
-				</div>
-			</div>
-			<div class="col-md-4 col-lg-4 visible-lg visible-md">
-				<svg class="HeaderTextSVG FullWidth AutoHeight" viewBox="0 0 553 555">
-					<use xlink:href="#useto3"></use>
-				</svg>
-			</div>
-		</div>
-	</div>
-	
-	<div class="CenteredContainer LandingBGColor2 fixLineBetweenBlocks">
-		<span class="HeaderText XlMarginTop BlueColor hidden">
-			Loved by teams and individuals
-		</span>
-	</div>
+<div class="jumbotron jumbotron-fluid" id="banner" style="background-image: url({{ asset('assets/images') }}/banner-bk.jpg);background-size: cover;background-repeat: no-repeat;">
+    <div class="container text-center text-md-left">
+        <header>
+            <div class="row justify-content-between">
+                <div class="col-2">
+                    <img src="{{ asset('assets/images'.'/') }}/logo.png" alt="logo">
+                </div>
+            </div>
+        </header>
+        <h1 data-aos="fade" data-aos-easing="linear" data-aos-duration="1000" data-aos-once="true" class="display-3 text-white font-weight-bold my-5">
+            Lorem Ipsum <br>
+            been standard dummy
+        </h1>
+        <p data-aos="fade" data-aos-easing="linear" data-aos-duration="1000" data-aos-once="true" class="lead text-white my-4">
+            Lorem ipsum dolor sit amet, id nec enim autem oblique, ei dico mentitum duo.
+            <br> Illum iusto laoreet his te. Lorem partiendo mel ex. Ad vitae admodum voluptatum per.
+        </p>
+        <a href="{{ url('marketplace?type=free') }}" data-aos="fade" data-aos-easing="linear" data-aos-duration="1000" data-aos-once="true" class="btn my-4 font-weight-bold atlas-cta cta-green">Get Started</a>
+    </div>
+</div>
+<!-- three-blcok -->
+<div class="container my-5 py-2">
+    <h2 class="text-center font-weight-bold my-5">Latin wor consectetur from </h2>
+    <div class="row">
+        <div data-aos="fade-up" data-aos-delay="0" data-aos-duration="1000" data-aos-once="true" class="col-md-4 text-center">
+            <img src="{{ asset('assets/images/quiz1.png') }}" style="width: 180px;height: 120px;margin-bottom: 10px;" alt="Anti-spam" class="mx-auto">
+            <h4>Donor sit</h4>
+            <p>Lorem ipsum dolor sit amet porro his no his deleniti</p>
+        </div>
+        <div data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000" data-aos-once="true" class="col-md-4 text-center">
+            <img src="{{ asset('assets/images/quiz2.png') }}" style="width: 180px;height: 120px;margin-bottom: 10px;" alt="Phishing Detect" class="mx-auto">
+            <h4>Lorem publishing</h4>
+            <p>Ne error antiopam usu. Sed vocen concludaturque ea</p>
+        </div>
+        <div data-aos="fade-up" data-aos-delay="400" data-aos-duration="1000" data-aos-once="true" class="col-md-4 text-center">
+            <img src="{{ asset('assets/images/quiz3.png') }}" style="width: 180px;height: 120px;margin-bottom: 10px;" alt="Smart Scan" class="mx-auto">
+            <h4>alaborat with lorem</h4>
+            <p>Et usu ocurreret elaboraret doctus prodesse assueverit.</p>
+        </div>
+    </div>
+</div>
+<!-- feature (skew background) -->
+<div class="jumbotron jumbotron-fluid feature" id="feature-first">
+    <div class="container my-5">
+        <div class="row justify-content-between text-center text-md-left">
+            <div data-aos="fade-right" data-aos-duration="1000" data-aos-once="true" class="col-md-6">
+                <h2 class="font-weight-bold">detracto maiestatis</h2>
+                <p class="my-4">Te iisque labitur eos, nec sale argumentum scribentur no,
+                    <br> augue disputando in vim. Erat fugit sit at, ius lorem deserunt deterruisset no.</p>
+                    <a href="#" class="btn my-4 font-weight-bold atlas-cta cta-blue">Learn More</a>
+                </div>
+                <div data-aos="fade-left" data-aos-duration="1000" data-aos-once="true" class="col-md-6 align-self-center">
+                    <img src="{{ asset('assets/images') }}/section1.png" alt="Take a look inside" class="mx-auto d-block">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- feature (green background) -->
+    <div class="jumbotron jumbotron-fluid feature" id="feature-last">
+        <div class="container">
+            <div class="row justify-content-between text-center text-md-left">
+                <div data-aos="fade-left" data-aos-duration="1000" data-aos-once="true" class="col-md-6 flex-md-last">
+                    <h2 class="font-weight-bold">Lorem Ipsum is</h2>
+                    <p class="my-4">
+                        Duo suas detracto maiestatis ad, commodo lucilius invenire nec ad,
+                        <br> eum et oratio disputationi. Falli lobortis his ad
+                    </p>
+                    <a href="#" class="btn my-4 font-weight-bold atlas-cta cta-blue">Learn More</a>
+                </div>
+                <div data-aos="fade-right" data-aos-duration="1000" data-aos-once="true" class="col-md-6 align-self-center flex-md-first">
+                    <img src="{{ asset('assets/images'.'/') }}/feature-2.png" alt="Safe and reliable" class="mx-auto d-block">
+                </div>
+            </div>
+        </div>
+    </div>
 
+    <section class="testimonial text-center">
+        <div class="container">
 
-	@endsection
+            <div class="heading white-heading">
+                Testimonial
+            </div>
+            <div id="testimonial4" class="carousel slide testimonial4_indicators testimonial4_control_button thumb_scroll_x swipe_x" data-ride="carousel" data-pause="hover" data-interval="5000" data-duration="2000">
 
-	@section('styles')
-
-	{{-- <link type="image/x-icon" href="https://myquizhub-waveaccess.netdna-ssl.com/favicon.ico?ver=20210910.6.37901" rel="shortcut icon" />
-	<link type="image/png" href="https://myquizhub-waveaccess.netdna-ssl.com/favicon-16x16.png?ver=20210910.6.37901" sizes="16x16" rel="icon" />
-	<link type="image/png" href="https://myquizhub-waveaccess.netdna-ssl.com/favicon-32x32.png?ver=20210910.6.37901" sizes="32x32" rel="icon" /> --}}
-
-	<link href="{{ asset('assets/css/home_default1.css') }}" rel="stylesheet"/>
-	<link href="{{ asset('assets/css/home_default2.css') }}" rel="stylesheet"/>
-	<link href="{{ asset('assets/css/home_default3.css') }}" rel="stylesheet"/>
-	<link href="https://fonts.googleapis.com/css?family=Lato:400&display=swap" rel="stylesheet">
-	<link rel="stylesheet" href="{{ asset('assets/css/main.css') }}">
-	<link rel="stylesheet" href="{{ asset('assets/css/styles_main.css') }}">
+                <div class="carousel-inner" role="listbox">
+                    <div class="carousel-item active">
+                        <div class="testimonial4_slide">
+                            <img src="https://i.ibb.co/8x9xK4H/team.jpg" class="img-circle img-responsive" />
+                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. </p>
+                            <h4>Client 1</h4>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="testimonial4_slide">
+                            <img src="https://i.ibb.co/8x9xK4H/team.jpg" class="img-circle img-responsive" /><p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. </p>
+                            <h4>Client 2</h4>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="testimonial4_slide">
+                            <img src="https://i.ibb.co/8x9xK4H/team.jpg" class="img-circle img-responsive" />
+                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. </p>
+                            <h4>Client 3</h4>
+                        </div>
+                    </div>
+                </div>
+                <a class="carousel-control-prev" href="#testimonial4" data-slide="prev">
+                    <span class="carousel-control-prev-icon"></span>
+                </a>
+                <a class="carousel-control-next" href="#testimonial4" data-slide="next">
+                    <span class="carousel-control-next-icon"></span>
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- client -->
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-4 col-md-2 py-2 align-self-center">
+                    <img src="{{ asset('assets/images'.'/') }}/client-1.png" class="mx-auto d-block">
+                </div>
+                <div class="col-sm-4 col-md-2 py-2 align-self-center">
+                    <img src="{{ asset('assets/images'.'/') }}/client-2.png" class="mx-auto d-block">
+                </div>
+                <div class="col-sm-4 col-md-2 py-2 align-self-center">
+                    <img src="{{ asset('assets/images'.'/') }}/client-3.png" class="mx-auto d-block">
+                </div>
+                <div class="col-sm-4 col-md-2 py-2 align-self-center">
+                    <img src="{{ asset('assets/images'.'/') }}/client-4.png" class="mx-auto d-block">
+                </div>
+                <div class="col-sm-4 col-md-2 py-2 align-self-center">
+                    <img src="{{ asset('assets/images'.'/') }}/client-5.png" class="mx-auto d-block">
+                </div>
+                <div class="col-sm-4 col-md-2 py-2 align-self-center">
+                    <img src="{{ asset('assets/images'.'/') }}/client-6.png" class="mx-auto d-block">
+                </div>
+            </div>
+        </div>
+    </div>
 
 
 
-	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,300,400,600,700,800" rel="stylesheet" />
-	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-	
-	@endsection
 
 
-	@section('scripts')
+    @endsection
+    @section('styles')
 
-	<script src="https://myquizhub-waveaccess.netdna-ssl.com/bundles/plugins/yall?ver=20210910.6.37901"></script>
-	<script src="https://myquizhub-waveaccess.netdna-ssl.com/app/dist/js/customization?ver=20210910.6.37901"></script>
-	<script src="https://myquizhub-waveaccess.netdna-ssl.com/bundles/jquery?ver=20210910.6.37901"></script>
+    <link rel="icon" href="{{ asset('assets/images'.'/') }}/favicon.png" sizes="32x32" type="image/png">
 
-	<script src="{{ asset('assets/js/main.js') }}"></script>
-	
-	@endsection
+    <link rel="stylesheet" href="{{ asset('assets/css/custom.css') }}">
+
+    <link rel="stylesheet" href="{{ asset('assets/css/aos.css') }}/">
+
+
+    @endsection
+
+    @section('scripts')
+
+    <script src="{{ asset('assets/js/aos.js') }}/"></script>
+    <script>
+        AOS.init({
+        });
+    </script>
+
+    @endsection

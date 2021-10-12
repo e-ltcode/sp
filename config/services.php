@@ -30,9 +30,9 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
     'google' => [
-        'client_id' => '460199275609-5qdvneicm63vt1aud1act4ccv09dmeif.apps.googleusercontent.com',
-        'client_secret' => 'BuQzwewiqm4UMg2SHQxSDmQe',
-        'redirect' => 'http://localhost/larave-quiz-project/auth/google/callback',
+        'client_id' => env('GOOGLE_CLIENT_ID','460199275609-5qdvneicm63vt1aud1act4ccv09dmeif.apps.googleusercontent.com'),
+        'client_secret' => env('GOOGLE_CLIENT_SECRET','BuQzwewiqm4UMg2SHQxSDmQe'),
+        'redirect' => env('GOOGLE_AUTH_REDIRECT','http://localhost/larave-quiz-project/auth/google/callback'),
     ],
 
 ];

@@ -28,7 +28,7 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <label for="image" class="control-label">Quiz Image</label>
-                        <input type='file' name="image" id="image" class="form-control" required="" value="{{@$row['image']}}" />
+                        <input type='file' name="image" id="image" class="form-control" accept="image/*" required="" value="{{@$row['image']}}" />
                     </div>
                 </div>
                 <div class="col-md-12">

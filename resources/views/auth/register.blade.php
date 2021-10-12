@@ -11,6 +11,15 @@
     .form-group label{
         margin-bottom: .5rem;
     }
+    .form-control{
+    border-top: 0px solid !important;
+    border-left: 0px solid !important;
+    border-right: 0px solid !important;
+}
+.form-control:focus{
+    /*border-color: transparent !important;*/
+    box-shadow: 0 0 0 0 !important;
+}
 </style>
 @section('content')
 <div class="container">
@@ -73,33 +82,32 @@
                         </div>
                         <div class="row" style="margin-top: 40px">
 
-                            <div class="form-group col-md-6  mb-0">
+                            <div class="form-group col-md-12  mb-2">
                                 <div class=" ">
                                     <button type="submit" class="btn btn-primary btn-block">
                                         {{ __('Register') }}
                                     </button>
                                 </div>
                             </div>
-                            <div class="form-group col-md-6 mb-0">
+                            <div class="form-group col-md-12 mb-0">
                                 <a href="{{ url('auth/google') }}" style="" class="form-group btn btn-block btn-success ">
+                                  <i class="fab fa-google"></i>
                                   <strong>Sign Up With Google</strong>
                               </a> 
                           </div>
-
-                          <div class="form-group col-md-6  mb-0">
-                                <div class=" ">
-                                    Already Have an Account?
-                                </div>
-                            </div>
-                            <div class="form-group col-md-6 text-right mb-0" >
-                                <a href="{{ url('/login') }}" style="color: #9d43ac"><b>Login Now</b></a>
-                          </div>
                       </div>
+                      <div class="row">
+                        <div class="form-group col-12  mb-0">
 
-                  </form>
-              </div>
-          </div>
-      </div>
-  </div>
+                            Already Have an Account? <a href="{{ url('/login') }}" style="color: #9d43ac" class="text-right"><b> Login Now</b></a>
+
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 </div>
 @endsection

@@ -142,7 +142,7 @@
 </div>
 @endsection
 @section('scripts')
-<script src="https://www.paypal.com/sdk/js?client-id=AX1sAfg8RMwWQ7ZAPkZR-MtM7t-zec_ejwefb4A3BewgbivH3Rx-wjdqkJprYN0bAJw14Z3AQ8UiMt3E&components=buttons"></script>
+<script src="https://www.paypal.com/sdk/js?client-id={{ env('PAYPAL_CLIENT_ID') }}&components=buttons"></script>
 <script type="text/javascript">
 
 //Paypal Integration

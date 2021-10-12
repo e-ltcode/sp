@@ -22,6 +22,12 @@ Auth::routes();
 // Route::get('/home', 'MarketplaceController@index')->name('home');
 
 Route::prefix('admin')->middleware(['auth','admin_auth'])->group(function () {
+Route::get('/profile_page'	,	'Admin\\AdminController@profile');
+	
+		Route::get('/edit_login_details/{user_id?}'	,	'Admin\\AdminController@edit_login_details');
+	Route::post('/edit_login_details/'	,	'Admin\\AdminController@edit_login_details');
+
+
 	Route::get('/', 'Admin\\AdminController@index')->name('admin');
 	Route::get('/dashboard', 'Admin\\AdminController@index')->name('dashboard');
 	
@@ -94,6 +100,7 @@ Route::prefix('admin')->middleware(['auth','admin_auth'])->group(function () {
 	Route::post('/questions/edit/{id?}'	,	'Admin\\QuestionsController@edit');
 	Route::get('/questions/delete/{id?}'	,	'Admin\\QuestionsController@delete');
 	Route::get('/questions/{id?}'	,	'Admin\\QuestionsController@index');
+
 
 	/*Answers Routes*/
 	Route::get('/answers/create/{id?}'	,	'Admin\\AnswersController@create');
@@ -189,6 +196,7 @@ Route::get('/quiz_attempts'	,	'MarketplaceController@quiz_attempts');
 Route::get('/profile'	,	'MarketplaceController@profile');
 
 
+
 Route::get('/cart_items'	,	'CartItemsController@index')->name('cart_items');
 Route::get('/cart_items/create'	,	'CartItemsController@create')->name('cart_items_create');
 Route::post('/cart_items/create'	,	'CartItemsController@create');
@@ -196,6 +204,8 @@ Route::get('/cart_items/edit'	,	'CartItemsController@edit')->name('cart_items_ed
 Route::post('/cart_items/edit/{id?}'	,	'CartItemsController@edit')->name('cart_items_update');
 Route::get('/cart_items/delete/{id?}'	,	'CartItemsController@delete')->name('order_items_delete');
 
+Route::get('/privacy'	,	'HomeController@privacy')->name('privacy');
+Route::get('/terms'	,	'HomeController@terms')->name('terms');
 		// Google
 Route::get('auth/google', 'Auth\GoogleController@redirectToGoogle');
 Route::get('auth/google/callback', 'Auth\GoogleController@handleGoogleCallback');

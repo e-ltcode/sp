@@ -41,6 +41,9 @@ class User extends Authenticatable
     public function cart_items(){
         return $this->hasMany('App\Models\CartItem','user_id');
     }
+    public function order_items(){
+        return $this->hasMany('App\Models\OrderItem','created_by');
+    }
     public function quiz_attempts(){
         return $this->hasMany('App\Models\QuizAttempt','std_id');
     }

@@ -2,17 +2,26 @@
 
 
 <style type="text/css">
-  .card{
-    margin-top: 100px;
-    padding: 40px;
-}
-h3{
-    font-family: "Roboto",sans-serif;
-    text-align: center;
-}
-.form-group label{
-    margin-bottom: .5rem;
-}
+    .card{
+        margin-top: 100px;
+        padding: 40px;
+    }
+    h3{
+        font-family: "Roboto",sans-serif;
+        text-align: center;
+    }
+    .form-group label{
+        margin-bottom: .5rem;
+    }
+    .form-control{
+        border-top: 0px solid !important;
+        border-left: 0px solid !important;
+        border-right: 0px solid !important;
+    }
+    .form-control:focus{
+        /*border-color: transparent !important;*/
+        box-shadow: 0 0 0 0 !important;
+    }
 
 </style>
 @section('content')
@@ -66,39 +75,37 @@ h3{
                                 </div>
                             </div>
                             <div class="col-md-6 text-right">
-                               @if (Route::has('password.request'))
-                               <a class="" style="font-size: 15px;" href="{{ route('password.request') }}">
-                                {{ __('Forgot Your Password?') }}
-                            </a>
-                            @endif
+                                @if (Route::has('password.request'))
+                                <a class="" style="font-size: 15px;" href="{{ route('password.request') }}">
+                                    {{ __('Forgot Your Password?') }}
+                                </a>
+                                @endif
+                            </div>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6" style="margin-bottom: 20px;">
-                            <button type="submit" class="btn btn-primary btn-block">
-                                {{ __('Login') }}
-                            </button>
-                        </div>
-                        <div class="col-md-6">
-                            <a href="{{ url('auth/google') }}"  class="btn  btn-success btn-block">
-                              <strong>Login With Google</strong>
-                          </a> 
-                        </div>
+                        <div class="row">
+                            <div class="col-md-6" style="margin-bottom: 20px;">
+                                <button type="submit" class="btn btn-primary btn-block">
+                                    {{ __('Login') }}
+                                </button>
+                            </div>
+                            <div class="col-md-6">
+                                <a href="{{ url('auth/google') }}"  class="btn  btn-success btn-block">
+                                    <i class="fab fa-google"></i>
+                                    <strong>Login With Google</strong>
+                                </a> 
+                            </div>
 
-                        <div class="form-group col-md-6  mb-0">
+                            <div class="form-group col-md-12  mb-0">
                                 <div class=" ">
-                                    Not Have an Account?
+                                    Not Have an Account? <a href="{{ url('/register') }}" style="color: #9d43ac"><b> Register Now</b></a>
                                 </div>
                             </div>
-                            <div class="form-group col-md-6 text-right mb-0" >
-                                <a href="{{ url('/register') }}" style="color: #9d43ac"><b>Register Now</b></a>
-                          </div>
+                        </div>
                     </div>
-                  </div>
-              </form>
-          </div>
-      </div>
-  </div>
+                </form>
+            </div>
+        </div>
+    </div>
 </div>
 </div>
 @endsection
