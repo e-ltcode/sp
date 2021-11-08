@@ -195,7 +195,7 @@ padding: 0px;
     font-size: 13px;
     color: #878787;
 }
-.nav-item .icons:hover{
+.navbar-nav .nav-item:hover{
     background-color: #541c78 !important;
 }
 .bg-black{
@@ -233,8 +233,9 @@ padding: 0px;
     .navbar-nav li a{
         display: flex;
     }
-    .navbar-nav{
-        width: 65%;
+    .nav-item .icons{
+        width: 35%;
+        margin: 0px auto;
     }
 }
 #button_top {
