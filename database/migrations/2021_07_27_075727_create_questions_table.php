@@ -15,7 +15,9 @@ class CreateQuestionsTable extends Migration
     {
         Schema::create('questions', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
+            $table->longText('title');
+            $table->string('question_image')->nullable();
+            $table->string('learn_more_url')->nullable();
             $table->text('answer_explaination')->nullable();
             $table->boolean('is_correct')->nullable();
             $table->enum('type',['mcqs']);

@@ -16,6 +16,7 @@
 							<tr>
 								<th>#</th>
 								<th>Title</th>
+								<th>Parent Category</th>
 								<th>Description</th>
 								<th>Actions</th>
 							</tr>
@@ -24,9 +25,11 @@
 							@if($list['data'])
 							@php($i=1)
 							@foreach($list['data'] as $key=>$val)
+							{{-- @dd($val) --}}
 							<tr class="list_{{$val[$module['db_key']]}}">
 								<td>{{$i++}}</td>
 								<td>{{$val['title']}}</td>
+								<td>{{@$val['parent_category_child']['title']}}</td>
 								<td>{{$val['category_description']}}</td>
 								<td style="">
 									<a class="dropdown-item delete"  href="javascript:void(0);" data-url="{{ url($module['action'].'/delete/'.$val[$module['db_key']]) }}" data-remove="list_{{$val[$module['db_key']]}}" style="display: inline;"><i class="fa fa-trash"></i> Delete</a> | 

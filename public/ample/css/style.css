@@ -19816,7 +19816,7 @@ ul.pro-amenities li span i {
 
 @media (max-width:767px) {
 	.navbar-top-links {
-		float: left
+		float: right
 	}
 	.navbar-top-links .profile-pic img {
 		margin-right: 0

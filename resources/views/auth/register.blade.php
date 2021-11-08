@@ -20,6 +20,9 @@
     /*border-color: transparent !important;*/
     box-shadow: 0 0 0 0 !important;
 }
+.navbar-collapse{
+    padding-top: 10px;
+}
 </style>
 @section('content')
 <div class="container">

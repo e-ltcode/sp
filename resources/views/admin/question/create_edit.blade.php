@@ -22,11 +22,14 @@
                 <div class="col-md-12">
                     <div class="form-group">
                         <label for="title" class="control-label">title</label>
-                        <input type='text' name="title" id="title" class="form-control" required=""  value="{{@$row['title']}}" />
+                        <textarea name="title" class="editor">
+                            {{ @$row['title'] }}
+                        </textarea>
+                        {{-- <input type='text' name="title" id="title" class="form-control" required=""  value="{{@$row['title']}}" /> --}}
                     </div>
                 </div>
 
-                <div class="col-md-6">
+                {{-- <div class="col-md-6">
                     <div class="form-group">
                         <label for="type" class="control-label">type</label>
                         <select name="type" id="type" class="form-control">
@@ -35,7 +38,22 @@
                             @endforeach
                         </select>
                     </div>
+                </div> --}}
+
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="type" class="control-label">Learn More URL</label>
+                        <input type="text" name="learn_more_url" value="{{ @$row['learn_more_url'] }}" class="form-control">
+                    </div>
                 </div>
+
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="type" class="control-label">Question Image</label>
+                        <input type="file" name="question_image" class="form-control">
+                    </div>
+                </div>
+
                 @if(!@$selected_quiz)
                 <div class="col-md-6">
                     <div class="form-group">
@@ -52,8 +70,8 @@
                 @endif
                 <div class="col-md-12">
                     <div class="form-group">
-                        <label for="answer_explaination">Answer Explaination</label>
-                        <textarea name="answer_explaination" id="editor">
+                        <label for="answer_explaination">Explaination</label>
+                        <textarea name="answer_explaination" class="editor">
                             {{ @$row['answer_explaination'] }}
                         </textarea>
                     </div>
@@ -62,14 +80,20 @@
                 <div class="col-md-10">
                     <div class="form-group">
                         <label>Answer (A)</label>
+
                         @php($i = (@$row['answers'][0])?@$row['answers'][0]['id']:1)
+                        {{-- <textarea name="answers[{{ $i }}]" class="editor">
+                           {{ @$row['answers'][0]['title'] }}
+                        </textarea> --}}
+
+                        
                         <input type="text" name="answers[{{ $i }}]" value="{{ @$row['answers'][0]['title'] }}" class="form-control">
                     </div>
                 </div>
                 <div class="col-md-2">
                     <div class="form-group">
                         <label>Correct </label><br>
-                        <input type="radio" name="is_correct" @if(@$row['answers'][0]['is_correct'] == 1) checked="" @endif value="{{ $i }}" class="form-check-input">
+                        <input type="checkbox" name="is_correct[]" @if(@$row['answers'][0]['is_correct'] == 1) checked="" @endif value="{{ $i }}" class="form-check-input">
                     </div>
                 </div>
 
@@ -83,7 +107,7 @@
                 <div class="col-md-2">
                     <div class="form-group">
                         <label>Correct </label><br>
-                        <input type="radio" name="is_correct" @if(@$row['answers'][1]['is_correct'] == 1) checked="" @endif value="{{ $i }}" class="form-check-input">
+                        <input type="checkbox" name="is_correct[]" @if(@$row['answers'][1]['is_correct'] == 1) checked="" @endif value="{{ $i }}" class="form-check-input">
                     </div>
                 </div>
 
@@ -97,7 +121,7 @@
                 <div class="col-md-2">
                     <div class="form-group">
                         <label>Correct </label><br>
-                        <input type="radio" name="is_correct" @if(@$row['answers'][2]['is_correct'] == 1) checked="" @endif value="{{ $i }}" class="form-check-input">
+                        <input type="checkbox" name="is_correct[]" @if(@$row['answers'][2]['is_correct'] == 1) checked="" @endif value="{{ $i }}" class="form-check-input">
                     </div>
                 </div>
 
@@ -111,7 +135,7 @@
                 <div class="col-md-2">
                     <div class="form-group">
                         <label>Correct </label><br>
-                        <input type="radio" name="is_correct" @if(@$row['answers'][3]['is_correct'] == 1) checked="" @endif value="{{ $i }}" class="form-check-input">
+                        <input type="checkbox" name="is_correct[]" @if(@$row['answers'][3]['is_correct'] == 1) checked="" @endif value="{{ $i }}" class="form-check-input">
                     </div>
                 </div>
 
@@ -124,20 +148,24 @@
         </div>
     </form>
 </div> 
-
 <script>
-    ClassicEditor
-    .create( document.querySelector( '#editor' ),{
-         toolbar: [ 'heading', '|', 'bold', 'italic', 'link', 'bulletedList', 'numberedList', 'blockQuote' ],
-        heading: {
-            options: [
-                { model: 'paragraph', title: 'Paragraph', class: 'ck-heading_paragraph' },
-                { model: 'heading1', view: 'h1', title: 'Heading 1', class: 'ck-heading_heading1' },
-                { model: 'heading2', view: 'h2', title: 'Heading 2', class: 'ck-heading_heading2' }
-            ]
-        }
-    } )
-    .catch( error => {
-        console.error( error );
-    } );
+    all_editors = document.querySelectorAll('.editor')
+
+  for (i = 0; i < all_editors.length; ++i) {
+  ClassicEditor
+  .create( all_editors[i] , {
+    toolbar: [ 'heading', '|', 'bold', 'italic', 'link', 'bulletedList', 'numberedList', 'blockQuote', 'CodeBlock','Code' ],
+    heading: {
+      options: [
+      { model: 'paragraph', title: 'Paragraph', class: 'ck-heading_paragraph' },
+      { model: 'heading1', view: 'h1', title: 'Heading 1', class: 'ck-heading_heading1' },
+      { model: 'heading2', view: 'h2', title: 'Heading 2', class: 'ck-heading_heading2' }
+      ]
+    }
+  } )
+  .catch( error => {
+    console.log( error );
+  } );
+  }
 </script>
+

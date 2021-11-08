@@ -21,6 +21,7 @@ class CreateQuizesTable extends Migration
             $table->string('image')->nullable();
             $table->string('status')->nullable();
             $table->foreignId('created_by')->constrained('users')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreignId('category_id')->nullable()->constrained('categories')->onDelete('cascade')->onUpdate('cascade');
             $table->softDeletes();
             $table->timestamps();
         });

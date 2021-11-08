@@ -26,7 +26,7 @@
 							@foreach($list['data'] as $key=>$val)
 							<tr class="list_{{$val[$module['db_key']]}}">
 								<td>{{$i++}}</td>
-								<td>{{$val['title']}}</td>
+								<td>{{ substr_replace($val['title'], "..........", 80) }}</td>
 								<td>{{$val['type']}}</td>
 								<td style="">
 									<div class="dropdown">

@@ -2,6 +2,9 @@
 @section('content')
 
 <style type="text/css">
+	body{
+		background-image: url('{{ url("/public/assets/images/qbg.jpg") }}');
+	}
 	.quiz-option-selector {
 		margin: 0 auto;
 		max-width: 1135px;
@@ -17,7 +20,7 @@
 	}
 	.thankyou-msg h2 {
 		margin: 0 auto;
-		font-size: 70px;
+		font-size: 30px;
 		max-width: 565px;
 		margin-bottom: 40px;
 		font-weight: 700;
@@ -41,12 +44,15 @@
 	}
 	@media screen and (max-width: 700px){
 		.thankyou-msg h2{
-			font-size: 50px;
+			font-size: 25px !important;
 		}
 		.wizard-forms2{
 			padding: 90px 10px;
 		}
 	}
+
+	
+
 	@media screen and (max-width: 450px){
 		.thankyou-msg h2{
 			font-size: 30px;
@@ -64,12 +70,12 @@
 	<h1>Thanks For Quiz</h1>
 </div>
 
-<div class="wizard-forms2" style="background-image: url({{ asset('assets/images/qbg.jpg') }});">
+<div class="wizard-forms2" style="">
 	<div class="quiz-option-selector">
 		<div class="thankyou-msg text-center">
 			<img src="{{ asset('assets/images/th.png') }}" alt="">
 			<p>Your submission has been received</p>
-			<h2>Thank you for Taking Quiz!</h2>
+			<h2>Hope you learned something new today, keep going 🙂</h2>
 			<a href="{{ url('/quiz_attempts') }}">Check Out My Quizzes -></a>
 		</div>
 	</div>

@@ -10,9 +10,11 @@
                             <li> <a href="{{ url('/admin/dashboard') }}"><i class="mdi mdi-av-timer fa-fw"></i> <span class="hide-menu"> Dashboard </span> </span></a>
                             </li>
                             {{-- <span class="label label-rouded label-inverse pull-right">4</span> --}}
+                            @if(auth()->user()->role == '-1')
                             <li>    
                                 <a href="{{ route('users') }}"><i class="mdi mdi-av-timer fa-fw"></i><span class="hide-menu">Users</span></a> 
                             </li>
+                            @endif
                             {{-- <li> 
                                 <a href="{{ route('tags') }}"><i class="mdi mdi-av-timer fa-fw"></i><span class="hide-menu">Course Tags</span></a> 
                             </li> --}}
@@ -31,6 +33,9 @@
 
                             <li> 
                                 <a href="{{ url('admin/quizes') }}"><i class="mdi mdi-av-timer fa-fw"></i><span class="hide-menu">Quizes</span></a> 
+                            </li>
+                            <li> 
+                                <a href="{{ url('admin/category') }}"><i class="mdi mdi-av-timer fa-fw"></i><span class="hide-menu">Categories</span></a> 
                             </li>
                             <li> 
                                 <a href="{{ url('admin/orders') }}"><i class="mdi mdi-av-timer fa-fw"></i><span class="hide-menu">Orders</span></a> 

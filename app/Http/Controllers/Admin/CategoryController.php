@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Category;
-use App\Models\Course;
+// use App\Models\Course;
 use Auth;
 
 class CategoryController extends Controller
@@ -17,7 +17,7 @@ class CategoryController extends Controller
     private $action   =  "/admin/category";
     private $db_key   =  "id";
     private $user = [];
-    private $perpage = 10;
+    private $perpage = 10000;
 
     function index(Request $request){
 
@@ -30,7 +30,7 @@ class CategoryController extends Controller
         if($request->perpage)
             $this->perpage = $request->perpage;
         
-        $data['list']   =   Category::paginate($this->perpage)->toArray();
+        $data['list']   =   Category::with('parent_category_child')->paginate($this->perpage)->toArray();
         $data['module'] = [
             'type'=>$this->type,
             'singular'=>$this->singular,
@@ -66,6 +66,7 @@ class CategoryController extends Controller
                     "breadcrumbs"=>array("dashboard"=>"Dashboard","#"=>$this->plural." List"),
                     "action"=> url($this->action.'/create')
                 );
+        $data['categories'] = Category::whereNull('parent_category_id')->get()->toArray();
         return view($this->view.'create_edit',$data);
     }
     public function cleanData(&$data) {
@@ -99,8 +100,8 @@ class CategoryController extends Controller
                     "breadcrumbs"=>array("dashboard"=>"Dashboard","#"=>$this->plural." List"),
                     "action"=> url($this->action.'/edit/'.$id)
                 );
-        $data['courses'] = Course::all();
-
+        // $data['count(var)rses'] = Course::all();
+        $data['categories'] = Category::with('parent_category')->whereNull('parent_category_id')->get()->toArray();
         $data['row'] = Category::find($id)->toArray();
       
         return view($this->view.'create_edit',$data);

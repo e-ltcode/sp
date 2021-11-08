@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+// use illuminate\support\Facades\Auth;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -135,7 +135,7 @@ Route::prefix('/instructor')->middleware(['auth','instructor_auth'])->group(func
 
 	/*Topics Routes*/
 	Route::get('/topics/create/{id?}'	,	'Admin\\TopicsController@create');
-	Route::post('/topics/create/{id?}'	,	'Admin\\TopicsController@create');
+	Route::post('/topics/crea te/{id?}'	,	'Admin\\TopicsController@create');
 	Route::get('/topics/edit'	,	'Admin\\TopicsController@edit');
 	Route::post('/topics/edit/{id?}'	,	'Admin\\TopicsController@edit');
 	Route::get('/topics/delete/{id?}'	,	'Admin\\TopicsController@delete');
@@ -182,6 +182,8 @@ Route::prefix('/instructor')->middleware(['auth','instructor_auth'])->group(func
 Route::get('/thank_you'	,	'MarketplaceController@thank_you');
 Route::get('/marketplace/add_to_cart'	,	'MarketplaceController@add_to_cart');
 Route::get('/marketplace/{check?}'	,	'HomeController@index');
+Route::get('/marketplace?{cat_id?}'	,	'HomeController@index');
+Route::get('/marketplace_test/{check?}'	,	'HomeController@test_marketplace');
 Route::get('/take_quiz/{id}/{skip?}'	,	'MarketplaceController@take_quiz');
 Route::post('/take_quiz/{id}/{skip?}'	,	'MarketplaceController@take_quiz');
 Route::get('/generate_quiz_attempt/{id}/'	,	'MarketplaceController@generate_quiz_attempt');

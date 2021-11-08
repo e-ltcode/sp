@@ -9,11 +9,13 @@ use App\Models\Answer;
 use App\Models\Quiz;
 use App\Models\Topic;
 use Auth;
+use Illuminate\Support\Facades\Storage;
 class QuestionsController extends Controller
 {
     private $type     =  "questions";
     private $singular =  "Question";
     private $plural   =  "Questions";
+    private $directory = "quiz_images";
     private $view     =  "admin.question.";
     private $action   =  "/admin/questions";
     private $db_key   =  "id";
@@ -62,6 +64,12 @@ class QuestionsController extends Controller
         if($request->isMethod('post')){
             $data = $request->all();
             $data['created_by'] = Auth::user()->id;
+            if ($request->hasFile('question_image')) {
+                $file = $request->file('question_image');
+                $filename = Storage::putFile($this->directory, $file);
+                $data['question_image'] = $filename;
+            }
+            // dd($data);
             $this->cleanData($data);
             $answers = $data['answers'];
             $correct = $data['is_correct'];
@@ -71,7 +79,7 @@ class QuestionsController extends Controller
             foreach($answers as $k => $single_answer){
                 $temp = [
                     'title' => $single_answer,
-                    'is_correct' => ($correct == $k) ? true : false,
+                    'is_correct' => (in_array($k, $correct)) ? true : false,
                     'question_id' => $new_question->id,
                     'created_by' => Auth::user()->id
                 ];
@@ -109,7 +117,13 @@ class QuestionsController extends Controller
         $this->set_action();
         if($request->isMethod('post')){
             $data = $request->all();
-            $this->cleanData($data);   
+            if ($request->hasFile('question_image')) {
+                $file = $request->file('question_image');
+                $filename = Storage::putFile($this->directory, $file);
+                $data['question_image'] = $filename;
+            }
+            // dd($data);
+            $this->cleanData($data);
             
             $answers = $data['answers'];
             $correct = $data['is_correct'];
@@ -120,7 +134,7 @@ class QuestionsController extends Controller
             foreach($answers as $k => $single_answer){
                 $temp = [
                     'title' => $single_answer,
-                    'is_correct' => ($correct == $k) ? true : false,
+                    'is_correct' => (in_array($k, $correct)) ? true : false,
                     'question_id' => $id,
                     'created_by' => Auth::user()->id
                 ];

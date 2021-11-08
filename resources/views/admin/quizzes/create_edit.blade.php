@@ -21,8 +21,19 @@
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
+                        <label for="category_id" class="control-label">Category</label>
+                        <select name="category_id" id="category_id" class="form-control">
+                            {{-- @dd($categories); --}}
+                            @foreach($categories as $k => $v)
+                            <option @if(@$row['category_id'] == $v['id']) selected="" @endif value="{{ $v['id'] }}">{{ $v['title'] }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
                         <label for="price" class="control-label">Price</label>
-                        <input type='text' name="price" id="price" class="form-control" required=""  value="{{@$row['price']}}" />
+                        <input type='number' name="price" id="price" class="form-control" required=""  value="{{@$row['price']}}" />
                     </div>
                 </div>
                 <div class="col-md-6">

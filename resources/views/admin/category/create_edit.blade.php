@@ -19,7 +19,17 @@
                         <input type='text' name="title" id="title" class="form-control" required=""  value="{{@$row['title']}}" />
                     </div>
                 </div>
-                
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="parent_category_id" class="control-label">Parent Category</label>
+                        <select name="parent_category_id" id="parent_category_id" class="form-control">
+                            <option value="">Please Select Category</option>
+                            @foreach($categories as $k => $v)
+                            <option @if(@$row['parent_category_id'] == $v['id']) selected="" @endif value="{{ $v['id'] }}">{{ $v['title'] }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                </div>
                 <div class="col-md-12">
                     <div class="form-group">
                         <label for="category_description" class="control-label">category description</label>

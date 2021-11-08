@@ -1,0 +1,96 @@
+body { font-family: 'Roboto', sans-serif; font-size: 16px; font-weight: 300; color: #888; line-height: 30px; text-align: center; }
+/***** Sidebar *****/
+.sidebar {
+    width: 225px; height: 100vh; position: sticky; top: 0; /*left: -255px;*/ z-index: 999;
+    background: #e7e9eb; color: #fff; transition: all .3s; box-shadow: 3px 3px 3px rgba(51, 51, 51, 0.5);
+    text-align: left;
+    overflow-y: auto;
+}
+.sidebar.active { margin-left: 0; }
+.dismiss {
+    width: 35px; height: 35px; position: absolute; top: 4px; right: 10px; transition: all .2s;
+    background: #444; border-radius: 4px; text-align: center; line-height: 35px; cursor: pointer;
+}
+.dismiss:hover, .dismiss:focus { background: #555; color: #fff; }
+.sidebar ul li span h4{
+            font-size: 21px;
+            color: white;
+            display: block; padding: 8px 17px;
+            border: 0;
+}
+         }
+.sidebar ul.menu-elements {  transition: all .3s; }
+.sidebar ul li a {
+    display: block; padding: 1px 17px;
+    border: 0; color: #fff;
+}
+.sidebar ul li a:hover,
+.sidebar ul li a:focus,
+.sidebar ul li.active > a:hover,
+.sidebar ul li.active > a:focus {
+    outline: 0; color: #fff;
+        background: #9d43ac;
+    }
+.heading{
+}
+.sidebar ul ul a { background: #444; padding-left: 20px; font-size: 14px; }
+.sidebar a[data-toggle="collapse"] {
+    position: relative;
+}
+.sidebar .dropdown-toggle::after {
+    display: block;
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+}
+/***** Content *****/
+.content { width: 100%; transition: all 0.3s; }
+.open-menu { position: fixed; top: 20px; left: 10px; z-index: 997; box-shadow: 3px 3px 3px rgba(51, 51, 51, 0.2); }
+.open-menu.btn-customized,
+.open-menu.btn-customized:hover,
+.open-menu.btn-customized:active,
+.open-menu.btn-customized:focus,
+.open-menu.btn-customized:active:focus,
+.open-menu.btn-customized.active:focus,
+.open-menu.btn-customized.btn.btn-primary:not(:disabled):not(.disabled):active,
+.open-menu.btn-customized.btn.btn-primary:not(:disabled):not(.disabled):active:focus {
+    box-shadow: 3px 3px 3px rgba(51, 51, 51, 0.2);
+}
+.open-menu{
+    display: none;
+}
+@media screen and (max-width: 992px){
+    .open-menu{
+    display: block;
+   }
+.sidebar{
+    /*left: -255px;*/
+    /*position: fixed;*/
+    margin-left: -255px;
+}
+}
+.header{
+    height: 100px;
+}
+.footer{
+    height: 50px;
+}
+/* width */
+::-webkit-scrollbar {
+    width: 5px;
+  }
+  /* Track */
+  ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey;
+    border-radius: 5px;
+  }
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: silver;
+    border-radius: 3px;
+  }
+  /* Handle on hover */
+  /* ::-webkit-scrollbar-thumb:hover {
+    background: #B30000;
+  } */

@@ -51,7 +51,7 @@
         <!-- ============================================================== -->
         @include('components.admin_header')
         <!-- ============================================================== -->
-        @if(auth()->user()->role == 1)
+        @if(auth()->user()->role == 1 || auth()->user()->role == -1)
         @include('components.admin_sidebar')
         @elseif(auth()->user()->role == 2)
         @include('components.instructor_sidebar')
@@ -142,7 +142,7 @@
                 <!-- ============================================================== -->
             </div>
             <!-- /.container-fluid -->
-            <footer class="footer text-center"> {{date("Y")}} &copy; Quiz App </footer>
+            <footer class="footer text-center"> {{ date('Y') }} &copy; SvarogProject </footer>
         </div>
         <!-- ============================================================== -->
         <!-- End Page Content -->
@@ -193,8 +193,9 @@
    <script src="{{asset('ample/js/footable-init.js')}}"></script>
    <!--Style Switcher -->
    <script src="{{asset('ample/plugins/bower_components/styleswitcher/jQuery.style.switcher.js')}}"></script>
-   <script src="https://cdn.ckeditor.com/ckeditor5/29.2.0/classic/ckeditor.js"></script>
-
+   {{-- <script src="https://cdn.ckeditor.com/ckeditor5/29.2.0/classic/ckeditor.js"></script> --}}
+<script src="{{ asset('js/ckeditor.js') }}"></script>
+   
    <script type="text/javascript">
     $(document).ready( function () {
     if($('.datatable-custom').length > 0){

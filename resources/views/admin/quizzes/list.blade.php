@@ -17,7 +17,8 @@
 								<th>#</th>
 								<th>Quiz Image</th>
 								<th>Quiz Title</th>
-								<th>Question Description</th>
+								<th>Category</th>
+								<th>Quiz Description</th>
 								<th>Price</th>
 								<th>Action</th>
 							</tr>
@@ -30,6 +31,7 @@
 								<td>{{$i++}}</td>
 								<td><img src="{{ url('storage/app/public/'.$val['image']) }}"></td>
 								<td>{{$val['quiz_title']}}</td>
+								<td>{{@$val['category']['title']}}</td>
 								<td>{{$val['quiz_description']}}</td>
 								<td>{{$val['price']}}</td>
 								<td style="">
@@ -44,11 +46,7 @@
 												<li><a class="dropdown-item" href="javascript:void(0);" data-target="#data_modal" data-toggle="modal" onclick="loadModal('{{$module['action']}}/import','{{$val[$module['db_key']]}}')" >
 													<i class="fa fa-edit"></i> Import
 												</a></li>
-												@if(Auth::user()->role == 2)
-												<li><a class="dropdown-item" href="{{ url('instructor/questions/'.$val[$module['db_key']]) }}"><i class="fa fa-eye"></i> Questions</a> </li>
-												@elseif(Auth::user()->role == 1)
 												<li><a class="dropdown-item" href="{{ url('admin/questions/'.$val[$module['db_key']]) }}"><i class="fa fa-eye"></i> Questions</a> </li>
-												@endif
 											</ul>
 										</div>
 									</td>
@@ -63,4 +61,3 @@
 		</div>
 	</div>
 	@endsection
-

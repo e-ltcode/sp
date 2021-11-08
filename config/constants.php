@@ -2,7 +2,7 @@
 return [
 	'role' => [
 		1 => 'Admin',
-		2 => 'Instructor',
+		// 2 => 'Instructor',
 		3 => 'Student'
 	],
 	'course_difficulity' => [

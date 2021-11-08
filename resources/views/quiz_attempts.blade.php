@@ -10,12 +10,18 @@
     width: 100%;
     bottom: 0px;
 }*/
-  table { 
+table { 
     width: 100%; 
     border-collapse: collapse; 
     margin:50px auto;
   }
-
+  .btn-outline-info{
+    border-color: #9d43ac !important;
+    color: #9d43ac !important;
+  }
+  .btn-outline-info:hover{
+    color: #fff !important;
+  }
   /* Zebra striping */
   tr:nth-of-type(odd) { 
     background: #eee; 
@@ -43,6 +49,7 @@ Max width before this PARTICULAR table gets nasty
 This query will take effect for any screen smaller than 760px
 and also iPads specifically.
 */
+
 @media 
 only screen and (max-width: 760px),
 (min-device-width: 768px) and (max-device-width: 1024px)  {
@@ -67,9 +74,12 @@ only screen and (max-width: 760px),
   
   td { 
     /* Behave  like a "row" */
-    border: none;
+    /*border: 1px solid;*/
     border-bottom: 1px solid #eee; 
     position: relative;
+    padding-top: 0px;
+    height: 30px;
+    padding-bottom: 0px;
     padding-left: 50%; 
   }
 
@@ -77,7 +87,8 @@ only screen and (max-width: 760px),
     /* Now like a table header */
     position: absolute;
     /* Top/left values mimic padding */
-    top: 6px;
+    top: 2px;
+    background-color: #9d43ac;
     left: 6px;
     width: 45%; 
     padding-right: 10px; 
@@ -96,7 +107,7 @@ only screen and (max-width: 760px),
 
 <div class="container mt-5 pt-5 text-right" style="min-height: 400px;">
 
-      <h2 class="text-center">Result of All Quiz Attempt</h2>
+      <h2 class="text-center">Result of All Quiz Attempts</h2>
   <table>
     <thead>
       <tr>
@@ -120,7 +131,8 @@ only screen and (max-width: 760px),
         <td data-column="Quiz Title">{{ $val['quiz']['quiz_title'] }}</td>
         <td data-column="Result">{{ $val['correct_questions'].'/'.$val['total_questions'] }}</td>
         <td data-column="Percentage">{{ $result }}%</td>
-        <td data-column="Percentage" class="text-center"><a href="{{ url('view_quiz').'/'.$val['quiz_id'] }}" class="btn btn-sm btn-outline-info">View Answers</a></td>
+        <td data-column="View Answers" class="text-left"><a href="{{ url('view_quiz').'/'.$val['quiz_id'] }}" class="btn btn-sm btn-outline-info">View Answers</a></td>
+
       </tr>
       @endforeach 
       @else
@@ -140,3 +152,4 @@ only screen and (max-width: 760px),
 </div>
 
 @endsection
+

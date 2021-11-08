@@ -50,6 +50,13 @@
 		background-color: #9d43ac !important;
 		border-color: #9d43ac !important;
 	}
+	.btn-marketplace{
+		background-color: #9d43ac;
+		color: #fff;
+	}
+	.btn-marketplace:hover{
+		color: #fff;
+	}
 </style>
 
 
@@ -91,7 +98,7 @@
 					<h5 class="text-center mr-1 ml-1">Your cart is empty</h5>					
 				</div>
 			</div>
-			<a href="{{ url('marketplace') }}" class="btn btn-danger mt-3">Go to Marketplace</a>
+			<a href="{{ url('marketplace') }}" class="btn btn-marketplace mt-5">Go to Marketplace</a>
 			@endif
 		</div>
 	</div>

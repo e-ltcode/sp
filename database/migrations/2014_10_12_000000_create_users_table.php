@@ -22,7 +22,7 @@ class CreateUsersTable extends Migration
             $table->string('google_id')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password',255);
-            $table->enum('role',['1','2','3'])->default('3');
+            $table->enum('role',['-1','1','2','3'])->default('3');
             $table->rememberToken();
             $table->softDeletes();
             $table->timestamps();

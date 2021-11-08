@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Quiz;
 use App\Models\CartItem;
 use App\Models\QuizAttempt;
+use App\Models\Category;
 use App\Models\QuizAttemptsQuestion;
 use Auth;
 
@@ -57,6 +58,9 @@ class MarketplaceController extends Controller
             $quiz_attempt = QuizAttempt::find($id);
             $data['quiz'] = Quiz::with(['questions.answers','questions'])->where('id',$quiz_attempt->quiz_id)->get()->first()->toArray();
             $response = '';
+            if(!empty($request->cat_id)){
+            $data['categories'] = Category::where('id',$request->cat_id)->get()->toArray();
+            }
             $data['count'] = count($data['quiz']['questions']);
             $skip = (int) @$request->skip;
             $data['skip'] = $skip;
@@ -67,6 +71,10 @@ class MarketplaceController extends Controller
         }
         $quiz_attempt = QuizAttempt::find($id);
         $data['quiz_attempt_id'] = $quiz_attempt->id;
+        // $data['parent_categories'] = Category::with('parent_category')->whereNull('parent_category_id')->get()->toArray();
+        $data['categories'] = Category::all()->toArray();
+        $data['parent_categories'] = Category::with('parent_category')->whereNull('parent_category_id')->get()->toArray();
+
         $data['quiz'] = Quiz::with('questions.answers')->where('id',$quiz_attempt->quiz_id)->get()->first()->toArray();
         return view('take_quiz',$data);
     }
@@ -89,6 +97,9 @@ class MarketplaceController extends Controller
 
     public function thank_you(){
         $data = [];
+        $data['categories'] = Category::all()->toArray();
+        $data['parent_categories'] = Category::with('parent_category')->whereNull('parent_category_id')->get()->toArray();
+        // dd($data);
         return view('thank_you',$data);
     }
     public function generate_quiz_attempt(Request $request,$quiz_id){
@@ -119,7 +130,8 @@ class MarketplaceController extends Controller
         }
         }
         // dd($data['attempts']);
-
+        $data['categories'] = Category::all()->toArray();
+        $data['parent_categories'] = Category::with('parent_category')->whereNull('parent_category_id')->get()->toArray();
         return view('quiz_attempts',$data);
     }
     public function checkout(Request $request,$id=null)

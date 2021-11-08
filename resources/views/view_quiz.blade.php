@@ -14,11 +14,12 @@
 	
 	@foreach($quiz['questions'] as $key => $val)
 	<div class="card my-3">
-		<h5 class="card-header">{{ $val['title'] }}
+		<div class="card-header ck-content">
+			{!! $val['title'] !!}
 
-			<i type="button" class="fa fa-question-circle" data-toggle="tooltip" data-html="true" data-placement="right" title="{{ $val['answer_explaination'] }}">
-			</i>
-		</h5>
+			{{-- <i type="button" class="fa fa-question-circle" data-toggle="tooltip" data-html="true" data-placement="right" title="{{ $val['answer_explaination'] }}">
+			</i> --}}
+		</div>
 		<div class="card-body">
 			@php
 			$option = 'A';

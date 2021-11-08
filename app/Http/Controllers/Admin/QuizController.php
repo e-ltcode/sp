@@ -62,7 +62,7 @@ class QuizController extends Controller
             $obj = $obj->where('topic_id',$request->topic);
             $data['selected_quiz'] = @$request->topic;
         }
-        $data['list']   =   $obj->paginate($this->perpage)->toArray();
+        $data['list']   =   $obj->with('category')->paginate($this->perpage)->toArray();
         $data['module'] = [
             'type'=>$this->type,
             'singular'=>$this->singular,
@@ -103,7 +103,7 @@ class QuizController extends Controller
             "action"=> url($this->action.'/create')
         );
         $data['selected_quiz'] = @$id;
-        $data['categories'] = Category::all();
+        $data['categories'] = Category::all()->toArray();
         return view($this->view.'create_edit',$data);
     }
     public function cleanData(&$data) {
@@ -143,7 +143,7 @@ class QuizController extends Controller
             "breadcrumbs"=>array("dashboard"=>"Dashboard","#"=>$this->plural." List"),
             "action"=> url($this->action.'/edit/'.$id)
         );
-
+        $data['categories'] = Category::all()->toArray();
         $data['row'] = Quiz::find($id)->toArray();
 
         return view($this->view.'create_edit',$data);

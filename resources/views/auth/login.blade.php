@@ -74,7 +74,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-6 text-right">
+                            <div class="col-md-6 text-right mb-2">
                                 @if (Route::has('password.request'))
                                 <a class="" style="font-size: 15px;" href="{{ route('password.request') }}">
                                     {{ __('Forgot Your Password?') }}
@@ -96,7 +96,7 @@
                             </div>
 
                             <div class="form-group col-md-12  mb-0">
-                                <div class=" ">
+                                <div class="mt-3">
                                     Not Have an Account? <a href="{{ url('/register') }}" style="color: #9d43ac"><b> Register Now</b></a>
                                 </div>
                             </div>
