@@ -274,13 +274,13 @@
             been standard dummy
         </h1>
         <p data-aos="fade" data-aos-easing="linear" data-aos-duration="1000" data-aos-once="true" class="lead text-white my-4">
-            Lorem ipsum dolor sit amet, id nec enim autem oblique, ei dico mentitum duo.
+           Where theory meets practice for software engineers
             <br> Illum iusto laoreet his te. Lorem partiendo mel ex. Ad vitae admodum voluptatum per.
         </p>
         <a href="{{ url('marketplace?type=free') }}" data-aos="fade" data-aos-easing="linear" data-aos-duration="1000" data-aos-once="true" class="btn my-4 font-weight-bold atlas-cta cta-green">Get Started</a>
     </div>
 </div>
-<!-- three-blcok -->
+
 <div class="container my-5 py-2">
     <h2 class="text-center font-weight-bold my-5">Latin wor consectetur from </h2>
     <div class="row">
