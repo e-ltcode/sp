@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Svarog Project</title>
+    <title>Svarog Project | Testing platform for software developers</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -328,7 +328,7 @@ padding: 0px;
                                 <i class="far fa-envelope-open"></i>
                                 <div class="cta-text">
                                     <a href="mailto: abc@example.com" class="text-decoration-none"><h4>Mail us</h4></a>
-                                    <span>mail@info.com</span>
+                                    <span>contact@svarogproject.com</span>
                                 </div>
                             </div>
                             <div class="socialbtns pt-4">
