@@ -1,9 +1,12 @@
 <style type="text/css">
-    .form-check-input{
+    .form-check-input {
         width: 30px;
         height: 20px;
     }
 </style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
 <div class="modal-content">
     <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">
@@ -11,11 +14,11 @@
         </h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">
-                ×
+                x
             </span>
         </button>
     </div>
-    <form action="{{$action}}" method="post" class="make_ajax" >
+    <form action="{{$action}}" method="post" class="make_ajax">
 
         <div class="modal-body">
             <div class="row">
@@ -25,25 +28,15 @@
                         <textarea name="title" class="editor">
                             {{ @$row['title'] }}
                         </textarea>
-                        {{-- <input type='text' name="title" id="title" class="form-control" required=""  value="{{@$row['title']}}" /> --}}
+
                     </div>
                 </div>
-
-                {{-- <div class="col-md-6">
-                    <div class="form-group">
-                        <label for="type" class="control-label">type</label>
-                        <select name="type" id="type" class="form-control">
-                            @foreach(config('constants.question_types') as $type)
-                            <option @if(@$row['type'] == $type) selected="" @endif value="{{ $type }}">{{ $type }}</option>
-                            @endforeach
-                        </select>
-                    </div>
-                </div> --}}
 
                 <div class="col-md-6">
                     <div class="form-group">
                         <label for="type" class="control-label">Learn More URL</label>
-                        <input type="text" name="learn_more_url" value="{{ @$row['learn_more_url'] }}" class="form-control">
+                        <input type="url" name="learn_more_url" value="{{ @$row['learn_more_url'] }}"
+                            class="form-control">
                     </div>
                 </div>
 
@@ -60,7 +53,8 @@
                         <label for="course_id" class="control-label">Quiz</label>
                         <select name="quiz_id" id="quiz_id" class="form-control">
                             @foreach($quiz as $k => $v)
-                            <option @if(@$row['quiz_id'] == $v['id']) selected="" @endif value="{{ $v['id'] }}">{{ $v['quiz_title'] }}</option>
+                            <option @if(@$row['quiz_id']==$v['id']) selected="" @endif value="{{ $v['id'] }}">{{
+                                $v['quiz_title'] }}</option>
                             @endforeach
                         </select>
                     </div>
@@ -82,18 +76,16 @@
                         <label>Answer (A)</label>
 
                         @php($i = (@$row['answers'][0])?@$row['answers'][0]['id']:1)
-                        {{-- <textarea name="answers[{{ $i }}]" class="editor">
-                           {{ @$row['answers'][0]['title'] }}
-                        </textarea> --}}
 
-                        
-                        <input type="text" name="answers[{{ $i }}]" value="{{ @$row['answers'][0]['title'] }}" class="form-control">
+                        <input type="text" name="answers[{{ $i }}]" value="{{ @$row['answers'][0]['title'] }}"
+                            class="form-control">
                     </div>
                 </div>
                 <div class="col-md-2">
                     <div class="form-group">
                         <label>Correct </label><br>
-                        <input type="checkbox" name="is_correct[]" @if(@$row['answers'][0]['is_correct'] == 1) checked="" @endif value="{{ $i }}" class="form-check-input">
+                        <input type="checkbox" name="is_correct[]" @if(@$row['answers'][0]['is_correct']==1) checked=""
+                            @endif value="{{ $i }}" class="form-check-input">
                     </div>
                 </div>
 
@@ -101,13 +93,15 @@
                     <div class="form-group">
                         <label>Answer (B)</label>
                         @php($i = (@$row['answers'][1])?@$row['answers'][1]['id']:2)
-                        <input type="text" name="answers[{{ $i }}]"  value="{{ @$row['answers'][1]['title'] }}" class="form-control">
+                        <input type="text" name="answers[{{ $i }}]" value="{{ @$row['answers'][1]['title'] }}"
+                            class="form-control">
                     </div>
                 </div>
                 <div class="col-md-2">
                     <div class="form-group">
                         <label>Correct </label><br>
-                        <input type="checkbox" name="is_correct[]" @if(@$row['answers'][1]['is_correct'] == 1) checked="" @endif value="{{ $i }}" class="form-check-input">
+                        <input type="checkbox" name="is_correct[]" @if(@$row['answers'][1]['is_correct']==1) checked=""
+                            @endif value="{{ $i }}" class="form-check-input">
                     </div>
                 </div>
 
@@ -115,13 +109,15 @@
                     <div class="form-group">
                         <label>Answer (C)</label>
                         @php($i = (@$row['answers'][2])?@$row['answers'][2]['id']:3)
-                        <input type="text" name="answers[{{ $i }}]" value="{{ @$row['answers'][2]['title'] }}"  class="form-control">
+                        <input type="text" name="answers[{{ $i }}]" value="{{ @$row['answers'][2]['title'] }}"
+                            class="form-control">
                     </div>
                 </div>
                 <div class="col-md-2">
                     <div class="form-group">
                         <label>Correct </label><br>
-                        <input type="checkbox" name="is_correct[]" @if(@$row['answers'][2]['is_correct'] == 1) checked="" @endif value="{{ $i }}" class="form-check-input">
+                        <input type="checkbox" name="is_correct[]" @if(@$row['answers'][2]['is_correct']==1) checked=""
+                            @endif value="{{ $i }}" class="form-check-input">
                     </div>
                 </div>
 
@@ -129,13 +125,15 @@
                     <div class="form-group">
                         <label>Answer (D)</label>
                         @php($i = (@$row['answers'][3])?@$row['answers'][3]['id']:4)
-                        <input type="text" name="answers[{{ $i }}]" value="{{ @$row['answers'][3]['title'] }}"  class="form-control">
+                        <input type="text" name="answers[{{ $i }}]" value="{{ @$row['answers'][3]['title'] }}"
+                            class="form-control">
                     </div>
                 </div>
                 <div class="col-md-2">
                     <div class="form-group">
                         <label>Correct </label><br>
-                        <input type="checkbox" name="is_correct[]" @if(@$row['answers'][3]['is_correct'] == 1) checked="" @endif value="{{ $i }}" class="form-check-input">
+                        <input type="checkbox" name="is_correct[]" @if(@$row['answers'][3]['is_correct']==1) checked=""
+                            @endif value="{{ $i }}" class="form-check-input">
                     </div>
                 </div>
 
@@ -143,11 +141,13 @@
             </div>
         </div>
         <div class="modal-footer">
-            <button type="submit" class="btn btn-info m-btn m-btn--icon" id="add_oh_period"><span><i class="la la-check"></i><span>{{ @$button_text }}</span></span></button>
-            <button type="button" class="btn btn-secondary m-btn m-btn--icon" data-dismiss="modal"><span>Close</span></button>
+            <button type="submit" class="btn btn-info m-btn m-btn--icon" id="add_oh_period"><span><i
+                        class="fas fa-check"></i><span>{{ @$button_text }}</span></span></button>
+            <button type="button" class="btn btn-secondary m-btn m-btn--icon"
+                data-dismiss="modal"><span>Close</span></button>
         </div>
     </form>
-</div> 
+</div>
 <script>
     all_editors = document.querySelectorAll('.editor')
 
@@ -168,4 +168,3 @@
   } );
   }
 </script>
-

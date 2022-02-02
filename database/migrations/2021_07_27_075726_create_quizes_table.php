@@ -19,6 +19,7 @@ class CreateQuizesTable extends Migration
             $table->string('quiz_description')->nullable();
             $table->float('price')->nullable();
             $table->string('image')->nullable();
+            $table->string('type')->nullable();
             $table->string('status')->nullable();
             $table->foreignId('created_by')->constrained('users')->onDelete('cascade')->onUpdate('cascade');
             $table->foreignId('category_id')->nullable()->constrained('categories')->onDelete('cascade')->onUpdate('cascade');

@@ -11,7 +11,9 @@
     <link href="{{ asset('/assets/vendor/fonts/circular-std/style.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('/assets/libs/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('/assets/vendor/fonts/fontawesome/css/fontawesome-all.css') }}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" integrity="sha512-3pIirOrwegjM6erE5gPSwkUzO+3cTjpnV9lexlNZqvupR64iZBnOOTiiLPb9M36zpMScbmUNIcHUqKD47M719g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css"
+        integrity="sha512-3pIirOrwegjM6erE5gPSwkUzO+3cTjpnV9lexlNZqvupR64iZBnOOTiiLPb9M36zpMScbmUNIcHUqKD47M719g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     @yield('styles')
     <title>{{ @$page_title }}</title>
 </head>
@@ -49,7 +51,8 @@
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
-                            Copyright © 2018 Concept. All rights reserved. Dashboard by <a href="https://colorlib.com/wp/">Colorlib</a>. 
+                            Copyright © 2018 Concept. All rights reserved. Dashboard by <a
+                                href="https://colorlib.com/wp/">Colorlib</a>.
                         </div>
                         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
                             <div class="text-md-right footer-links d-none d-sm-block">
@@ -71,24 +74,27 @@
     </div>
     <div class="modal fade bs-modal-lg" id="data_modal" role="dialog" aria-hidden="true" style="display: none;">
         <div class="modal-dialog modal-lg all-modals">
-             <div class="modal-content"></div>
-         </div>
+            <div class="modal-content"></div>
+        </div>
     </div>
- <div id="site_url" style="display: none;">{{url('/')}}</div>
- <div id="current_url" style="display: none;">{{URL::current()}}</div> 
- <!-- ============================================================== -->
- <!-- end main wrapper  -->
- <!-- ============================================================== -->
- <!-- jquery 3.3.1  -->
- <script src="{{ asset('/assets/vendor/jquery/jquery-3.3.1.min.js') }}"></script>
- <!-- bootstap bundle js -->
- <!-- bootstap bundle js -->
- <script src="{{ asset('/assets/vendor/bootstrap/js/bootstrap.bundle.js') }}"></script>
- <!-- slimscroll js -->
- <script src="{{ asset('/assets/vendor/slimscroll/jquery.slimscroll.js') }}"></script>
- <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
- @yield('admin_scripts')
- <script type="text/javascript" src="{{env('GLOBAL_SCRIPT')}}"></script>
+    <div id="site_url" style="display: none;">{{url('/')}}</div>
+    <div id="current_url" style="display: none;">{{URL::current()}}</div>
+    <!-- ============================================================== -->
+    <!-- end main wrapper  -->
+    <!-- ============================================================== -->
+    <!-- jquery 3.3.1  -->
+    <script src="{{ asset('/assets/vendor/jquery/jquery-3.3.1.min.js') }}"></script>
+    <!-- bootstap bundle js -->
+    <!-- bootstap bundle js -->
+    <script src="{{ asset('/assets/vendor/bootstrap/js/bootstrap.bundle.js') }}"></script>
+    <!-- slimscroll js -->
+    <script src="{{ asset('/assets/vendor/slimscroll/jquery.slimscroll.js') }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"
+        integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    @yield('admin_scripts')
+    <script type="text/javascript" src="{{env('GLOBAL_SCRIPT')}}"></script>
 
 </body>
+
 </html>

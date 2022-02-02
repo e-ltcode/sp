@@ -2,25 +2,30 @@
 @section('content')
 <style>
     .table_result .row {
-        display: -ms-flexbox; /* IE10 */
+        display: -ms-flexbox;
+        /* IE10 */
         display: flex;
-        -ms-flex-wrap: wrap; /* IE10 */
+        -ms-flex-wrap: wrap;
+        /* IE10 */
         flex-wrap: wrap;
         margin: 0 -16px;
     }
 
     .table_result .row .col-25 {
-        -ms-flex: 25%; /* IE10 */
+        -ms-flex: 25%;
+        /* IE10 */
         flex: 25%;
     }
 
     .row .col-50 {
-        -ms-flex: 50%; /* IE10 */
+        -ms-flex: 50%;
+        /* IE10 */
         flex: 50%;
     }
 
     .row .col-75 {
-        -ms-flex: 75%; /* IE10 */
+        -ms-flex: 75%;
+        /* IE10 */
         flex: 75%;
     }
 
@@ -55,7 +60,8 @@
         padding: 7px 0;
         font-size: 24px;
     }
-   .btn_checkout {
+
+    .btn_checkout {
         background-color: #9d43ac;
         color: white;
         padding: 12px;
@@ -83,10 +89,12 @@
         float: right;
         color: grey;
     }
+
     @media (max-width: 800px) {
         .row {
             flex-direction: column-reverse;
         }
+
         .col-25 {
             margin-bottom: 20px;
         }
@@ -129,6 +137,14 @@
                             </div>
 
                         </div>
+                        <div class="form-group mt-3 d-flex align-items-center">
+                            <div>
+                                <input type="checkbox" required>
+                            </div>
+                            <div class="px-1">
+                                <a href="{{ url('/terms') }}" target="blank" class="text-dark">Terms and Conditions</a>
+                            </div>
+                        </div>
                         <input type="submit" value="Continue to checkout" class="btn_checkout">
                     </form>
                 </div>
@@ -143,9 +159,10 @@
 @endsection
 @section('scripts')
 <script src="https://www.paypal.com/sdk/js?client-id={{ env('PAYPAL_CLIENT_ID') }}&components=buttons"></script>
-<script type="text/javascript">
 
-//Paypal Integration
+
+<script type="text/javascript">
+    //Paypal Integration
 
 var order_id;
 function accept_payment(){
@@ -166,7 +183,7 @@ function accept_payment(){
             });
         },
         onApprove: function(data, actions) {
-            console.log(data);
+            // console.log(data);
             $.ajax({
                 url: '{{ url('accept_payment') }}',
                 method: 'POST',
@@ -175,10 +192,11 @@ function accept_payment(){
                     'orderID': data.orderID,
                     'payerID': data.payerID,
                     local_order: order_id
+                    
                 },
                 success: function(response){
                     alert('Payment Completed!')
-                    window.location.replace("{{ url('marketplace') }}");
+                    window.location.replace("{{ url('email?order_id=')}}"+order_id);
                 }
 
             });
@@ -215,7 +233,7 @@ $(document).on("submit", "form.make_ajax_submit", function (event) {
         data: new FormData(this),
         headers: { "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content") },
         success: function (res) {
-            console.log(res)
+            // console.log(res)
             order_id = res.order_id
             removeWait(btn, btntxt);
             $('.checkout_form').html('');
@@ -226,7 +244,7 @@ $(document).on("submit", "form.make_ajax_submit", function (event) {
 return false;
 },
 error: function (err) {
-    console.log(err.responseJSON);
+    // console.log(err.responseJSON);
     toastr["error"](err.responseJSON.message, "Alert!");
     removeWait(btn, btntxt);
     return false;

@@ -1,3 +1,6 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
 <div class="modal-content">
     <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">
@@ -9,7 +12,7 @@
             </span>
         </button>
     </div>
-    <form action="{{$action}}" method="post" class="make_ajax" >
+    <form action="{{$action}}" method="post" class="make_ajax">
 
         <div class="modal-body">
             <div class="row">
@@ -18,10 +21,11 @@
                         <label for="">Quiz id:</label>
                         <select class="form-control" id="quiz_id" name="quiz_id">
                             @foreach($quizes as $k => $v)
-                            <option @if(@$row['quiz_id'] == $v['id']) selected="" @endif data-key="{{$k}}" value="{{$v['id']}}">{{$v['quiz_title']}}</option>
+                            <option @if(@$row['quiz_id']==$v['id']) selected="" @endif data-key="{{$k}}"
+                                value="{{$v['id']}}">{{$v['quiz_title']}}</option>
                             @endforeach
                         </select>
-                    </div> 
+                    </div>
                 </div>
 
                 <div class="col-md-6">
@@ -32,7 +36,7 @@
                             <option data-key="{{$k}}" value="{{$v['id']}}">{{$v['name']}}</option>
                             @endforeach
                         </select>
-                    </div> 
+                    </div>
                 </div>
 
                 <div class="col-md-6">
@@ -43,19 +47,22 @@
                             <option data-key="{{$k}}" value="{{$v['id']}}">{{$v['id']}}</option>
                             @endforeach
                         </select>
-                    </div> 
+                    </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
                         <label for="amount" class="control-label">amount</label>
-                        <input type='text' name="amount" id="amount" class="form-control" required=""  value="{{@$row['amount']}}" />
+                        <input type='text' name="amount" id="amount" class="form-control" required=""
+                            value="{{@$row['amount']}}" />
                     </div>
                 </div>
             </div>
         </div>
         <div class="modal-footer">
-            <button type="submit" class="btn btn-info m-btn m-btn--icon" id="add_oh_period"><span><i class="la la-check"></i><span>{{ @$button_text }}</span></span></button>
-            <button type="button" class="btn btn-secondary m-btn m-btn--icon" data-dismiss="modal"><span>Close</span></button>
+            <button type="submit" class="btn btn-info m-btn m-btn--icon" id="add_oh_period"><span><i
+                        class="fas fa-check"></i><span>{{ @$button_text }}</span></span></button>
+            <button type="button" class="btn btn-secondary m-btn m-btn--icon"
+                data-dismiss="modal"><span>Close</span></button>
         </div>
     </form>
-</div> 
+</div>

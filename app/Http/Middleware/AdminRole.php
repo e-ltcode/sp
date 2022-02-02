@@ -2,8 +2,9 @@
 
 namespace App\Http\Middleware;
 
-use Closure;
 use Auth;
+use Closure;
+
 class AdminRole
 {
     /**
@@ -19,7 +20,7 @@ class AdminRole
         if (!Auth::check()) {
             return redirect()->route('login');
         }
-        if($request->user()->role != '1' && $request->user()->role != '-1'){
+        if ($request->user()->role != '1' && $request->user()->role != '-1') {
             return redirect()->route('login');
         }
         return $next($request);
