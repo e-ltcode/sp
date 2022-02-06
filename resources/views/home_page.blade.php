@@ -124,7 +124,7 @@
             This  project is just starting out
             , so, if you have any ideas or would like to contribute, we would like to hear from you!
            <p><a href="https://www.linkedin.com/in/djordje-milicevic-82a009166/">LinkedIn</a></p> <br>
-           <p>Or, you can contact us at out email : email@svarogproject.com</p>
+           <p>Or, you can contact us at our email : email@svarogproject.com</p>
         </p>
     </div>
 </div>
