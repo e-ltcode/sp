@@ -76,6 +76,7 @@
 			<img src="{{ asset('assets/images/th.png') }}" alt="">
 			<p>Your submission has been received</p>
 			<h2>Hope you learned something new today, keep going 🙂</h2>
+			<p> You can send us feedback here: email@svarogproject.com - we are waiting to hear from you! </p>
 			<a href="{{ url('/quiz_attempts') }}">Check Out My Quizzes -></a>
 		</div>
 	</div>

@@ -142,7 +142,7 @@
                                 <input type="checkbox" required>
                             </div>
                             <div class="px-1">
-                                <a href="{{ url('/terms') }}" target="blank" class="text-dark">Terms and Conditions</a>
+                                <a href="{{ url('/terms') }}" target="blank" class="text-dark">I’ve read and accept the Terms & Conditions</a>
                             </div>
                         </div>
                         <input type="submit" value="Continue to checkout" class="btn_checkout">

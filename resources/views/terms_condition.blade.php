@@ -1,40 +1,123 @@
-@extends('layouts.header')
+<h2><strong>Terms and Conditions</strong></h2>
 
-@section('content')
+<p>Welcome to Svarog Project!</p>
 
-<div class="container mt-5 pt-5">
-	<h3 class="mb-3">Terms & Condition</h3>
-	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean condimentum luctus tellus vitae scelerisque. Nulla non convallis nisl. Quisque ligula neque, tempor vel risus nec, posuere dapibus mi. Phasellus tempus, libero a imperdiet viverra, enim est porttitor ex, sed scelerisque nunc diam ac magna. Proin scelerisque, sapien ac imperdiet commodo, lacus magna ullamcorper mauris, id congue velit turpis eu ligula. Aliquam erat volutpat. Nullam sit amet magna magna. Nulla cursus at dolor sed consectetur. Sed at porttitor magna. Vestibulum orci nisl, aliquet non pellentesque non, tempus a mauris. Sed tempus et ipsum varius fringilla. Vivamus placerat quis odio id aliquam.</p>
-	<p>Quisque interdum lorem eget nibh congue, sed volutpat dui lacinia. Morbi quis purus libero. In volutpat diam at leo mollis, sit amet maximus lectus consectetur. Morbi lacinia sem in varius feugiat. Maecenas in porttitor turpis. Praesent in ante facilisis urna malesuada consequat in sit amet purus. Donec eget quam urna. Vivamus sed libero a ante imperdiet venenatis. Donec varius lectus sit amet rutrum volutpat. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-	<p>Aliquam rutrum commodo nulla, ut finibus augue consequat ac. Proin eu tincidunt nisl. Proin nunc massa, vehicula id malesuada sed, tempor id nibh. Vestibulum mauris tellus, porttitor a luctus quis, tempus vel ligula. Suspendisse mollis magna quis odio egestas, id pulvinar orci rhoncus. Etiam eu metus et nulla tristique rutrum quis id nisi. Pellentesque a commodo tellus. Morbi pretium ligula at tellus mollis viverra. Donec viverra venenatis libero, at faucibus metus vulputate id. In vestibulum eros non eros laoreet consequat. Integer porttitor velit eu auctor ultricies. Vestibulum nunc ante, mollis in sollicitudin sit amet, tincidunt vitae metus. Proin sed tempus diam. Mauris orci ligula, efficitur eget rutrum eget, posuere cursus magna. Nullam mi purus, vestibulum nec risus non, lacinia pretium est. Ut risus eros, suscipit suscipit quam sit amet, bibendum aliquam eros.</p>
-	<p>Quisque nec lacus porttitor velit gravida finibus. Fusce quis consectetur nunc, lobortis placerat diam. Duis tempor sem vel leo fermentum, at maximus velit faucibus. Fusce lacinia ac nibh ac faucibus. Mauris maximus lorem felis, in dignissim quam ultricies at. Donec velit felis, tempus id euismod at, dictum id elit. Suspendisse eu nulla eu dui volutpat rutrum sed ut diam. Maecenas molestie, orci ac congue accumsan, ligula tellus laoreet turpis, vitae iaculis ipsum lectus sit amet tortor. Donec cursus ligula mi, id convallis sem auctor vel. Integer quis ex non purus vulputate dapibus. Praesent suscipit hendrerit orci, in gravida ligula lacinia et. Praesent massa orci, volutpat et ex at, suscipit dignissim tortor. Maecenas maximus hendrerit tortor, sit amet cursus tellus scelerisque finibus. Aenean dictum a odio eu dapibus.
-	</p>
-	<p>Aenean sed fringilla mi. Aenean sodales venenatis ex eu tincidunt. Curabitur non nunc ut metus consectetur vehicula in in nibh. Donec venenatis vel nunc sit amet dictum. Fusce at est eget eros luctus aliquet sed nec turpis. Aenean urna nisl, pretium vel volutpat sed, blandit at odio. Vestibulum risus mi, tincidunt condimentum condimentum ut, pretium non turpis. Proin eu lectus in augue efficitur ornare. Nunc nec sodales nisi. Quisque sodales eu nulla nec posuere.
-	</p>
-	<p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Nullam sit amet leo porttitor odio volutpat semper. Suspendisse cursus eleifend enim, quis pharetra leo varius in. Quisque et pharetra nisi. Integer sollicitudin tortor lectus, a tempor nisl bibendum ac. Vivamus leo nisi, ultricies a luctus non, blandit in purus. In rhoncus odio vel mi scelerisque, sed ultrices lorem mollis. Integer aliquet quam tellus, a placerat orci blandit sit amet. Donec quis venenatis lacus. Phasellus vestibulum ultrices lobortis. Vivamus lacinia neque nec magna commodo, eu eleifend mi tempor. Nunc pretium libero sed tincidunt molestie. Vestibulum quis purus eleifend, mollis neque nec, viverra ante.
-	</p>
-	<p>Pellentesque purus odio, gravida sed viverra nec, imperdiet ac diam. Quisque eget velit facilisis dui imperdiet rhoncus. Integer eget tellus id nisi fringilla pulvinar. Maecenas tempus nibh lorem. Nullam vulputate convallis felis id cursus. Aliquam eget pretium neque. Proin feugiat lacus ac tortor venenatis fermentum. Aliquam pellentesque purus id euismod pulvinar. Curabitur ac ex sit amet eros pharetra condimentum in congue odio. Quisque sit amet sodales ex. Nam vitae libero sit amet ex egestas feugiat quis eget eros. Pellentesque sed accumsan turpis.
+<p>These terms and conditions outline the rules and regulations for the use of svarogproject.com's Website, located at https://svarogproject.com.</p>
 
-	</p>
-	<p>Maecenas iaculis est vitae dui convallis mattis. Nulla cursus, neque a interdum ultrices, est urna tristique est, sed vestibulum est ante vel ipsum. Vivamus at elit semper, vehicula ex ut, dictum sapien. Proin eget lectus accumsan, cursus urna vel, auctor nulla. Fusce in nibh quis purus finibus gravida. Nam eleifend ligula et justo sagittis, vel congue metus vulputate. Integer accumsan eu elit eu tristique. Quisque congue cursus lacus, in dictum enim pulvinar ut. Ut pharetra sem erat, dictum bibendum nisl luctus non. Quisque sem enim, iaculis non elit quis, efficitur iaculis urna.
-	</p>
-	<p>In quis dolor eu odio ornare lacinia. Pellentesque venenatis ex a lacus elementum laoreet. Mauris scelerisque convallis aliquam. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec eleifend ante dolor, mattis lobortis purus ornare in. Integer lobortis nibh ornare felis luctus, a sollicitudin sem interdum. Nunc odio nulla, euismod ac ullamcorper sit amet, volutpat a nisl. Sed tincidunt lacinia mollis. Mauris varius nunc ligula, et laoreet mi faucibus eu. Aenean eget auctor sapien. Proin ut porta lacus. Etiam interdum gravida iaculis. Cras gravida libero et metus elementum maximus id a augue. In malesuada turpis quis elit euismod fermentum.
-	</p>
-	<p>Quisque vestibulum augue id facilisis facilisis. Nam egestas placerat ligula non posuere. Integer vel nisi ut neque imperdiet vestibulum fermentum et orci. Sed rhoncus tortor ornare nibh vulputate interdum. Curabitur vehicula sem dui, at condimentum libero venenatis in. Cras convallis suscipit pretium. Pellentesque mattis ut mi nec aliquet. Proin vulputate vulputate ex, a molestie quam pretium et. Phasellus vel consequat diam.
-	</p>
-	<p>Sed condimentum purus rhoncus nunc mollis, non ullamcorper mauris blandit. Cras vestibulum consectetur ex et pulvinar. Cras hendrerit, augue ac finibus blandit, justo turpis pulvinar lectus, molestie hendrerit erat risus et nulla. Proin at leo eu ante feugiat condimentum. Maecenas ut justo non turpis dignissim hendrerit. Ut vitae augue mattis, dapibus lacus viverra, aliquet tortor. Donec placerat ipsum in facilisis molestie. Suspendisse potenti. Ut finibus auctor eros ac gravida. Pellentesque nulla eros, varius nec auctor rhoncus, dignissim nec tellus. Nam luctus orci ex, et lobortis nunc porttitor vitae. Suspendisse potenti. Proin eleifend mi ante, suscipit sagittis ipsum commodo ac.
-	</p>
-	<p>Aliquam et accumsan ipsum. Mauris suscipit ullamcorper consequat. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aenean maximus, metus sed sollicitudin suscipit, nisl urna varius sapien, vitae accumsan velit augue vel mauris. Nulla fringilla urna velit, et malesuada lectus tincidunt et. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aenean non sodales diam, in scelerisque neque. Sed blandit in dolor quis consectetur. Pellentesque porttitor augue quis metus gravida porta. Curabitur maximus sollicitudin mi, a gravida elit feugiat et. Vestibulum faucibus nisl in efficitur maximus. Sed nec mattis mauris. Vivamus pulvinar elit eu efficitur vehicula.
-	</p>
-	<p>Donec pellentesque fringilla egestas. Aenean cursus lacinia eros non convallis. Maecenas mi quam, varius nec urna eget, tincidunt mattis mi. Nam commodo elementum dui ut pretium. Vivamus a gravida elit, non semper lorem. Cras sit amet dui lacus. Phasellus quam erat, laoreet quis purus at, auctor lobortis velit. Donec ullamcorper tortor in quam dignissim malesuada. Morbi facilisis, quam eget maximus vestibulum, massa enim vestibulum ex, pretium lacinia ex sem non mauris.
-	</p>
-	<p>Nunc dapibus laoreet tellus, vitae aliquam arcu eleifend ut. Cras vulputate vestibulum felis nec tristique. Pellentesque ac elit ut dui rutrum tristique. Proin sed ultrices enim, in maximus eros. Aenean tempus nulla ac dapibus facilisis. Sed sed ligula at magna lacinia laoreet. Nulla sed fringilla turpis, a bibendum purus. Mauris ultricies auctor scelerisque. Praesent cursus sagittis lectus vel laoreet. Vivamus feugiat, sem sed faucibus eleifend, eros ante imperdiet felis, vel euismod nibh tortor at nibh. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
-	</p>
-	<p>Integer tincidunt ex ut feugiat imperdiet. Proin iaculis vel lorem pulvinar congue. Vestibulum ullamcorper imperdiet arcu sed finibus. Phasellus sit amet velit ac sem sagittis aliquet vel sed quam. Nam laoreet magna orci, vel auctor erat ultricies et. Mauris quis arcu eu lectus commodo lacinia et non justo. Duis at lectus tincidunt, vestibulum enim ut, faucibus erat. Vivamus pulvinar rutrum orci, non fringilla urna fringilla ut. Nunc sodales ornare imperdiet.
+<p>By accessing this website we assume you accept these terms and conditions. Do not continue to use Svarog Project if you do not agree to take all of the terms and conditions stated on this page.</p>
 
-	</p>
-	<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Maecenas sed ex vitae purus sodales venenatis. Mauris porttitor, justo eu lobortis semper, justo tortor facilisis erat, sit amet faucibus risus felis et metus. Ut sit amet neque a turpis maximus egestas at ac eros. Nunc vitae odio magna. Aliquam at ligula ut enim volutpat sagittis. Etiam consectetur neque sit amet turpis tempor malesuada. In ultrices a eros ut dictum. Duis aliquam accumsan nunc at congue. Nam sed libero vel dolor semper feugiat.
+<p>The following terminology applies to these Terms and Conditions, Privacy Statement and Disclaimer Notice and all Agreements: "Client", "You" and "Your" refers to you, the person log on this website and compliant to the Company’s terms and conditions. "The Company", "Ourselves", "We", "Our" and "Us", refers to our Company. "Party", "Parties", or "Us", refers to both the Client and ourselves. All terms refer to the offer, acceptance and consideration of payment necessary to undertake the process of our assistance to the Client in the most appropriate manner for the express purpose of meeting the Client’s needs in respect of provision of the Company’s stated services, in accordance with and subject to, prevailing law of Netherlands. Any use of the above terminology or other words in the singular, plural, capitalization and/or he/she or they, are taken as interchangeable and therefore as referring to same.</p>
 
-	</p>
-</div>
-@endsection
+<h3><strong>Cookies</strong></h3>
+
+<p>We employ the use of cookies. By accessing Svarog Project, you agreed to use cookies in agreement with the svarogproject.com's Privacy Policy. </p>
+
+<p>Most interactive websites use cookies to let us retrieve the user’s details for each visit. Cookies are used by our website to enable the functionality of certain areas to make it easier for people visiting our website. Some of our affiliate/advertising partners may also use cookies.</p>
+
+<h3><strong>License</strong></h3>
+
+<p>Unless otherwise stated, svarogproject.com and/or its licensors own the intellectual property rights for all material on Svarog Project. All intellectual property rights are reserved. You may access this from Svarog Project for your own personal use subjected to restrictions set in these terms and conditions.</p>
+
+<p>You must not:</p>
+<ul>
+    <li>Republish material from Svarog Project</li>
+    <li>Sell, rent or sub-license material from Svarog Project</li>
+    <li>Reproduce, duplicate or copy material from Svarog Project</li>
+    <li>Redistribute content from Svarog Project</li>
+</ul>
+
+<p>This Agreement shall begin on the date hereof. Our Terms and Conditions were created with the help of the <a href="https://www.privacypolicies.com/blog/sample-terms-conditions-template/">Terms And Conditions Template</a>.</p>
+
+<p>Parts of this website offer an opportunity for users to post and exchange opinions and information in certain areas of the website. svarogproject.com does not filter, edit, publish or review Comments prior to their presence on the website. Comments do not reflect the views and opinions of svarogproject.com,its agents and/or affiliates. Comments reflect the views and opinions of the person who post their views and opinions. To the extent permitted by applicable laws, svarogproject.com shall not be liable for the Comments or for any liability, damages or expenses caused and/or suffered as a result of any use of and/or posting of and/or appearance of the Comments on this website.</p>
+
+<p>svarogproject.com reserves the right to monitor all Comments and to remove any Comments which can be considered inappropriate, offensive or causes breach of these Terms and Conditions.</p>
+
+<p>You warrant and represent that:</p>
+
+<ul>
+    <li>You are entitled to post the Comments on our website and have all necessary licenses and consents to do so;</li>
+    <li>The Comments do not invade any intellectual property right, including without limitation copyright, patent or trademark of any third party;</li>
+    <li>The Comments do not contain any defamatory, libelous, offensive, indecent or otherwise unlawful material which is an invasion of privacy</li>
+    <li>The Comments will not be used to solicit or promote business or custom or present commercial activities or unlawful activity.</li>
+</ul>
+
+<p>You hereby grant svarogproject.com a non-exclusive license to use, reproduce, edit and authorize others to use, reproduce and edit any of your Comments in any and all forms, formats or media.</p>
+
+<h3><strong>Hyperlinking to our Content</strong></h3>
+
+<p>The following organizations may link to our Website without prior written approval:</p>
+
+<ul>
+    <li>Government agencies;</li>
+    <li>Search engines;</li>
+    <li>News organizations;</li>
+    <li>Online directory distributors may link to our Website in the same manner as they hyperlink to the Websites of other listed businesses; and</li>
+    <li>System wide Accredited Businesses except soliciting non-profit organizations, charity shopping malls, and charity fundraising groups which may not hyperlink to our Web site.</li>
+</ul>
+
+<p>These organizations may link to our home page, to publications or to other Website information so long as the link: (a) is not in any way deceptive; (b) does not falsely imply sponsorship, endorsement or approval of the linking party and its products and/or services; and (c) fits within the context of the linking party’s site.</p>
+
+<p>We may consider and approve other link requests from the following types of organizations:</p>
+
+<ul>
+    <li>commonly-known consumer and/or business information sources;</li>
+    <li>dot.com community sites;</li>
+    <li>associations or other groups representing charities;</li>
+    <li>online directory distributors;</li>
+    <li>internet portals;</li>
+    <li>accounting, law and consulting firms; and</li>
+    <li>educational institutions and trade associations.</li>
+</ul>
+
+<p>We will approve link requests from these organizations if we decide that: (a) the link would not make us look unfavorably to ourselves or to our accredited businesses; (b) the organization does not have any negative records with us; (c) the benefit to us from the visibility of the hyperlink compensates the absence of svarogproject.com; and (d) the link is in the context of general resource information.</p>
+
+<p>These organizations may link to our home page so long as the link: (a) is not in any way deceptive; (b) does not falsely imply sponsorship, endorsement or approval of the linking party and its products or services; and (c) fits within the context of the linking party’s site.</p>
+
+<p>If you are one of the organizations listed in paragraph 2 above and are interested in linking to our website, you must inform us by sending an e-mail to svarogproject.com. Please include your name, your organization name, contact information as well as the URL of your site, a list of any URLs from which you intend to link to our Website, and a list of the URLs on our site to which you would like to link. Wait 2-3 weeks for a response.</p>
+
+<p>Approved organizations may hyperlink to our Website as follows:</p>
+
+<ul>
+    <li>By use of our corporate name; or</li>
+    <li>By use of the uniform resource locator being linked to; or</li>
+    <li>By use of any other description of our Website being linked to that makes sense within the context and format of content on the linking party’s site.</li>
+</ul>
+
+<p>No use of svarogproject.com's logo or other artwork will be allowed for linking absent a trademark license agreement.</p>
+
+<h3><strong>iFrames</strong></h3>
+
+<p>Without prior approval and written permission, you may not create frames around our Webpages that alter in any way the visual presentation or appearance of our Website.</p>
+
+<h3><strong>Content Liability</strong></h3>
+
+<p>We shall not be hold responsible for any content that appears on your Website. You agree to protect and defend us against all claims that is rising on your Website. No link(s) should appear on any Website that may be interpreted as libelous, obscene or criminal, or which infringes, otherwise violates, or advocates the infringement or other violation of, any third party rights.</p>
+
+<h3><strong>Your Privacy</strong></h3>
+
+<p>Please read Privacy Policy</p>
+
+<h3><strong>Reservation of Rights</strong></h3>
+
+<p>We reserve the right to request that you remove all links or any particular link to our Website. You approve to immediately remove all links to our Website upon request. We also reserve the right to amen these terms and conditions and it’s linking policy at any time. By continuously linking to our Website, you agree to be bound to and follow these linking terms and conditions.</p>
+
+<h3><strong>Removal of links from our website</strong></h3>
+
+<p>If you find any link on our Website that is offensive for any reason, you are free to contact and inform us any moment. We will consider requests to remove links but we are not obligated to or so or to respond to you directly.</p>
+
+<p>We do not ensure that the information on this website is correct, we do not warrant its completeness or accuracy; nor do we promise to ensure that the website remains available or that the material on the website is kept up to date.</p>
+
+<h3><strong>Disclaimer</strong></h3>
+
+<p>To the maximum extent permitted by applicable law, we exclude all representations, warranties and conditions relating to our website and the use of this website. Nothing in this disclaimer will:</p>
+
+<ul>
+    <li>limit or exclude our or your liability for death or personal injury;</li>
+    <li>limit or exclude our or your liability for fraud or fraudulent misrepresentation;</li>
+    <li>limit any of our or your liabilities in any way that is not permitted under applicable law; or</li>
+    <li>exclude any of our or your liabilities that may not be excluded under applicable law.</li>
+</ul>
+
+<p>The limitations and prohibitions of liability set in this Section and elsewhere in this disclaimer: (a) are subject to the preceding paragraph; and (b) govern all liabilities arising under the disclaimer, including liabilities arising in contract, in tort and for breach of statutory duty.</p>
+
+<p>As long as the website and the information and services on the website are provided free of charge, we will not be liable for any loss or damage of any nature.</p>
