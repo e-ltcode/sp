@@ -34,14 +34,14 @@
 		text-transform: initial;
 		font-family: "Jost", sans-serif;
 	}
-	.quiz-top-area {
+	/* .quiz-top-area {
 		padding: 10px 0px;
 		background-color: #9d43ac;
 	}
 	.quiz-top-area h1 {
 		color: #fff;
 		font-size: 25px;
-	}
+	} */
 	@media screen and (max-width: 700px){
 		.thankyou-msg h2{
 			font-size: 25px !important;
@@ -66,9 +66,9 @@
 	}
 </style>
 
-<div class="quiz-top-area text-center">
+{{-- <div class="quiz-top-area text-center">
 	<h1>Thanks For Quiz</h1>
-</div>
+</div> --}}
 
 <div class="wizard-forms2" style="">
 	<div class="quiz-option-selector">

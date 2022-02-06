@@ -1,7 +1,23 @@
 <?php
 
+use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\AnswersController;
+use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\OrderItemsController;
+use App\Http\Controllers\Admin\OrdersController;
+use App\Http\Controllers\Admin\QuestionsController;
+use App\Http\Controllers\Admin\QuizController;
+use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Auth\GoogleController;
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\CartItemsController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\MailerController;
+use App\Http\Controllers\MarketplaceController;
+use App\Http\Controllers\OffersController;
 use Illuminate\Support\Facades\Route;
-// use illuminate\support\Facades\Auth;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -11,212 +27,144 @@ use Illuminate\Support\Facades\Route;
 | routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
 |
-*/
+ */
 
 Route::get('/', function () {
-	return view('welcome');
-})->name('home');
+    return view('welcome');
+});
 
 Auth::routes();
 
-// Route::get('/home', 'MarketplaceController@index')->name('home');
+Route::get('/home', [HomeController::class, 'index']);
+Route::prefix('admin')->middleware(['auth', 'admin_auth'])->group(function () {
+    Route::get('/profile_page', [AdminController::class, 'profile']);
 
-Route::prefix('admin')->middleware(['auth','admin_auth'])->group(function () {
-Route::get('/profile_page'	,	'Admin\\AdminController@profile');
-	
-		Route::get('/edit_login_details/{user_id?}'	,	'Admin\\AdminController@edit_login_details');
-	Route::post('/edit_login_details/'	,	'Admin\\AdminController@edit_login_details');
+    Route::get('/edit_login_details/{user_id?}', [AdminController::class, 'edit_login_details']);
+    Route::post('/edit_login_details/', [AdminController::class, 'edit_login_details']);
 
+    Route::get('/', [AdminController::class, 'index']);
+    Route::get('/dashboard', [AdminController::class, 'index']);
 
-	Route::get('/', 'Admin\\AdminController@index')->name('admin');
-	Route::get('/dashboard', 'Admin\\AdminController@index')->name('dashboard');
-	
-	/* User Routes */
-	Route::get('users'					             , 'Admin\\UserController@index')->name('users');
-	Route::get('users/create'		                     , 'Admin\\UserController@create')->name('user_create');
-	Route::post('users/create'			             , 'Admin\\UserController@create')->name('user_create');
-	Route::get('users/edit/{id?}'		                 , 'Admin\\UserController@edit')->name('user_edit');
-	Route::post('users/edit/{id?}'		             , 'Admin\\UserController@edit')->name('user_edit');
-	Route::get('users/update/{id?}'	                 , 'Admin\\UserController@update')->name('user_update');
-	Route::get('users/delete/{id}'		             , 'Admin\\UserController@delete')->name('user_delete');
-	Route::post('update-profile'                       , 'Admin\\UserController@updateProfile')->name('update_profile');
+    /* User Routes */
+    Route::get('users', [UserController::class, 'index']);
+    Route::get('users/create', [UserController::class, 'create']);
+    Route::post('users/create', [UserController::class, 'create']);
+    Route::get('users/edit/{id?}', [UserController::class, 'edit']);
+    Route::post('users/edit/{id?}', [UserController::class, 'edit']);
+    Route::get('users/update/{id?}', [UserController::class, 'update']);
+    Route::get('users/delete/{id}', [UserController::class, 'delete']);
+    Route::post('update-profile', [UserController::class, 'updateProfile']);
 
-	/*Category Routes*/
-	Route::get('/category'	,	'Admin\\CategoryController@index')->name('categories');
-	Route::get('/category/create'	,	'Admin\\CategoryController@create')->name('categories_create');
-	Route::post('/category/create'	,	'Admin\\CategoryController@create');
-	Route::get('/category/edit'	,	'Admin\\CategoryController@edit')->name('categories_edit');
-	Route::post('/category/edit/{id?}'	,	'Admin\\CategoryController@edit')->name('categories_update');
-	Route::get('/category/delete/{id?}'	,	'Admin\\CategoryController@delete')->name('categories_delete');
+    /*Category Routes*/
+    Route::get('/category', [CategoryController::class, 'index']);
+    Route::get('/category/create', [CategoryController::class, 'create']);
+    Route::post('/category/create', [CategoryController::class, 'create']);
+    Route::get('/category/edit', [CategoryController::class, 'edit']);
+    Route::post('/category/edit/{id?}', [CategoryController::class, 'edit']);
+    Route::get('/category/delete/{id?}', [CategoryController::class, 'delete']);
 
+    Route::get('/orders', [OrdersController::class, 'index']);
+    Route::get('/orders/create', [OrdersController::class, 'create']);
+    Route::post('/orders/create', [OrdersController::class, 'create']);
+    Route::get('/orders/edit', [OrdersController::class, 'edit']);
+    Route::post('/orders/edit/{id?}', [OrdersController::class, 'edit']);
+    Route::get('/orders/delete/{id?}', [OrdersController::class, 'delete']);
 
-	Route::get('/orders'	,	'Admin\\OrdersController@index')->name('orders');
-	Route::get('/orders/create'	,	'Admin\\OrdersController@create')->name('orders_create');
-	Route::post('/orders/create'	,	'Admin\\OrdersController@create');
-	Route::get('/orders/edit'	,	'Admin\\OrdersController@edit')->name('orders_edit');
-	Route::post('/orders/edit/{id?}'	,	'Admin\\OrdersController@edit')->name('orders_update');
-	Route::get('/orders/delete/{id?}'	,	'Admin\\OrdersController@delete')->name('orders_delete');
+    Route::get('/order_items', [OrderItemsController::class, 'index']);
+    Route::get('/order_items/create', [OrderItemsController::class, 'create']);
+    Route::post('/order_items/create', [OrderItemsController::class, 'create']);
+    Route::get('/order_items/edit', [OrderItemsController::class, 'edit']);
+    Route::post('/order_items/edit/{id?}', [OrderItemsController::class, 'edit']);
+    Route::get('/order_items/delete/{id?}', [OrderItemsController::class, 'delete']);
 
-	Route::get('/order_items'	,	'Admin\\OrderItemsController@index')->name('order_items');
-	Route::get('/order_items/create'	,	'Admin\\OrderItemsController@create')->name('order_items_create');
-	Route::post('/order_items/create'	,	'Admin\\OrderItemsController@create');
-	Route::get('/order_items/edit'	,	'Admin\\OrderItemsController@edit')->name('order_items_edit');
-	Route::post('/order_items/edit/{id?}'	,	'Admin\\OrderItemsController@edit')->name('order_items_update');
-	Route::get('/order_items/delete/{id?}'	,	'Admin\\OrderItemsController@delete')->name('order_items_delete');
+    Route::get('/cart_items', [CartItemsController::class, 'index']);
+    Route::get('/cart_items/create', [CartItemsController::class, 'create']);
+    Route::post('/cart_items/create', [CartItemsController::class, 'create']);
+    Route::get('/cart_items/edit', [CartItemsController::class, 'edit']);
+    Route::post('/cart_items/edit/{id?}', [CartItemsController::class, 'edit']);
+    Route::get('/cart_items/delete/{id?}', [CartItemsController::class, 'delete']);
 
-	Route::get('/cart_items'	,	'Admin\\CartItemsController@index')->name('cart_items');
-	Route::get('/cart_items/create'	,	'Admin\\CartItemsController@create')->name('cart_items_create');
-	Route::post('/cart_items/create'	,	'Admin\\CartItemsController@create');
-	Route::get('/cart_items/edit'	,	'Admin\\CartItemsController@edit')->name('cart_items_edit');
-	Route::post('/cart_items/edit/{id?}'	,	'Admin\\CartItemsController@edit')->name('cart_items_update');
-	Route::get('/cart_items/delete/{id?}'	,	'Admin\\CartItemsController@delete')->name('order_items_delete');
-	
+    // Route::get('/tags', [TagsController::class, 'index']);
+    // Route::get('/tags/create', [TagsController::class, 'create']);
+    // Route::post('/tags/create', [TagsController::class, 'create']);
+    // Route::get('/tags/edit', [TagsController::class, 'edit']);
+    // Route::post('/tags/edit/{id?}', [TagsController::class, 'edit']);
+    // Route::get('/tags/delete/{id?}', [TagsController::class, 'delete']);
 
-	// Tags
+    /*Quiz Routes*/
+    Route::get('/quizes', [QuizController::class, 'index']);
+    Route::get('/quizes/create', [QuizController::class, 'create']);
+    Route::post('/quizes/create', [QuizController::class, 'create']);
+    Route::get('/quizes/edit', [QuizController::class, 'edit']);
+    Route::post('/quizes/edit/{id?}', [QuizController::class, 'edit']);
+    Route::get('/quizes/delete/{id?}', [QuizController::class, 'delete']);
 
-	Route::get('/tags'	,	'Admin\\TagsController@index')->name('tags');
-	Route::get('/tags/create'	,	'Admin\\TagsController@create')->name('tags_create');
-	Route::post('/tags/create'	,	'Admin\\TagsController@create');
-	Route::get('/tags/edit'	,	'Admin\\TagsController@edit')->name('tags_edit');
-	Route::post('/tags/edit/{id?}'	,	'Admin\\TagsController@edit')->name('tags_update');
-	Route::get('/tags/delete/{id?}'	,	'Admin\\TagsController@delete')->name('tags_delete');
+    Route::get('/quizes/import/{id?}', [QuizController::class, 'import']);
+    Route::post('/quizes/import/{id?}', [QuizController::class, 'import']);
 
+    /*Questions Routes*/
+    Route::get('/questions', [QuestionsController::class, 'index']);
+    Route::get('/questions/create', [QuestionsController::class, 'create']);
+    Route::post('/questions/create', [QuestionsController::class, 'create']);
+    Route::get('/questions/edit', [QuestionsController::class, 'edit']);
+    Route::post('/questions/edit/{id?}', [QuestionsController::class, 'edit']);
+    Route::get('/questions/delete/{id?}', [QuestionsController::class, 'delete']);
+    Route::get('/questions/{id?}', [QuestionsController::class, 'index']);
 
-	/*Quiz Routes*/
-	Route::get('/quizes'	,	'Admin\\QuizController@index');
-	Route::get('/quizes/create/{id?}'	,	'Admin\\QuizController@create');
-	Route::post('/quizes/create'	,	'Admin\\QuizController@create');
-	Route::get('/quizes/edit'	,	'Admin\\QuizController@edit');
-	Route::post('/quizes/edit/{id?}'	,	'Admin\\QuizController@edit');
-	Route::get('/quizes/delete/{id?}'	,	'Admin\\QuizController@delete');
+    /*Answers Routes*/
+    Route::get('/answers/create', [AnswersController::class, 'create']);
+    Route::post('/answers/create', [AnswersController::class, 'create']);
+    Route::get('/answers/edit', [AnswersController::class, 'edit']);
+    Route::post('/answers/edit/{id?}', [AnswersController::class, 'edit']);
+    Route::get('/answers/delete/{id?}', [AnswersController::class, 'delete']);
+    Route::get('/answers/{id?}', [AnswersController::class, 'index']);
 
-	Route::get('/quizes/import/{id?}'	,	'Admin\\QuizController@import');
-	Route::post('/quizes/import/{id?}',	'Admin\\QuizController@import');
-
-	/*Questions Routes*/
-	Route::get('/questions/create/{id?}'	,	'Admin\\QuestionsController@create');
-	Route::post('/questions/create'	,	'Admin\\QuestionsController@create');
-	Route::get('/questions/edit'	,	'Admin\\QuestionsController@edit');
-	Route::post('/questions/edit/{id?}'	,	'Admin\\QuestionsController@edit');
-	Route::get('/questions/delete/{id?}'	,	'Admin\\QuestionsController@delete');
-	Route::get('/questions/{id?}'	,	'Admin\\QuestionsController@index');
-
-
-	/*Answers Routes*/
-	Route::get('/answers/create/{id?}'	,	'Admin\\AnswersController@create');
-	Route::post('/answers/create'	,	'Admin\\AnswersController@create');
-	Route::get('/answers/edit'	,	'Admin\\AnswersController@edit');
-	Route::post('/answers/edit/{id?}'	,	'Admin\\AnswersController@edit');
-	Route::get('/answers/delete/{id?}'	,	'Admin\\AnswersController@delete');
-	Route::get('/answers/{id?}'	,	'Admin\\AnswersController@index');
+    
 });
 
-Route::prefix('/')->middleware(['auth','common_auth'])->group(function () {
-	Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
+Route::prefix('/')->middleware(['auth', 'common_auth'])->group(function () {
+    Route::get('/dashboard', [DashboardController::class, 'index']);
 });
-Route::prefix('/instructor')->middleware(['auth','instructor_auth'])->group(function () {
+// Admin Courses Routes
 
-	/*Courses Routes*/
-	Route::get('/courses'	,	'Admin\\CoursesController@index');
-	Route::get('/courses/create'	,	'Admin\\CoursesController@create');
-	Route::post('/courses/create'	,	'Admin\\CoursesController@create');
-	Route::get('/courses/edit'	,	'Admin\\CoursesController@edit');
-	Route::post('/courses/edit/{id?}'	,	'Admin\\CoursesController@edit');
-	Route::get('/courses/delete/{id?}'	,	'Admin\\CoursesController@delete');
+Route::get('/submitted', [MarketplaceController::class, 'thank_you']);
+Route::get('/marketplace/add_to_cart', [MarketplaceController::class, 'add_to_cart']);
+// Route::get('/marketplace/add_to_cart?{premium?}', [MarketplaceController::class, 'add_to_cart']);
+Route::get('/marketplace/{check?}', [HomeController::class, 'index']);
+Route::get('/marketplace?{category?}', [HomeController::class, 'index']);
+Route::get('/marketplace_test/{check?}', [HomeController::class, 'test_marketplace']);
+Route::get('/take_quiz/{id}/{skip?}', [MarketplaceController::class, 'take_quiz']);
+Route::post('/take_quiz/{id}/{skip?}', [MarketplaceController::class, 'take_quiz']);
+Route::get('/generate_quiz_attempt/{id}/', [MarketplaceController::class, 'generate_quiz_attempt']);
+Route::get('/checkout', [CartItemsController::class, 'checkout']);
+Route::post('/checkout', [CartItemsController::class, 'checkout']);
+Route::post('/accept_payment', [CartItemsController::class, 'accept_payment']);
+Route::get('/accept_payment', [CartItemsController::class, 'accept_payment']);
+Route::get("/email", [MailerController::class, "email"]);
+Route::post("/send-email", [MailerController::class, "composeEmail"]);
 
-	/*Syllabus Routes*/
-	Route::get('/syllabus/create'	,	'Admin\\SyllabusController@create');
-	Route::post('/syllabus/create'	,	'Admin\\SyllabusController@create');
-	Route::get('/syllabus/edit'	,	'Admin\\SyllabusController@edit');
-	Route::post('/syllabus/edit/{id?}'	,	'Admin\\SyllabusController@edit');
-	Route::get('/syllabus/delete/{id?}'	,	'Admin\\SyllabusController@delete');
-	Route::get('/syllabus/{id?}'	,	'Admin\\SyllabusController@index');
+Route::get('/view_quiz/{id}/', [MarketplaceController::class, 'view_quiz']);
 
+Route::get('/quiz_attempts', [MarketplaceController::class, 'quiz_attempts']);
+Route::get('/profile', [MarketplaceController::class, 'profile']);
 
-	/*Topics Routes*/
-	Route::get('/topics/create/{id?}'	,	'Admin\\TopicsController@create');
-	Route::post('/topics/crea te/{id?}'	,	'Admin\\TopicsController@create');
-	Route::get('/topics/edit'	,	'Admin\\TopicsController@edit');
-	Route::post('/topics/edit/{id?}'	,	'Admin\\TopicsController@edit');
-	Route::get('/topics/delete/{id?}'	,	'Admin\\TopicsController@delete');
-	Route::get('/topics/{id?}'	,	'Admin\\TopicsController@index');
+Route::get('/cart_items', [CartItemsController::class, 'index']);
+Route::get('/cart_items/create', [CartItemsController::class, 'create']);
+Route::post('/cart_items/create', [CartItemsController::class, 'create']);
+Route::get('/cart_items/edit', [CartItemsController::class, 'edit']);
+Route::post('/cart_items/edit/{id?}', [CartItemsController::class, 'edit']);
+Route::get('/cart_items/delete/{id?}', [CartItemsController::class, 'delete']);
 
+Route::get('/privacy', [HomeController::class, 'privacy']);
+Route::get('/terms', [HomeController::class, 'terms']);
 
-	/*Lessons Routes*/
-	Route::get('/lesson'	,	'Admin\\LessonController@index');
-	Route::get('/lesson/create/{id?}'	,	'Admin\\LessonController@create');
-	Route::post('/lesson/create'	,	'Admin\\LessonController@create');
-	Route::get('/lesson/edit'	,	'Admin\\LessonController@edit');
-	Route::get('/lesson/edit/{id?}'	,	'Admin\\LessonController@edit');
-	Route::post('/lesson/edit/{id?}'	,	'Admin\\LessonController@edit');
-	Route::get('/lesson/delete/{id?}'	,	'Admin\\LessonController@delete');
+Route::get('auth/google', [GoogleController::class, 'redirectToGoogle']);
+Route::get('auth/google/callback', [GoogleController::class, 'handleGoogleCallback']);
 
-	/*Quiz Routes*/
-	Route::get('/quizes'	,	'Admin\\QuizController@index');
-	Route::get('/quizes/create/{id?}'	,	'Admin\\QuizController@create');
-	Route::post('/quizes/create'	,	'Admin\\QuizController@create');
-	Route::get('/quizes/edit'	,	'Admin\\QuizController@edit');
-	Route::post('/quizes/edit/{id?}'	,	'Admin\\QuizController@edit');
-	Route::get('/quizes/delete/{id?}'	,	'Admin\\QuizController@delete');
+Route::get('importExportView', [QuizController::class, 'importExportView']);
+Route::get('export', [QuizController::class, 'export']);
+Route::post('import', [QuizController::class, 'import']);
 
-	/*Questions Routes*/
-	Route::get('/questions/create/{id?}'	,	'Admin\\QuestionsController@create');
-	Route::post('/questions/create'	,	'Admin\\QuestionsController@create');
-	Route::get('/questions/edit'	,	'Admin\\QuestionsController@edit');
-	Route::post('/questions/edit/{id?}'	,	'Admin\\QuestionsController@edit');
-	Route::get('/questions/delete/{id?}'	,	'Admin\\QuestionsController@delete');
-	Route::get('/questions/{id?}'	,	'Admin\\QuestionsController@index');
+Route::get('/logout', [LoginController::class, 'logout']);
 
-	/*Answers Routes*/
-	Route::get('/answers/create/{id?}'	,	'Admin\\AnswersController@create');
-	Route::post('/answers/create'	,	'Admin\\AnswersController@create');
-	Route::get('/answers/edit'	,	'Admin\\AnswersController@edit');
-	Route::post('/answers/edit/{id?}'	,	'Admin\\AnswersController@edit');
-	Route::get('/answers/delete/{id?}'	,	'Admin\\AnswersController@delete');
-	Route::get('/answers/{id?}'	,	'Admin\\AnswersController@index');
-});
-
-
-	// Admin Courses Routes
-
-Route::get('/thank_you'	,	'MarketplaceController@thank_you');
-Route::get('/marketplace/add_to_cart'	,	'MarketplaceController@add_to_cart');
-Route::get('/marketplace/{check?}'	,	'HomeController@index');
-Route::get('/marketplace?{cat_id?}'	,	'HomeController@index');
-Route::get('/marketplace_test/{check?}'	,	'HomeController@test_marketplace');
-Route::get('/take_quiz/{id}/{skip?}'	,	'MarketplaceController@take_quiz');
-Route::post('/take_quiz/{id}/{skip?}'	,	'MarketplaceController@take_quiz');
-Route::get('/generate_quiz_attempt/{id}/'	,	'MarketplaceController@generate_quiz_attempt');
-Route::get('/checkout'	,	'CartItemsController@checkout');
-Route::post('/checkout'	,	'CartItemsController@checkout');
-Route::post('/accept_payment'	,	'CartItemsController@accept_payment');
-		// Route::post('/checkout'	,	'MarketplaceController@checkout');
-
-Route::get('/view_quiz/{id}/'	,	'MarketplaceController@view_quiz');
-
-Route::get('/quiz_attempts'	,	'MarketplaceController@quiz_attempts');
-Route::get('/profile'	,	'MarketplaceController@profile');
-
-
-
-Route::get('/cart_items'	,	'CartItemsController@index')->name('cart_items');
-Route::get('/cart_items/create'	,	'CartItemsController@create')->name('cart_items_create');
-Route::post('/cart_items/create'	,	'CartItemsController@create');
-Route::get('/cart_items/edit'	,	'CartItemsController@edit')->name('cart_items_edit');
-Route::post('/cart_items/edit/{id?}'	,	'CartItemsController@edit')->name('cart_items_update');
-Route::get('/cart_items/delete/{id?}'	,	'CartItemsController@delete')->name('order_items_delete');
-
-Route::get('/privacy'	,	'HomeController@privacy')->name('privacy');
-Route::get('/terms'	,	'HomeController@terms')->name('terms');
-		// Google
-Route::get('auth/google', 'Auth\GoogleController@redirectToGoogle');
-Route::get('auth/google/callback', 'Auth\GoogleController@handleGoogleCallback');
-
-Route::get('importExportView', 'QuizController@importExportView');
-Route::get('export', 'Admin\\QuizController@export')->name('export');
-Route::post('import', 'Admin\\QuizController@import')->name('import');
-
-Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
-
-Route::get('/',	'HomeController@home')->name('home');
-
+Route::get('/', [HomeController::class, 'home']);

@@ -4,8 +4,8 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
-use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Auth;
+use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 class LoginController extends Controller
 {
@@ -18,7 +18,7 @@ class LoginController extends Controller
     | redirecting them to your home screen. The controller uses a trait
     | to conveniently provide its functionality to your applications.
     |
-    */
+     */
 
     use AuthenticatesUsers;
 
@@ -27,7 +27,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    // protected $redirectTo = RouteServiceProvider::HOME;
+    protected $redirectTo = RouteServiceProvider::HOME;
 
     /**
      * Create a new controller instance.
@@ -39,21 +39,19 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
-    
-
     public function redirectTo()
     {
-        switch(Auth::user()->role){
+        switch (Auth::user()->role) {
             case "-1":
-            $this->redirectTo = '/admin/dashboard';
-            return $this->redirectTo;
+                $this->redirectTo = '/admin/dashboard';
+                return $this->redirectTo;
                 break;
             case 1:
-            $this->redirectTo = '/admin/dashboard';
-            return $this->redirectTo;
+                $this->redirectTo = '/admin/dashboard';
+                return $this->redirectTo;
                 break;
             case 2:
-                    $this->redirectTo = '/marketplace';
+                $this->redirectTo = '/marketplace';
                 return $this->redirectTo;
                 break;
             case 3:
@@ -64,7 +62,7 @@ class LoginController extends Controller
                 $this->redirectTo = '/login';
                 return $this->redirectTo;
         }
-         
+
         // return $next($request);
-    } 
+    }
 }

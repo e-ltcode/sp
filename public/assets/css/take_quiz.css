@@ -1,0 +1,287 @@
+.showbox {
+    position: absolute;
+    top: 185px;
+    background-color: #fff;
+    min-height: calc(100vh - 240px);
+    display: none;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 5%;
+}
+
+.border {
+    border: 3px solid #28a745 !important;
+}
+
+.loader {
+    position: relative;
+    margin: 0 auto;
+    width: 100px;
+}
+
+.loader::before {
+    content: "";
+    display: block;
+    padding-top: 100%;
+}
+
+.circular {
+    animation: rotate 2s linear infinite;
+    height: 100%;
+    transform-origin: center center;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+.previous_button {
+    display: none;
+}
+
+.progress-bar {
+    background: #469acd;
+}
+
+.path {
+    stroke-dasharray: 1, 200;
+    stroke-dashoffset: 0;
+    animation: dash 1.5s ease-in-out infinite, color 6s ease-in-out infinite;
+    stroke-linecap: round;
+}
+
+@keyframes rotate {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes dash {
+    0% {
+        stroke-dasharray: 1, 200;
+        stroke-dashoffset: 0;
+    }
+    50% {
+        stroke-dasharray: 89, 200;
+        stroke-dashoffset: -35px;
+    }
+    100% {
+        stroke-dasharray: 899, 200;
+        stroke-dashoffset: -124px;
+    }
+}
+
+@keyframes color {
+    100% {}
+    0% {
+        stroke: red;
+    }
+    40% {
+        stroke: blue;
+    }
+    66% {
+        stroke: green;
+    }
+    80% {}
+    90% {
+        stroke: yellow;
+    }
+}
+
+.text-0 {
+    padding-left: 148px;
+}
+
+.border-1 {
+    background: #f5f5f5;
+}
+
+.tns-1 {
+    height: 119%;
+}
+
+.t1-0 {
+    margin-top: 22px;
+    margin-left: 1px;
+}
+
+.ds-1 {
+    text-align: end;
+}
+
+.ds-0 {
+    width: 85%;
+    height: 20px;
+    border-radius: 22px;
+}
+
+.progress-bar {
+    background: #469acd;
+}
+
+.PP-0 {
+    color: #469acd;
+}
+
+.button-1 {
+    background: transparent !important;
+    color: #469acd !important;
+    border-color: #469acd !important;
+    border: 2px solid #469acd !important;
+    width: 100px;
+}
+
+.nn-2 {
+    background: #469acd !important;
+    color: white;
+    border: 1px solid #469acd !important;
+    width: 96px;
+}
+
+.button-1:hover {
+    opacity: 0.7;
+}
+
+.nn-2:hover {
+    opacity: 0.7;
+}
+
+.zx-1 {
+    font-size: 15px;
+}
+
+.brd-1 {
+    border: 1px solid #13172f10;
+}
+
+.layer_div {
+    position: absolute;
+    z-index: 99;
+    display: none;
+    background: transparent;
+    width: 100%;
+}
+
+.checkbox-container {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    cursor: pointer;
+    padding-bottom: 15px !important;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.checkbox-container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.checkmark {
+    position: absolute;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+    border-radius: 50%;
+}
+
+.checkbox-container:hover input~.checkmark {
+    background-color: none;
+}
+
+.checkbox-container input:checked~.checkmark {
+    background-color: #1e73be;
+}
+
+.checkbox-container :hover input~.checkmark {
+    color: #1e73be;
+}
+
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+.checkbox-container input:checked~.checkmark:after {
+    display: block;
+}
+
+.checkbox-container input:checked~.checkmark {
+    background: #eee;
+}
+
+.checkbox-container .checkmark:after {
+    top: 5px;
+    left: 4px;
+    width: 17px;
+    height: 16px;
+    /*border-radius: 50%;*/
+}
+
+.footer-section {
+    display: none;
+}
+
+.footer-loader {
+    position: absolute !important;
+    width: 100% !important;
+    bottom: 0px !important;
+}
+
+.row.m-0.bg-black.text-white.header {
+    display: none;
+}
+
+@media screen and (max-width: 600px) {
+    .learn_more_div {
+        margin-top: -20px;
+    }
+    .take_quiz_card {
+        margin-left: 5px;
+    }
+    .main_take_quiz {
+        padding: 0px !important;
+    }
+    .parent_div_take_quiz {
+        padding: 0px !important;
+        margin-left: -20px;
+    }
+    /* .action_btn {
+        margin-left: 20px;
+    } */
+}
+
+
+/* @media screen and (max-width: 300px) {
+    .action_btn {
+        display: flex;
+        justify-content: center;
+    }
+} */
+
+.action_btn {
+    z-index: 9999999999;
+}
+
+.navbar-expand-md {
+    display: none;
+}
+
+.alert,
+.alert-dismissible .close {
+    padding: 0.4rem 0.5rem !important;
+}
+
+.explaination_answer p {
+    margin: 0px !important;
+}

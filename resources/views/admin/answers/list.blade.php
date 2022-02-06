@@ -3,7 +3,9 @@
 @section('content')
 <div class="card-toolbar">
 	<!--begin::Button-->
-	<a href="javascript:void(0);" data-target="#data_modal" data-toggle="modal" onclick="loadModal('{{$module['action']}}/create/{{ @$selected_question }}')" class="fcbtn btn btn-info btn-outline btn-1c">New {{@$module['singular']}}</a>
+	<a href="javascript:void(0);" data-target="#data_modal" data-toggle="modal"
+		onclick="loadModal('{{$module['action']}}/create')"
+		class="fcbtn btn btn-info btn-outline btn-1c">New {{@$module['singular']}}</a>
 </div>
 <div class="row">
 	<div class="col-md-12">
@@ -11,7 +13,8 @@
 			<h3 class="box-title">{{@$page_title}}</h3>
 			<div class="scrollable">
 				<div class="table-responsive">
-					<table id="demo-foo-addrow" class="table m-t-30 table-hover contact-list list" data-page-size="10" style="width:100%">
+					<table id="demo-foo-addrow" class="table m-t-30 table-hover contact-list list" data-page-size="10"
+						style="width:100%">
 						<thead>
 							<tr>
 								<th>#</th>
@@ -32,15 +35,21 @@
 								<td>{{$val['question_id']}}</td>
 								<td style="">
 									<div class="dropdown">
-										<button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown">Actions
+										<button class="btn btn-secondary dropdown-toggle" type="button"
+											data-toggle="dropdown">Actions
 											<span class="caret"></span></button>
-											<ul class="dropdown-menu">
-												<li><a class="dropdown-item delete"  href="javascript:void(0);" data-url="{{ url($module['action'].'/delete/'.$val[$module['db_key']]) }}" data-remove="list_{{$val[$module['db_key']]}}" ><i class="fa fa-trash"></i> Delete</a></li>
-												<li><a class="dropdown-item" href="javascript:void(0);" data-target="#data_modal" data-toggle="modal" onclick="loadModal('{{$module['action']}}/edit','{{$val[$module['db_key']]}}')" >
+										<ul class="dropdown-menu">
+											<li><a class="dropdown-item delete" href="javascript:void(0);"
+													data-url="{{ url($module['action'].'/delete/'.$val[$module['db_key']]) }}"
+													data-remove="list_{{$val[$module['db_key']]}}"><i
+														class="fa fa-trash"></i> Delete</a></li>
+											<li><a class="dropdown-item" href="javascript:void(0);"
+													data-target="#data_modal" data-toggle="modal"
+													onclick="loadModal('{{$module['action']}}/edit','{{$val[$module['db_key']]}}')">
 													<i class="fa fa-edit"></i> Edit
 												</a></li>
-											</ul>
-										</div>
+										</ul>
+									</div>
 								</td>
 							</tr>
 

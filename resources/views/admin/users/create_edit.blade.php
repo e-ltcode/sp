@@ -1,3 +1,6 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
 <div class="modal-content">
     <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">
@@ -9,20 +12,22 @@
             </span>
         </button>
     </div>
-    <form action="{{$action}}" method="post" class="make_ajax" >
+    <form action="{{$action}}" method="post" class="make_ajax">
 
         <div class="modal-body">
             <div class="row">
                 <div class="col-lg-6 col-md-6">
                     <div class="form-group">
                         <label for="name" class="control-label">Name</label>
-                        <input type='text' name="name" id="name" class="form-control" required="" value="{{@$row['name']}}" />
+                        <input type='text' name="name" id="name" class="form-control" required=""
+                            value="{{@$row['name']}}" />
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-6">
                     <div class="form-group">
                         <label for="email" class="control-label">Email</label>
-                        <input type='email' name="email" id="email" class="form-control" required="" value="{{@$row['email']}}"  />
+                        <input type='email' name="email" id="email" class="form-control" required=""
+                            value="{{@$row['email']}}" />
                     </div>
                 </div>
                 <div class="col-md-6">
@@ -49,7 +54,7 @@
                         <select name="role" class="form-control" required="">
                             <option value="" selected="" disabled="">Select Role</option>
                             @foreach(config('constants.role') as $key => $val)
-                            <option value="{{$key}}" @if($key == @$row['role']) selected @endif>{{$val}}</option>
+                            <option value="{{$key}}" @if($key==@$row['role']) selected @endif>{{$val}}</option>
                             @endforeach
                         </select>
                         {{-- <input type='number' name="student_number" id="student_number" class="form-control" /> --}}
@@ -58,8 +63,10 @@
             </div>
         </div>
         <div class="modal-footer">
-            <button type="submit" class="btn btn-info m-btn m-btn--icon" id="add_oh_period"><span><i class="la la-check"></i><span>{{ @$button_text }}</span></span></button>
-            <button type="button" class="btn btn-secondary m-btn m-btn--icon" data-dismiss="modal"><span>Close</span></button>
+            <button type="submit" class="btn btn-info m-btn m-btn--icon" id="add_oh_period"><span><i
+                        class="fas fa-check"></i><span>{{ @$button_text }}</span></span></button>
+            <button type="button" class="btn btn-secondary m-btn m-btn--icon"
+                data-dismiss="modal"><span>Close</span></button>
         </div>
     </form>
-</div> 
+</div>

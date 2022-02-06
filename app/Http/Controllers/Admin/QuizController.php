@@ -3,82 +3,81 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-use App\Models\Question;
-use App\Models\QuizAttempt;
 use App\Models\Answer;
-use App\Models\Quiz;
-use App\Models\Course;
-use App\Models\Topic;
 use App\Models\Category;
+use App\Models\Course;
+use App\Models\Question;
+use App\Models\Quiz;
+use App\Models\QuizAttempt;
+use App\Models\Topic;
 use Auth;
-use App\Exports\QuizExport;
-use App\Imports\QuizImport;
-use Maatwebsite\Excel\Facades\Excel;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
-
 
 class QuizController extends Controller
 {
-    private $type     =  "quizes";
-    private $singular =  "Quiz";
-    private $plural   =  "Quiz";
-    private $view     =  "admin.quizzes.";
-    private $action   =  "/admin/quizes";
-    private $db_key   =  "id";
+    private $type = "quizes";
+    private $singular = "Quiz";
+    private $plural = "Quiz";
+    private $view = "admin.quizzes.";
+    private $action = "/admin/quizes";
+    private $db_key = "id";
     private $directory = "quiz_images";
     private $csv_directory = "quiz_csv";
     private $user = [];
     private $perpage = 1000;
 
-    function set_action(){
-        if(Auth::user()->role == 2){
-            $this->action = '/instructor/'.$this->type;
+    public function set_action()
+    {
+        if (Auth::user()->role == 2) {
+            $this->action = '/instructor/' . $this->type;
         }
     }
 
-    function index(Request $request){
-        $this->set_action();
-        $data   = array();
-        $data   = array(
-            "page_title"=>$this->plural." List",
-            "page_heading"=>$this->plural.' List',
-            "breadcrumbs"=>array("#"=>$this->plural." List")
-        );
-        if($request->perpage)
-            $this->perpage = $request->perpage;
-        
-        $obj  = new Quiz;
-        if(Auth::user()->role == 2){
-            $obj = $obj->where('created_by',Auth::user()->id);
-        }
-        if(@$request->course){
-            $course_id = $request->course;
-            $obj = $obj->whereHas('topic',function($query) use($course_id){
-                return $query->where('course_id',$course_id);
-            });
-        }
-        if(@$request->topic){
-            $obj = $obj->where('topic_id',$request->topic);
-            $data['selected_quiz'] = @$request->topic;
-        }
-        $data['list']   =   $obj->with('category')->paginate($this->perpage)->toArray();
-        $data['module'] = [
-            'type'=>$this->type,
-            'singular'=>$this->singular,
-            'plural'=>$this->plural,
-            'view'=>$this->view,
-            'action'=>$this->action,
-            'db_key' => $this->db_key
-        ];
-
-        return view($this->view.'list',$data);
-
-    }
-    public function create(Request $request,$id=null)
+    public function index(Request $request)
     {
         $this->set_action();
-        if($request->isMethod('post')){
+        $data = array();
+        $data = array(
+            "page_title" => $this->plural . " List",
+            "page_heading" => $this->plural . ' List',
+            "breadcrumbs" => array("#" => $this->plural . " List"),
+        );
+        if ($request->perpage) {
+            $this->perpage = $request->perpage;
+        }
+
+        $obj = new Quiz;
+        if (Auth::user()->role == 2) {
+            $obj = $obj->where('created_by', Auth::user()->id);
+        }
+        if (@$request->course) {
+            $course_id = $request->course;
+            $obj = $obj->whereHas('topic', function ($query) use ($course_id) {
+                return $query->where('course_id', $course_id);
+            });
+        }
+        if (@$request->topic) {
+            $obj = $obj->where('topic_id', $request->topic);
+            $data['selected_quiz'] = @$request->topic;
+        }
+        $data['list'] = $obj->with('category')->paginate($this->perpage)->toArray();
+        $data['module'] = [
+            'type' => $this->type,
+            'singular' => $this->singular,
+            'plural' => $this->plural,
+            'view' => $this->view,
+            'action' => $this->action,
+            'db_key' => $this->db_key,
+        ];
+
+        return view($this->view . 'list', $data);
+
+    }
+    public function create(Request $request, $id = null)
+    {
+        $this->set_action();
+        if ($request->isMethod('post')) {
             $data = $request->all();
             $this->cleanData($data);
             $data['created_by'] = Auth::user()->id;
@@ -89,73 +88,74 @@ class QuizController extends Controller
                 $data['image'] = $filename;
             }
 
-            $Obj         = new Quiz;
+            $Obj = new Quiz;
             $Obj->insert($data);
-            $response = array('flag'=>true,'msg'=>$this->singular.' is added sucessfully.','action'=>'reload');
-            echo json_encode($response); return;
+            $response = array('flag' => true, 'msg' => $this->singular . ' is added sucessfully.', 'action' => 'reload');
+            echo json_encode($response);return;
         }
-        $data   = array();
-        $data   = array(
-            "page_title"=>"Add ".$this->singular,
-            "page_heading"=>"Add ".$this->singular,
-            "button_text"=>"Add ".$this->singular,
-            "breadcrumbs"=>array("dashboard"=>"Dashboard","#"=>$this->plural." List"),
-            "action"=> url($this->action.'/create')
+        $data = array();
+        $data = array(
+            "page_title" => "Add " . $this->singular,
+            "page_heading" => "Add " . $this->singular,
+            "button_text" => "Add " . $this->singular,
+            "breadcrumbs" => array("dashboard" => "Dashboard", "#" => $this->plural . " List"),
+            "action" => url($this->action . '/create'),
         );
         $data['selected_quiz'] = @$id;
         $data['categories'] = Category::all()->toArray();
-        return view($this->view.'create_edit',$data);
+        return view($this->view . 'create_edit', $data);
     }
-    public function cleanData(&$data) {
-        $unset = ['ConfirmPassword','q','_token'];
+    public function cleanData(&$data)
+    {
+        $unset = ['ConfirmPassword', 'q', '_token'];
         foreach ($unset as $value) {
-            if(array_key_exists ($value,$data))  {
+            if (array_key_exists($value, $data)) {
                 unset($data[$value]);
             }
         }
 
     }
-    
-    public function edit(Request $request,$id = NULL)
+
+    public function edit(Request $request, $id = null)
     {
         $this->set_action();
-        if($request->isMethod('post')){
+        if ($request->isMethod('post')) {
             $data = $request->all();
-            $this->cleanData($data);   
-                
+            $this->cleanData($data);
+
             if ($request->hasFile('image')) {
                 $file = $request->file('image');
                 $filename = Storage::putFile($this->directory, $file);
                 $data['image'] = $filename;
             }
-            
-            $Obj         = Quiz::find($id);
+
+            $Obj = Quiz::find($id);
             $Obj->update($data);
-            $response = array('flag'=>true,'msg'=>$this->singular.' is updated sucessfully.','action'=>'reload');
-            echo json_encode($response); return;
+            $response = array('flag' => true, 'msg' => $this->singular . ' is updated sucessfully.', 'action' => 'reload');
+            echo json_encode($response);return;
         }
         $id = $request->param;
-        $data   = array();
-        $data   = array(
-            "page_title"=>"Edit ".$this->singular,
-            "page_heading"=>"Edit ".$this->singular,
-            "button_text"=>"Update ",
-            "breadcrumbs"=>array("dashboard"=>"Dashboard","#"=>$this->plural." List"),
-            "action"=> url($this->action.'/edit/'.$id)
+        $data = array();
+        $data = array(
+            "page_title" => "Edit " . $this->singular,
+            "page_heading" => "Edit " . $this->singular,
+            "button_text" => "Update ",
+            "breadcrumbs" => array("dashboard" => "Dashboard", "#" => $this->plural . " List"),
+            "action" => url($this->action . '/edit/' . $id),
         );
         $data['categories'] = Category::all()->toArray();
         $data['row'] = Quiz::find($id)->toArray();
 
-        return view($this->view.'create_edit',$data);
+        return view($this->view . 'create_edit', $data);
     }
     private function csvToArray($path)
     {
-        try{
+        try {
             $csv = fopen($path, 'r');
             $rows = [];
             $header = [];
             $index = 0;
-            while (($line = fgetcsv($csv)) !== FALSE) {
+            while (($line = fgetcsv($csv)) !== false) {
                 if ($index == 0) {
                     $header = $line;
                     $index = 1;
@@ -168,28 +168,28 @@ class QuizController extends Controller
                 }
             }
             return $rows;
-        }catch (Exception $exception){
+        } catch (Exception $exception) {
             return false;
         }
     }
-    public function import(Request $request,$id = NULL)
+    public function import(Request $request, $id = null)
     {
         $quiz_id = $request->param;
-        if($request->isMethod('post')){
+        if ($request->isMethod('post')) {
             if ($request->hasFile('import_csv')) {
                 $file = $request->file('import_csv');
                 $filename = Storage::putFile($this->csv_directory, $file);
                 $data['import_csv'] = $filename;
-                $arr = $this->csvToArray(url('storage/app/public/'.$filename));
+                $arr = $this->csvToArray(url('storage/app/public/' . $filename));
 
-                foreach($arr as $key => $val){
+                foreach ($arr as $key => $val) {
 
-                    $question =  new Question;
+                    $question = new Question;
                     $data_question = [
                         'title' => $val['question'],
                         'type' => 'mcqs',
                         'quiz_id' => $request->quiz_id,
-                        'created_by' => Auth::user()->id
+                        'created_by' => Auth::user()->id,
                     ];
                     $new_question = $question->create($data_question);
 
@@ -198,36 +198,34 @@ class QuizController extends Controller
                     $data_answer = [
                         [
                             'title' => $val['answer1'],
-                            'is_correct' => ($val['correct'] == 1)?true:false,
+                            'is_correct' => ($val['correct'] == 1) ? true : false,
                             'question_id' => $new_question->id,
-                            'created_by' => Auth::user()->id
+                            'created_by' => Auth::user()->id,
                         ],
                         [
                             'title' => $val['answer2'],
-                            'is_correct' => ($val['correct'] == 2)?true:false,
+                            'is_correct' => ($val['correct'] == 2) ? true : false,
                             'question_id' => $new_question->id,
-                            'created_by' => Auth::user()->id
+                            'created_by' => Auth::user()->id,
                         ],
                         [
                             'title' => $val['answer3'],
-                            'is_correct' => ($val['correct'] == 3)?true:false,
+                            'is_correct' => ($val['correct'] == 3) ? true : false,
                             'question_id' => $new_question->id,
-                            'created_by' => Auth::user()->id
+                            'created_by' => Auth::user()->id,
                         ],
                         [
                             'title' => $val['answer4'],
-                            'is_correct' => ($val['correct'] == 4)?true:false,
+                            'is_correct' => ($val['correct'] == 4) ? true : false,
                             'question_id' => $new_question->id,
-                            'created_by' => Auth::user()->id
+                            'created_by' => Auth::user()->id,
                         ],
                     ];
 
                     $answer->insert($data_answer);
 
-
-
-                    $response = array('flag'=>true,'msg'=> 'Questions and Answer imported sucessfully.','action'=>'reload');
-                    echo json_encode($response); return;
+                    $response = array('flag' => true, 'msg' => 'Questions and Answer imported sucessfully.', 'action' => 'reload');
+                    echo json_encode($response);return;
 
                 }
 
@@ -236,25 +234,22 @@ class QuizController extends Controller
         }
         $data = [];
         $data = [
-            "page_title"=>"Edit ".$this->singular,
-            "page_heading"=>"Edit ".$this->singular,
-            "button_text"=>"Update ",
-            "breadcrumbs"=>array("dashboard"=>"Dashboard","#"=>$this->plural." List"),
-            "action"=> url($this->action.'/import/'.$id)
+            "page_title" => "Edit " . $this->singular,
+            "page_heading" => "Edit " . $this->singular,
+            "button_text" => "Update ",
+            "breadcrumbs" => array("dashboard" => "Dashboard", "#" => $this->plural . " List"),
+            "action" => url($this->action . '/import/' . $id),
         ];
         $data['quiz_id'] = $quiz_id;
-        return view($this->view.'import',$data);
+        return view($this->view . 'import', $data);
     }
-    public function delete($id) {
+    public function delete($id)
+    {
         Quiz::destroy($id);
-        Question::where('quiz_id',$id)->delete();
-        QuizAttempt::where('quiz_id',$id)->delete();
-        $response = array('flag'=>true,'msg'=>$this->singular.' has been deleted.');
-        echo json_encode($response); return;
+        Question::where('quiz_id', $id)->delete();
+        QuizAttempt::where('quiz_id', $id)->delete();
+        $response = array('flag' => true, 'msg' => $this->singular . ' has been deleted.');
+        echo json_encode($response);return;
     }
-
-
-    
-
 
 }

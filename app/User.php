@@ -2,10 +2,9 @@
 
 namespace App;
 
-use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use Illuminate\Database\Eloquent\SoftDeletes;
 
 class User extends Authenticatable
 {
@@ -18,7 +17,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password','phone','role','image','google_id',
+        'name', 'email', 'password', 'phone', 'role', 'image', 'google_id',
     ];
 
     /**
@@ -38,14 +37,18 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-    public function cart_items(){
-        return $this->hasMany('App\Models\CartItem','user_id');
+    public function cart_items()
+    {
+        return $this->hasMany('App\Models\CartItem', 'user_id');
     }
-    public function order_items(){
-        return $this->hasMany('App\Models\OrderItem','created_by');
+    public function order_items()
+    {
+        return $this->hasMany('App\Models\OrderItem', 'created_by');
     }
-    public function quiz_attempts(){
-        return $this->hasMany('App\Models\QuizAttempt','std_id');
+    public function quiz_attempts()
+    {
+        return $this->hasMany('App\Models\QuizAttempt', 'std_id');
     }
+   
 
 }
