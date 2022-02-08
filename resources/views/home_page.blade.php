@@ -281,12 +281,3 @@
 
 @endsection
 
-@section('scripts')
-
-<script src="{{ asset('assets/js/aos.js') }}/"></script>
-<script>
-    AOS.init({
-        });
-</script>
-
-@endsection
