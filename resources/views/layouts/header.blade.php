@@ -12,8 +12,6 @@
     <meta http-equiv="refresh" content="{{ config('session.lifetime') * 60 }}">
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/styles/monokai.min.css">
-    <link rel="stylesheet" href="/path/to/styles/Monokai.css">
     <link rel="shortcut icon" type="image/jpg" href="{{ asset('assets/images/favicon_new.ico') }}" />
     <link rel="stylesheet" href="{{ asset('assets_sidebar/css/style.css') }}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
