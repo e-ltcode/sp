@@ -26,7 +26,7 @@
             <div class="col-sm-12 col-md-6 col-lg-4 mb-3">
                <div class="card-1 shdw shadow">
                   <div>
-                     <img src="{{ url('storage/app/public').'/'.$quiz['image'] }}" class="img-responsive" alt="Avatar"
+                     <img src="{{ Storage::url($quiz['image']) }}" class="img-responsive" alt="Avatar"
                         style="width:100%;height: 240px;">
                   </div>
                   <div class="jss87 jss960">
@@ -269,7 +269,7 @@
                                           <div class="col-sm-12 col-md-6 col-lg-4 mb-3">
                                              <div class="card-1 shdw shadow">
                                                 <div>
-                                                   <img src="{{ url('storage/app/public').'/'.$quiz['image'] }}"
+                                                   <img src="{{Storage::url($quiz['image']) }}"
                                                       class="img-responsive" alt="Avatar"
                                                       style="width:100%;height: 240px;">
                                                 </div>
@@ -652,7 +652,7 @@
                                              <div class="col-sm-12 col-md-6 col-lg-4 mb-3">
                                                 <div class="card-1 shdw shadow">
                                                    <div>
-                                                      <img src="{{ url('storage/app/public').'/'.$paid_quiz['image'] }}"
+                                                      <img src="{{Storage::url($paid_quiz['image']) }}"
                                                          class="img-responsive" alt="Avatar"
                                                          style="width:100%;height: 240px;">
                                                    </div>
@@ -691,7 +691,7 @@
                                                                      <div class="card-1 shdw shadow">
                                                                         <div>
                                                                            <img
-                                                                              src="{{ url('storage/app/public').'/'.$paid_quiz['image'] }}"
+                                                                              src="{{ Storage::url($paid_quiz['image'])}}"
                                                                               class="img-responsive" alt="Avatar"
                                                                               style="width:100%;height: 240px;">
                                                                         </div>
@@ -941,7 +941,7 @@
                                                                      <div class="card-1 shdw shadow">
                                                                         <div>
                                                                            <img
-                                                                              src="{{ url('storage/app/public').'/'.$free_quiz['image'] }}"
+                                                                              src="{{Storage::url($free_quiz['image'])}}"
                                                                               class="img-responsive" alt="Avatar"
                                                                               style="width:100%;height: 240px;">
                                                                         </div>
@@ -985,7 +985,7 @@
                                                                                              class="card-1 shdw shadow">
                                                                                              <div>
                                                                                                 <img
-                                                                                                   src="{{ url('storage/app/public').'/'.$free_quiz['image'] }}"
+                                                                                                   src="{{ Storage::url($free_quiz['image'])  }}"
                                                                                                    class="img-responsive"
                                                                                                    alt="Avatar"
                                                                                                    style="width:100%;height: 240px;">
@@ -1316,20 +1316,20 @@
                                                                      </script>
                                                                      <script type="text/javascript">
                                                                         if(window.location.href == '{{ url('/marketplace?add_to_cart=true') }}'){
-      alert('Item added successfully'); 
-      window.location.href = '{{ url('/marketplace') }}'   
+      alert('Item added successfully');
+      window.location.href = '{{ url('/marketplace') }}'
    }
 
    if(window.location.href == '{{ url('/marketplace?questions=0') }}'){
-      alert('Not enough questions to take quiz.'); 
-      window.location.href = '{{ url('/marketplace') }}'   
+      alert('Not enough questions to take quiz.');
+      window.location.href = '{{ url('/marketplace') }}'
    }
                                                                      </script>
 
                                                                      <script>
                                                                         $(function() {
      var header = $(".slide");
-     $(window).scroll(function() {    
+     $(window).scroll(function() {
        var scroll = $(window).scrollTop();
 
        if (scroll >= 100) {
@@ -1340,6 +1340,6 @@
 
    });
   });
-   
+
                                                                      </script>
                                                                      @endsection

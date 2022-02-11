@@ -49,7 +49,7 @@
             <div class="col-sm-12 col-md-6 col-lg-4 mb-3">
                <div class="card-1 shdw shadow">
                   <div>
-                     <img src="{{ url('storage/app/public').'/'.$quiz['image'] }}" class="img-responsive" alt="Avatar"
+                     <img src="{{ Storage::url($quiz['image']) }}" class="img-responsive" alt="Avatar"
                         style="width:100%;height: 240px;">
                   </div>
                   <div class="jss87 jss960">
@@ -137,7 +137,7 @@
             <div class="col-sm-12 col-md-6 col-lg-4 mb-3">
                <div class="card-1 shdw shadow">
                   <div>
-                     <img src="{{ url('storage/app/public').'/'.$paid_quiz['image'] }}" class="img-responsive"
+                     <img src="{{  Storage::url($paid_quiz['image']) }}" class="img-responsive"
                         alt="Avatar" style="width:100%;height: 240px;">
                   </div>
                   <div class="jss87 jss960">
@@ -222,7 +222,7 @@
             <div class="col-sm-12 col-md-6 col-lg-4 mb-3">
                <div class="card-1 shdw shadow">
                   <div>
-                     <img src="{{ url('storage/app/public').'/'.$free_quiz['image'] }}" class="img-responsive"
+                     <img src="{{ Storage::url($free_quiz['image']) }}" class="img-responsive"
                         alt="Avatar" style="width:100%;height: 240px;">
                   </div>
                   <div class="jss87 jss960">
@@ -304,13 +304,13 @@
 @section('scripts')
 <script type="text/javascript">
    if(window.location.href == '{{ url('/marketplace?add_to_cart=true') }}'){
-      alert('Item added successfully'); 
-      window.location.href = '{{ url('/marketplace') }}'   
+      alert('Item added successfully');
+      window.location.href = '{{ url('/marketplace') }}'
    }
 
    if(window.location.href == '{{ url('/marketplace?questions=0') }}'){
-      alert('Not enough questions to take quiz.'); 
-      window.location.href = '{{ url('/marketplace') }}'   
+      alert('Not enough questions to take quiz.');
+      window.location.href = '{{ url('/marketplace') }}'
    }
 
 </script>
