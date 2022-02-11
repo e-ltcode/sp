@@ -60,7 +60,7 @@ class MailerController extends Controller
         }
 
         $data['total'] = $request->quiz['total'];
-        // require 'vendor/autoload.php';
+        require 'vendor/autoload.php';
         $mail = new PHPMailer(true); // Passing `true` enables exceptions
 
         // $mail = new PHPMailer\PHPMailer\PHPMailer();
@@ -69,12 +69,11 @@ class MailerController extends Controller
             // Email server settings
             $mail->SMTPDebug = 0;
             $mail->isSMTP();
-            $mail->Host = 'svarogproject.com'; //  smtp host
+            $mail->Host = 'smtp.mailtrap.io';
             $mail->SMTPAuth = true;
-            $mail->Username = 'email@svarogproject.com'; //  sender username
-            $mail->Password = '@_vKN6-7KcN4v;s'; // sender password
-            $mail->SMTPSecure = 'ssl'; // encryption - ssl/tls
-            $mail->Port = 465; // port - 587/465
+            $mail->Port = 2525;
+            $mail->Username = '38a061df3edeac';
+            $mail->Password = '1310897b0c45ab';
             $email = $data['email'];
 
             $mail->setFrom('email@svarogproject.com', 'Svarog Project');
