@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use Auth;
+use App\Models\Quiz;
 use App\Models\Order;
 use App\Models\OrderItem;
-use App\Models\Quiz;
-use Auth;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\View;
 use PHPMailer\PHPMailer\Exception;
 use PHPMailer\PHPMailer\PHPMailer;
+use Illuminate\Support\Facades\View;
 
 class MailerController extends Controller
 {
@@ -36,7 +36,6 @@ class MailerController extends Controller
         }
 
         return view("email", $data);
-
     }
 
     // ========== [ Compose Email ] ================
@@ -54,7 +53,6 @@ class MailerController extends Controller
                 'quiz_title' => $key['quiz']['quiz_title'],
                 'price' => $key['quiz']['price'],
             ];
-
         }
 
         foreach ($request->quiz['email'] as $key => $val) {
@@ -62,7 +60,7 @@ class MailerController extends Controller
         }
 
         $data['total'] = $request->quiz['total'];
-        require 'vendor/autoload.php';
+        // require 'vendor/autoload.php';
         $mail = new PHPMailer(true); // Passing `true` enables exceptions
 
         // $mail = new PHPMailer\PHPMailer\PHPMailer();
@@ -103,7 +101,6 @@ class MailerController extends Controller
             } else {
                 return view('home_page');
             }
-
         } catch (Exception $e) {
             return back()->with('error', 'Message could not be sent.');
         }
