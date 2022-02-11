@@ -24,8 +24,7 @@
                     <div style="display: inline-flex; position: absolute;right: 30px" class="learn_more_div">
                         <div class="learn_more mb-2" style="margin-top: 18px; margin-left: 3px;">
                             @if ($quiz['questions'][0]['learn_more_url'])
-                            <a href="{{ $quiz['questions'][0]['learn_more_url'] }}" target="_blank" {{-- <a
-                                href="http://{{ $quiz['questions'][0]['learn_more_url'] }}" target="_blank" --}}
+                            <a href="{{ $quiz['questions'][0]['learn_more_url'] }}" target="_blank"
                                 style="color: #9d43ac" class=""><b>Learn More</b></a>
                             @endif
                         </div>
@@ -34,8 +33,7 @@
                     <div class="d-flex justify-content-between">
                         <span class="card-title mt-3 pl-3 text-left ck-content " style="width: 100%;;"
                             id="question_title">
-                            <pre
-                                style="background-color: #272822;"><code>{!! $quiz['questions'][0]['title'] !!}</code></pre>
+                            {!! $quiz['questions'][0]['title'] !!}
                         </span>
                     </div>
 
