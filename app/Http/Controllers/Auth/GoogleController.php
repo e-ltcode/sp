@@ -1,13 +1,15 @@
 <?php
-  
+
 namespace App\Http\Controllers\Auth;
-  
-use App\Http\Controllers\Controller;
-use Socialite;
+
 use Auth;
-use Exception;
 use App\User;
-  
+use Exception;
+use Socialite;
+use Illuminate\Support\Facades\Log;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Hash;
+
 class GoogleController extends Controller
 {
     /**
@@ -19,7 +21,7 @@ class GoogleController extends Controller
     {
         return Socialite::driver('google')->redirect();
     }
-      
+
     /**
      * Create a new controller instance.
      *
@@ -28,32 +30,29 @@ class GoogleController extends Controller
     public function handleGoogleCallback()
     {
         try {
-    
+
             $user = Socialite::driver('google')->user();
-     
             $finduser = User::where('google_id', $user->id)->first();
-     
-            if($finduser){
-     
+
+
+            if ($finduser) {
+
                 Auth::login($finduser);
-    
+
                 return redirect('/marketplace');
-     
-            }else{
+            } else {
                 $newUser = User::create([
                     'name' => $user->name,
                     'email' => $user->email,
-                    'google_id'=> $user->id,
-                    'password' => encrypt('admin')
+                    'google_id' => $user->id,
+                    'password' => Hash::make('admin')
                 ]);
-    
                 Auth::login($newUser);
-     
+
                 return redirect('/marketplace');
             }
-            
         } catch (Exception $e) {
-
+            Log::info(json_encode($e));
             return redirect('/login');
         }
     }
