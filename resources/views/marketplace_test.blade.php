@@ -26,7 +26,7 @@
             <div class="col-sm-12 col-md-6 col-lg-4 mb-3">
                <div class="card-1 shdw shadow">
                   <div>
-                     <img src="{{ Storage::url($quiz['image']) }}" class="img-responsive" alt="Avatar"
+                     <img src="{{ url('storage/app/public').'/'.$quiz['image'] }}" class="img-responsive" alt="Avatar"
                         style="width:100%;height: 240px;">
                   </div>
                   <div class="jss87 jss960">
@@ -269,7 +269,7 @@
                                           <div class="col-sm-12 col-md-6 col-lg-4 mb-3">
                                              <div class="card-1 shdw shadow">
                                                 <div>
-                                                   <img src="{{Storage::url($quiz['image']) }}"
+                                                   <img src="{{ url('storage/app/public').'/'.$quiz['image'] }}"
                                                       class="img-responsive" alt="Avatar"
                                                       style="width:100%;height: 240px;">
                                                 </div>
@@ -652,7 +652,7 @@
                                              <div class="col-sm-12 col-md-6 col-lg-4 mb-3">
                                                 <div class="card-1 shdw shadow">
                                                    <div>
-                                                      <img src="{{Storage::url($paid_quiz['image']) }}"
+                                                      <img src="{{ url('storage/app/public').'/'.$paid_quiz['image'] }}"
                                                          class="img-responsive" alt="Avatar"
                                                          style="width:100%;height: 240px;">
                                                    </div>
@@ -691,7 +691,7 @@
                                                                      <div class="card-1 shdw shadow">
                                                                         <div>
                                                                            <img
-                                                                              src="{{ Storage::url($paid_quiz['image'])}}"
+                                                                              src="{{ url('storage/app/public').'/'.$paid_quiz['image'] }}"
                                                                               class="img-responsive" alt="Avatar"
                                                                               style="width:100%;height: 240px;">
                                                                         </div>
@@ -941,7 +941,7 @@
                                                                      <div class="card-1 shdw shadow">
                                                                         <div>
                                                                            <img
-                                                                              src="{{Storage::url($free_quiz['image'])}}"
+                                                                              src="{{ url('storage/app/public').'/'.$free_quiz['image'] }}"
                                                                               class="img-responsive" alt="Avatar"
                                                                               style="width:100%;height: 240px;">
                                                                         </div>
@@ -985,7 +985,7 @@
                                                                                              class="card-1 shdw shadow">
                                                                                              <div>
                                                                                                 <img
-                                                                                                   src="{{ Storage::url($free_quiz['image'])  }}"
+                                                                                                   src="{{ url('storage/app/public').'/'.$free_quiz['image'] }}"
                                                                                                    class="img-responsive"
                                                                                                    alt="Avatar"
                                                                                                    style="width:100%;height: 240px;">
