@@ -105,7 +105,7 @@
                         <div class="row">
                             <div class="form-group col-md-12  mb-0">
                                 <div class="mt-3">
-                                    Not Have an Account? <a href="{{ url('/register') }}" style="color: #9d43ac"><b>
+                                    Don't Have an Account? <a href="{{ url('/register') }}" style="color: #9d43ac"><b>
                                             Register Now</b></a>
                                 </div>
                             </div>
