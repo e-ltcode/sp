@@ -116,16 +116,17 @@
             <br> After each lesson, come here and test your theory based knowledge about the web!
             We searched for the tests for web developers and couldn't find anything useful, and because of that we created this project, svarogproject.
         </p>
+
         <a href="{{ url('marketplace?type=free') }}" data-aos="fade" data-aos-easing="linear" data-aos-duration="1000"
             data-aos-once="true" class="btn my-4 font-weight-bold atlas-cta cta-green">Get Started</a>
-
             <p data-aos="fade" data-aos-easing="linear" data-aos-duration="1000" data-aos-once="true"
             class="lead text-white my-4">
             This  project is just starting out
             , so, if you have any ideas or would like to contribute, we would like to hear from you!
-           <p><a href="https://www.linkedin.com/in/djordje-milicevic-82a009166/">LinkedIn</a></p> <br>
-           <p>Or, you can contact us at our email : email@svarogproject.com</p>
+            You can contact us here: <a  target="_blank" style="font-weight:bold; color:purple" href="https://www.linkedin.com/in/djordje-milicevic-82a009166/">LinkedIn</a> <br><br>
+            Or, at our email address: email@svarogproject.com
         </p>
+        
     </div>
 </div>
 {{-- <div class="container my-5 py-2">
