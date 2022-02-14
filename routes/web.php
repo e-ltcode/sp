@@ -1,22 +1,22 @@
 <?php
 
-use App\Http\Controllers\Admin\AdminController;
-use App\Http\Controllers\Admin\AnswersController;
-use App\Http\Controllers\Admin\CategoryController;
-use App\Http\Controllers\Admin\OrderItemsController;
-use App\Http\Controllers\Admin\OrdersController;
-use App\Http\Controllers\Admin\QuestionsController;
-use App\Http\Controllers\Admin\QuizController;
-use App\Http\Controllers\Admin\UserController;
-use App\Http\Controllers\Auth\GoogleController;
-use App\Http\Controllers\Auth\LoginController;
-use App\Http\Controllers\CartItemsController;
-use App\Http\Controllers\DashboardController;
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MailerController;
-use App\Http\Controllers\MarketplaceController;
 use App\Http\Controllers\OffersController;
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CartItemsController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\Admin\QuizController;
+use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Auth\GoogleController;
+use App\Http\Controllers\MarketplaceController;
+use App\Http\Controllers\Admin\OrdersController;
+use App\Http\Controllers\Admin\AnswersController;
+use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\QuestionsController;
+use App\Http\Controllers\Admin\OrderItemsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -118,8 +118,6 @@ Route::prefix('admin')->middleware(['auth', 'admin_auth'])->group(function () {
     Route::post('/answers/edit/{id?}', [AnswersController::class, 'edit']);
     Route::get('/answers/delete/{id?}', [AnswersController::class, 'delete']);
     Route::get('/answers/{id?}', [AnswersController::class, 'index']);
-
-    
 });
 
 Route::prefix('/')->middleware(['auth', 'common_auth'])->group(function () {

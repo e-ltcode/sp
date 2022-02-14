@@ -12,8 +12,6 @@
     style="margin: 0;padding: 0;font-family: 'Helvetica Neue','Helvetica', 'Helvetica', 'Arial', 'sans-serif'; box-sizing: border-box; font-size: 14px; -webkit-font-smoothing: antialiased;
     -webkit-text-size-adjust: none; width: 100% !important; height: 100%;  line-height: 1.6; background-color: #f6f6f6;">
     {{-- @dd($order_id) --}}
-    <form action="{{ url('send-email') }}" method="POST" id="email_form">
-        @csrf
         <table class="body-wrap" style="  background-color: #f6f6f6;
         width: 100%;">
             <tbody>
@@ -50,7 +48,7 @@
                                                                     <tr>
                                                                         <td
                                                                             style="vertical-align: top; padding: 5px 0;">
-                                                                            <b>{{ $name
+                                                                            <b>{{ $data['name']
                                                                                 }}</b><br>June 01 2015
                                                                         </td>
                                                                     </tr>
@@ -62,17 +60,17 @@
                                                                                 cellspacing="0">
                                                                                 <tbody>
                                                                                     {{-- @dd($quiz) --}}
-                                                                                    @foreach ($quiz as $data)
+                                                                                    @foreach ($data['quiz'] as $value)
                                                                                     <tr>
                                                                                         <td
                                                                                             style="vertical-align: top; border-top: #eee 1px solid; padding: 5px 0;">
                                                                                             {{
-                                                                                            $data['quiz_title'] }}
+                                                                                            $value['quiz_title'] }}
                                                                                         </td>
                                                                                         <td class="alignright"
                                                                                             style="vertical-align: top; border-top: #eee 1px solid; text-align: right;">
                                                                                             {{
-                                                                                            $data['price'] }}$ </td>
+                                                                                            $value['price'] }}$ </td>
                                                                                     </tr>
                                                                                     @endforeach
                                                                                     <tr class="total">
@@ -86,7 +84,7 @@
                                                                                             style="vertical-align: top; border-top: 2px solid #333;
                                                                                             border-bottom: 2px solid #333;
                                                                                             font-weight: 700; padding: 5px 0; text-align: right;">
-                                                                                            {{ $total }}$
+                                                                                            {{ $data['total'] }}$
                                                                                         </td>
                                                                                     </tr>
                                                                                 </tbody>
@@ -135,21 +133,22 @@
                                 <table width="100%">
                                     <tbody>
                                         <tr>
-                                            <input type="hidden" value="{{ $id }}" class="form-control" name="id">
-                                            <input type="hidden" value="{{ $order_id }}" class="form-control"
+                                            <input type="hidden" value="{{ $data['id'] }}" class="form-control" name="id">
+                                            <input type="hidden" value="{{ $data['order_id'] }}" class="form-control"
                                                 name="order_id">
-                                            <input type="hidden" value="{{ $email }}" class="form-control"
+                                            <input type="hidden" value="{{ $data['email'] }}" class="form-control"
                                                 name="quiz[email][]">
-                                            <input type="hidden" value="{{ $name }}" class="form-control" name="user">
-                                            @foreach ($quiz as $data)
-                                            <input type="hidden" value="{{ $data['quiz_title'] }}" class="form-control"
+                                            <input type="hidden" value="{{ $data['name'] }}" class="form-control" name="user">
+                                            @foreach ($data['quiz'] as $value)
+                                            <input type="hidden" value="{{ $value['quiz_title'] }}" class="form-control"
                                                 name="quiz[title][]">
                                             @endforeach
-                                            @foreach ($quiz as $data)
-                                            <input type="hidden" value="{{ $data['price'] }}" class="form-control"
+
+                                            @foreach ($data['quiz'] as $value)
+                                            <input type="hidden" value="{{ $value['price'] }}" class="form-control"
                                                 name="quiz[price][]">
                                             @endforeach
-                                            <input type="hidden" value="{{ $total }}" class="form-control"
+                                            <input type="hidden" value="{{ $data['total'] }}" class="form-control"
                                                 name="quiz[total]">
                                             <td class="aligncenter content-block"
                                                 style="vertical-align: top; text-align: center; padding: 0 0 20px; font-size: 12px;">
@@ -167,14 +166,13 @@
                 </tr>
             </tbody>
         </table>
-    </form>
 
-    <script>
+    {{-- <script>
         let url = window.location.href;
         if(url.indexOf('/email')){
             document.getElementById('email_form').submit();
         }
-    </script>
+    </script> --}}
 </body>
 
 </html>
