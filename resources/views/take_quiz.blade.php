@@ -62,8 +62,8 @@
                                     @if($quiz['questions'][0]['answers'][0]['is_correct']==1) data-correct="true" @else
                                     data-correct="false" @endif quiz_id="1" for="exampleRadios1"
                                     style="font-size: 15px;">
-                                    <span class="answer_title">{!! $quiz['questions'][0]['answers'][0]['title']
-                                        !!}</span>
+                                    <span class="answer_title">{{ $quiz['questions'][0]['answers'][0]['title']
+                                        }}</span>
                                     <input type="radio" id="exampleRadios1" class="answer_input input_radio"
                                         name="quiz[]" value="{{ $quiz['questions'][0]['answers'][0]['id'] }}" required>
                                     <span class="checkmark" data-check="0"></span>
@@ -76,8 +76,8 @@
                                     @if($quiz['questions'][0]['answers'][1]['is_correct']==1) data-correct="true" @else
                                     data-correct="false" @endif quiz_id="1" for="exampleRadios2"
                                     style="font-size: 15px;">
-                                    <span class="answer_title1">{!! $quiz['questions'][0]['answers'][1]['title']
-                                        !!}</span>
+                                    <span class="answer_title1">{{ $quiz['questions'][0]['answers'][1]['title']
+                                        }}</span>
                                     <input type="radio" id="exampleRadios2" class="answer_input1 input_radio"
                                         name="quiz[]" value="{{ $quiz['questions'][0]['answers'][1]['id'] }}" required>
                                     <span class="checkmark" data-check="0"></span>
@@ -90,8 +90,8 @@
                                     @if($quiz['questions'][0]['answers'][2]['is_correct']==1) data-correct="true" @else
                                     data-correct="false" @endif quiz_id="1" for="exampleRadios3"
                                     style="font-size: 15px;">
-                                    <span class="answer_title2">{!! $quiz['questions'][0]['answers'][2]['title']
-                                        !!}</span>
+                                    <span class="answer_title2">{{ $quiz['questions'][0]['answers'][2]['title']
+                                        }}</span>
                                     <input type="radio" id="exampleRadios3" class="answer_input2 input_radio"
                                         name="quiz[]" value="{{ $quiz['questions'][0]['answers'][2]['id'] }}" required>
                                     <span class="checkmark" data-check="0"></span>
