@@ -133,10 +133,10 @@
                     $('.learn_more a').attr('href', 'http://' + result.question.data.learn_more_url);
                 }
 
-                $('.answer_title').html(result.question.data.answers[0].title);
-                $('.answer_title1').html(result.question.data.answers[1].title);
-                $('.answer_title2').html(result.question.data.answers[2].title);
-                $('.answer_title3').html(result.question.data.answers[3].title);
+                $('.answer_title').text(result.question.data.answers[0].title);
+                $('.answer_title1').text(result.question.data.answers[1].title);
+                $('.answer_title2').text(result.question.data.answers[2].title);
+                $('.answer_title3').text(result.question.data.answers[3].title);
 
                 $('.current_question').html(parseInt(skip) + 1);
 
