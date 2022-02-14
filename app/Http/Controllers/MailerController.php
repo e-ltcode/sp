@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Auth;
+use Carbon\Carbon;
 use App\Models\Quiz;
 use App\Models\Order;
 use App\Models\OrderItem;
@@ -33,6 +34,7 @@ class MailerController extends Controller
             $data['email'] = $val['email'];
             $data['name'] = $val['f_name'];
             $data['id'] = $val['user_id'];
+            $data['created_at'] = Carbon::parse($val['created_at'])->toDateTimeString();
         }
         event(new QuizPurchased($data));
         return view("email", ['data' => $data]);

@@ -49,7 +49,7 @@
                                                                         <td
                                                                             style="vertical-align: top; padding: 5px 0;">
                                                                             <b>{{ $data['name']
-                                                                                }}</b><br>June 01 2015
+                                                                                }}</b><br>{{  $data['created_at'] }}
                                                                         </td>
                                                                     </tr>
                                                                     <tr>
