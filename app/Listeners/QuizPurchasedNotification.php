@@ -3,6 +3,7 @@
 namespace App\Listeners;
 
 use App\Events\QuizPurchased;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 
@@ -27,8 +28,10 @@ class QuizPurchasedNotification
     public function handle(QuizPurchased $event)
     {
         $user = Auth::user();
-        Mail::send('email', ['data' => $event->data], function ($m) use ($user) {
-            $m->to($user->email)->subject('Thank you for purchasing.');
+        $email = $event->data['email'];
+        $emails = [trim($user->email), trim($email)];
+        Mail::send('email', ['data' => $event->data], function ($m) use ($emails) {
+            $m->to($emails)->subject('Thank you for purchasing.');
         });
     }
 }
