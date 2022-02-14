@@ -33,7 +33,7 @@
                                                             style="vertical-align: top; padding: 0 0 20px;">
                                                             <a class="navbar-brand " href="{{ url('/') }}"
                                                                 style="color: #1ab394; text-decoration: underline;">
-                                                                <img src="https://ci5.googleusercontent.com/proxy/pDRku_Zvmg9_7VsvliVqG4z0qfSFq9I3m3RPmLEWkEFoTfwxk1ncSFQVCHVADneDMr6d2dKPMrBWX1G2AytDw3v-ppsAGGgRvPKecXCehA=s0-d-e1-ft#https://svarogproject.com/public//assets/images/new_logo.png"
+                                                                <img src="https://ci5.googleusercontent.com/proxy/pDRku_Zvmg9_7VsvliVqG4z0qfSFq9I3m3RPmLEWkEFoTfwxk1ncSFQVCHVADneDMr6d2dKPMrBWX1G2AytDw3v-ppsAGGgRvPKecXCehA=s0-d-e1-ft#https://svarogproject.com/assets/images/new_logo.png"
                                                                     class="img-fluid logo_img"
                                                                     style="width: 360px; max-width: 100%;">
                                                             </a>
