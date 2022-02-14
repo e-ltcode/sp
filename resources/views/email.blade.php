@@ -154,7 +154,7 @@
                                                 style="vertical-align: top; text-align: center; padding: 0 0 20px; font-size: 12px;">
                                                 Questions?
                                                 <a href="mailto: abc@example.com" style="color: #999; font-size: 12px; color: #1ab394;
-                                                    text-decoration: underline;">mail@info.com</a>
+                                                    text-decoration: underline;">email@svarogproject.com</a>
                                             </td>
 
                                         </tr>
