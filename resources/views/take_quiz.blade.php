@@ -62,7 +62,7 @@
                                     @if($quiz['questions'][0]['answers'][0]['is_correct']==1) data-correct="true" @else
                                     data-correct="false" @endif quiz_id="1" for="exampleRadios1"
                                     style="font-size: 15px;">
-                                    <span class="answer_title">{!!dump( $quiz['questions'][0]['answers'][0]['title'])
+                                    <span class="answer_title">{!! $quiz['questions'][0]['answers'][0]['title']
                                         !!}</span>
                                     <input type="radio" id="exampleRadios1" class="answer_input input_radio"
                                         name="quiz[]" value="{{ $quiz['questions'][0]['answers'][0]['id'] }}" required>
