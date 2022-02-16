@@ -4,14 +4,11 @@ namespace App\Http\Controllers;
 
 use Auth;
 use Carbon\Carbon;
-use App\Models\Quiz;
 use App\Models\Order;
 use App\Models\OrderItem;
 use Illuminate\Http\Request;
 use App\Events\QuizPurchased;
-use PHPMailer\PHPMailer\Exception;
-use PHPMailer\PHPMailer\PHPMailer;
-use Illuminate\Support\Facades\View;
+use Illuminate\Support\Facades\Session;
 
 class MailerController extends Controller
 {
@@ -20,23 +17,25 @@ class MailerController extends Controller
     public function email(Request $request)
     {
         $data = [];
-        $obj = OrderItem::with('quiz')->where('order_id', $request->order_id)->get()->toArray();
+        $obj = OrderItem::with('quiz')->where('order_id', $request->order_id)->first()->toArray();
         $data['order_id'] = $request->order_id;
         $data['quiz'] = [];
         $data['total'] = 0;
-        foreach ($obj as $key) {
-            $data['quiz'][] = $key['quiz'];
-            $data['total'] += $key['quiz']['price'];
-        }
+        $data['quiz'][] = $obj['quiz'];
+        $data['total'] += $obj['quiz']['price'];
+        $data['quiz_title'] = $obj['quiz']['quiz_title'];
+
         $order = new Order;
-        $order = $order->where('user_id', Auth::user()->id)->get()->toArray();
-        foreach ($order as $key => $val) {
-            $data['email'] = $val['email'];
-            $data['name'] = $val['f_name'];
-            $data['id'] = $val['user_id'];
-            $data['created_at'] = Carbon::parse($val['created_at'])->toDateTimeString();
-        }
+        $order = $order->where('user_id', Auth::user()->id)->first()->toArray();
+
+        $data['email'] = $order['email'];
+        $data['name'] = $order['f_name'];
+        $data['id'] = $order['user_id'];
+        $data['created_at'] = Carbon::parse($order['created_at'])->toDateTimeString();
+
         event(new QuizPurchased($data));
+        Session::flash('message', 'You have successfully Purchased ' . $data['quiz_title']);
+        Session::flash('alert-class', 'alert-info');
         return redirect()->route('marketplace');
     }
 }
