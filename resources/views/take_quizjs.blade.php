@@ -130,7 +130,7 @@
                 if (result.question.data.learn_more_url === null) {
                     $('.learn_more').html('');
                 } else {
-                    $('.learn_more a').attr('href', 'http://' + result.question.data.learn_more_url);
+                    $('.learn_more a').attr('href', result.question.data.learn_more_url);
                 }
 
                 $('.answer_title').text(result.question.data.answers[0].title);
