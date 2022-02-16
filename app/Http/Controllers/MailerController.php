@@ -37,6 +37,6 @@ class MailerController extends Controller
             $data['created_at'] = Carbon::parse($val['created_at'])->toDateTimeString();
         }
         event(new QuizPurchased($data));
-        return view("email", ['data' => $data]);
+        return redirect()->route('marketplace');
     }
 }
