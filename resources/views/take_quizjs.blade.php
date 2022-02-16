@@ -223,7 +223,7 @@
                 $('.js-btn-next').addClass('d-none');
 
                 $('.form-check-label').parent().css('border', '1px solid #13172f10')
-                $('pre').css('background-color', '#272822');
+                // $('pre').css('background-color', '#272822');
                 $('pre > code').each(function() {
                     hljs.highlightBlock(this);
                 });
