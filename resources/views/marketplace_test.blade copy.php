@@ -374,16 +374,16 @@ li:hover {
                            {{-- @dd($quiz); --}}
                            @if($quiz['status'] == 'completed' )
                            <a href="{{ url('generate_quiz_attempt').'/'.$quiz['id'] }}/" class="btn btn-success butn box pt-3">
-                              Retake Quiz
+                              Retake test
                            </a>
                            @elseif($quiz['questions_count'] == 0)
                            <a href="{{ url('marketplace?questions=0') }}" class="btn btn-success butn box pt-3">
-                              Not Available (no question)
+                              Not Available (no questions)
                            </a>
                            {{-- @dd(count($quiz['questions'])) --}}
                            @elseif( $quiz['price'] == 0 || count($quiz['order_items'])>0)
                            <a href="{{ url('generate_quiz_attempt').'/'.$quiz['id'] }}/" class="btn btn-success butn box pt-3">
-                              Take Quiz
+                              take test
                            </a>
                            @else
                            <a href="{{ url('marketplace/add_to_cart').'?id='.$quiz['id'] }}" class="btn btn-success butn box pt-3 add_to_cart">
@@ -445,16 +445,16 @@ li:hover {
 
                            @if($paid_quiz['status'] == 'completed' )
                            <a href="{{ url('generate_quiz_attempt').'/'.$paid_quiz['id'] }}/" class="btn btn-success butn box pt-3">
-                              Retake Quiz
+                              Retake test
                            </a>
                            @elseif($paid_quiz['questions_count'] == 0)
                            <a href="{{ url('marketplace?questions=0') }}" class="btn btn-success butn box pt-3">
-                              Not Available (no question)
+                              Not Available (no questions)
                            </a>
                            {{-- @dd($paid_quiz); --}}
                            @elseif( $paid_quiz['price'] == 0 || count($quiz['order_items'])>0)
                            <a href="{{ url('generate_quiz_attempt').'/'.$paid_quiz['id'] }}/" class="btn btn-success butn box pt-3">
-                              Take Quiz
+                              take test
                            </a>
                            @else
                            <a href="{{ url('marketplace/add_to_cart').'?id='.$paid_quiz['id'] }}" class="btn btn-success butn box pt-3">
@@ -516,15 +516,15 @@ li:hover {
                            {{-- @dd(); --}}
                            @if($free_quiz['status'] == 'completed' )
                            <a href="{{ url('generate_quiz_attempt').'/'.$free_quiz['id'] }}/" class="btn btn-success butn box pt-3">
-                              Retake Quiz
+                              Retake test
                            </a>
                            @elseif($free_quiz['questions_count'] == 0)
                            <a href="{{ url('marketplace?questions=0') }}" class="btn btn-success butn box pt-3">
-                            Not Available (no question)
+                            Not Available (no questions)
                          </a>
                          @elseif( $free_quiz['price'] == 0 || count($quiz['order_items'])>0)
                          <a href="{{ url('generate_quiz_attempt').'/'.$free_quiz['id'] }}/" class="btn btn-success butn box pt-3">
-                           Take Quiz
+                           take test
                         </a>
                         @else
                         <a href="{{ url('marketplace/add_to_cart').'?id='.$free_quiz['id'] }}" class="btn btn-success butn box pt-3">
@@ -555,7 +555,7 @@ li:hover {
    }
 
    if(window.location.href == '{{ url('/marketplace?questions=0') }}'){
-      alert('Not enough questions to take quiz.'); 
+      alert('Not enough questions to take test.'); 
       window.location.href = '{{ url('/marketplace') }}'   
    }
 </script>

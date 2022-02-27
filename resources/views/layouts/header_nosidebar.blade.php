@@ -19,7 +19,7 @@
             style="width:40%;">
             <div class="input-group mt-3">
                 <input type="text" class="form-control rounded-pill" autocomplete="off" name="search"
-                    placeholder="Search Quizzes" style="height: 55px;">
+                    placeholder="search tests" style="height: 55px;">
                 <div class="input-group-append">
                     <button class="btn bg-white search_btn rounded-pill" style="right: 50px;" type="submit">
                         <i class="fa fa-search"></i>
