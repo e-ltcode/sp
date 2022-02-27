@@ -130,7 +130,7 @@
                 if (result.question.data.learn_more_url === null) {
                     $('.learn_more').html('');
                 } else {
-                    $('.learn_more a').attr('href', 'http://' + result.question.data.learn_more_url);
+                    $('.learn_more a').attr('href', result.question.data.learn_more_url);
                 }
 
                 $('.answer_title').text(result.question.data.answers[0].title);
@@ -223,7 +223,7 @@
                 $('.js-btn-next').addClass('d-none');
 
                 $('.form-check-label').parent().css('border', '1px solid #13172f10')
-                $('pre').css('background-color', '#272822');
+                // $('pre').css('background-color', '#272822');
                 $('pre > code').each(function() {
                     hljs.highlightBlock(this);
                 });

@@ -128,7 +128,7 @@ Route::prefix('/')->middleware(['auth', 'common_auth'])->group(function () {
 Route::get('/submitted', [MarketplaceController::class, 'thank_you']);
 Route::get('/marketplace/add_to_cart', [MarketplaceController::class, 'add_to_cart']);
 // Route::get('/marketplace/add_to_cart?{premium?}', [MarketplaceController::class, 'add_to_cart']);
-Route::get('/marketplace/{check?}', [HomeController::class, 'index']);
+Route::get('/marketplace/{check?}', [HomeController::class, 'index'])->name('marketplace');
 Route::get('/marketplace?{category?}', [HomeController::class, 'index']);
 Route::get('/marketplace_test/{check?}', [HomeController::class, 'test_marketplace']);
 Route::get('/take_quiz/{id}/{skip?}', [MarketplaceController::class, 'take_quiz']);

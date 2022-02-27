@@ -36,6 +36,11 @@
       </div> --}}
    </ul>
    <hr style="width: 100%;">
+
+   @if(Session::has('message'))
+   <p class="alert {{ Session::get('alert-class', 'alert-info') }}">{{ Session::get('message') }}</p>
+   @endif
+
 </div>
 <div class="tab-content" style="min-height: 400px">
    <div id="All" class="container tab-pane {{ ($type != 'free' && $type != 'paid')?'active':'fade' }}">
