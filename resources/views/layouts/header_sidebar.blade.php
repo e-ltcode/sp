@@ -62,7 +62,7 @@
                     class=" ml-auto search_form mr-auto d-none d-lg-block d-md-none mb-3" style="width:40%;">
                     <div class="input-group mt-3">
                         <input type="text" class="form-control rounded-pill" autocomplete="off" name="search"
-                            placeholder="Search Tests" style="height: 55px;">
+                            placeholder="Search Tests, e.g. html, css etc." style="height: 55px;">
                         <div class="input-group-append">
                             <button class="btn bg-white search_btn rounded-pill" style="right: 50px;" type="submit">
                                 <i class="fa fa-search"></i>
