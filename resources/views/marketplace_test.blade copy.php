@@ -374,7 +374,7 @@ li:hover {
                            {{-- @dd($quiz); --}}
                            @if($quiz['status'] == 'completed' )
                            <a href="{{ url('generate_quiz_attempt').'/'.$quiz['id'] }}/" class="btn btn-success butn box pt-3">
-                              Retake test
+                              ReTake Test
                            </a>
                            @elseif($quiz['questions_count'] == 0)
                            <a href="{{ url('marketplace?questions=0') }}" class="btn btn-success butn box pt-3">
@@ -383,7 +383,7 @@ li:hover {
                            {{-- @dd(count($quiz['questions'])) --}}
                            @elseif( $quiz['price'] == 0 || count($quiz['order_items'])>0)
                            <a href="{{ url('generate_quiz_attempt').'/'.$quiz['id'] }}/" class="btn btn-success butn box pt-3">
-                              take test
+                              Take Test
                            </a>
                            @else
                            <a href="{{ url('marketplace/add_to_cart').'?id='.$quiz['id'] }}" class="btn btn-success butn box pt-3 add_to_cart">
@@ -445,7 +445,7 @@ li:hover {
 
                            @if($paid_quiz['status'] == 'completed' )
                            <a href="{{ url('generate_quiz_attempt').'/'.$paid_quiz['id'] }}/" class="btn btn-success butn box pt-3">
-                              Retake test
+                              ReTake Test
                            </a>
                            @elseif($paid_quiz['questions_count'] == 0)
                            <a href="{{ url('marketplace?questions=0') }}" class="btn btn-success butn box pt-3">
@@ -454,7 +454,7 @@ li:hover {
                            {{-- @dd($paid_quiz); --}}
                            @elseif( $paid_quiz['price'] == 0 || count($quiz['order_items'])>0)
                            <a href="{{ url('generate_quiz_attempt').'/'.$paid_quiz['id'] }}/" class="btn btn-success butn box pt-3">
-                              take test
+                              Take Test
                            </a>
                            @else
                            <a href="{{ url('marketplace/add_to_cart').'?id='.$paid_quiz['id'] }}" class="btn btn-success butn box pt-3">
@@ -516,7 +516,7 @@ li:hover {
                            {{-- @dd(); --}}
                            @if($free_quiz['status'] == 'completed' )
                            <a href="{{ url('generate_quiz_attempt').'/'.$free_quiz['id'] }}/" class="btn btn-success butn box pt-3">
-                              Retake test
+                              ReTake Test
                            </a>
                            @elseif($free_quiz['questions_count'] == 0)
                            <a href="{{ url('marketplace?questions=0') }}" class="btn btn-success butn box pt-3">
@@ -524,7 +524,7 @@ li:hover {
                          </a>
                          @elseif( $free_quiz['price'] == 0 || count($quiz['order_items'])>0)
                          <a href="{{ url('generate_quiz_attempt').'/'.$free_quiz['id'] }}/" class="btn btn-success butn box pt-3">
-                           take test
+                           Take Test
                         </a>
                         @else
                         <a href="{{ url('marketplace/add_to_cart').'?id='.$free_quiz['id'] }}" class="btn btn-success butn box pt-3">
@@ -555,7 +555,7 @@ li:hover {
    }
 
    if(window.location.href == '{{ url('/marketplace?questions=0') }}'){
-      alert('Not enough questions to take test.'); 
+      alert('Not enough questions to Take Test.'); 
       window.location.href = '{{ url('/marketplace') }}'   
    }
 </script>
