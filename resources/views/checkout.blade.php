@@ -102,7 +102,7 @@
 </style>
 
 
-<h2 style="text-align: center;padding: 30px 0px;text-transform: capitalize;">Checkout</h2>
+<h2 style="text-align: center;padding: 30px 0px;text-transform: capitalize;">Safe Checkout</h2>
 <div class="table_result" style="min-height: calc(100vh - 500px)">
 
 
