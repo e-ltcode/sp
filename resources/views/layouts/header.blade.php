@@ -354,7 +354,7 @@ padding: 0px;
                             <div class="single-cta">
                                 <i class="fas fa-map-marker-alt"></i>
                                 <div class="cta-text">
-                                    <a href="https://www.google.com/maps?q=Punjab,+Pakistan" target="_blank"
+                                    <a href="https://www.google.com/maps?q=Belgrade,+Serbia" target="_blank"
                                         class="text-decoration-none">
                                         <h4>Find us</h4>
                                     </a>
