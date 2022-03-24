@@ -31,8 +31,7 @@
                     </div>
 
                     <div class="d-flex justify-content-between">
-                        <span class="card-title mt-3 pl-3 text-left ck-content " style="width: 100%;;"
-                            id="question_title">
+                        <span class="card-title mt-3 pl-3 text-left " style="width: 100%;" id="question_title">
                             {!! $quiz['questions'][0]['title'] !!}
                         </span>
                     </div>
@@ -54,7 +53,8 @@
                         <input type="hidden" class="quiz_id" value="{{ $quiz['id'] }}">
 
                         <input type="text" class="block brd-1 my-1 w-100 mb-3 d-none"
-                            style="border:none; background-color: #f9f9f9 0; position:absolute; bottom:50px; height:250px; z-index: 1;" disabled>
+                            style="border:none; background-color: #f9f9f9 0; position:absolute; bottom:50px; height:250px; z-index: 1;"
+                            disabled>
                         <div class="text-1 mt-4 pl-3">
                             <div class="brd-1 my-1" @if ($quiz['questions'][0]['answers'][0]['title']==null)
                                 data-index="-1" @else data-index="0" @endif>

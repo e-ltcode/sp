@@ -28,7 +28,16 @@
     <link rel="stylesheet" href="{{ asset('assets/css/styles.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/profile_page.css') }}" />
     <link rel="stylesheet" href="{{ asset('assets/css/quiz.css') }}">
-    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/highlight.min.js"></script>
+    {{-- <link rel="stylesheet" href="{{ asset('css/default.min.css') }}" rel="stylesheet" type="text/css"> --}}
+    {{-- <link rel="stylesheet" href="{{ asset('css/monokai-sublime.min.css') }}" rel="stylesheet" type="text/css"> --}}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/monokai-sublime.min.css">
+
+    <script>
+        hljs.initHighlightingOnLoad();
+    </script>
 </head>
 
 <style type="text/css">
@@ -66,21 +75,14 @@
 margin: 0px;
 padding: 0px;
 }*/
-    .ck-content pre {
-        padding: 1em;
-        color: #353535;
-        background: hsla(0, 0%, 78%, .3);
-        border: 1px solid #c4c4c4;
-        border-radius: 2px;
-        text-align: left;
-        direction: ltr;
-        tab-size: 4;
-        white-space: pre-wrap;
-        font-style: normal;
-        min-width: 200px;
+    .ck-content {
+        border: #585858;
+        background-color: #585858;
+        /* position: relative; */
+        padding-right: 15px;
     }
 
-    .ck-content pre code {
+    /* .ck-content pre code {
         background: unset;
         padding: 0;
         border-radius: 0;
@@ -101,7 +103,7 @@ padding: 0px;
         padding: var(--ck-spacing-tiny) var(--ck-spacing-medium);
         color: #fff;
         white-space: nowrap;
-    }
+    } */
 
     .footer-section {
         background: #000;
@@ -334,15 +336,16 @@ padding: 0px;
         outline: 0;
         box-shadow: 0 0 0 0 rgb(255 255 255 / 25%);
     }
+
 </style>
 </head>
 
 <body>
 
-    @if(!empty($categories))
-    @include('layouts.header_sidebar')
+    @if (!empty($categories))
+        @include('layouts.header_sidebar')
     @else
-    @include('layouts.header_nosidebar')
+        @include('layouts.header_nosidebar')
     @endif
     <div style="clear: both"></div>
     <div>
@@ -409,7 +412,9 @@ padding: 0px;
                                 <ul>
                                     <li><a href="{{ url('') }}">Home</a></li>
                                     <li><a href="{{ url('marketplace') }}">Marketplace</a></li>
-                                    @if(Auth::check())<li><a href="{{ url('quiz_attempts') }}">Quizzes</a></li>@endif
+                                    @if (Auth::check())
+                                        <li><a href="{{ url('quiz_attempts') }}">Quizzes</a></li>
+                                    @endif
                                     <li><a href="{{ url('privacy') }}">Privacy Policy</a></li>
                                     <li><a href="{{ url('terms') }}">Terms & Conditions</a></li>
                                 </ul>
@@ -429,8 +434,8 @@ padding: 0px;
             <div class="modal-content"></div>
         </div>
     </div>
-    <div id="site_url" style="display: none;">{{url('/')}}</div>
-    <div id="current_url" style="display: none;">{{URL::current()}}</div>
+    <div id="site_url" style="display: none;">{{ url('/') }}</div>
+    <div id="current_url" style="display: none;">{{ URL::current() }}</div>
     {{-- <script src="{{ asset('ample/plugins/bower_components/jquery/dist/jquery.min.js') }}"></script> --}}
     <!-- Bootstrap Core JavaScript -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -462,26 +467,24 @@ padding: 0px;
     <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="Stylesheet"
         type="text/css" />
     <!-- Menu Plugin JavaScript -->
-    <script src="{{asset('ample/plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.js')}}"></script>
+    <script src="{{ asset('ample/plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.js') }}"></script>
     <!--Counter js -->
-    <script src="{{asset('ample/plugins/bower_components/waypoints/lib/jquery.waypoints.js')}}"></script>
-    <script src="{{asset('ample/plugins/bower_components/counterup/jquery.counterup.min.js')}}"></script>
+    <script src="{{ asset('ample/plugins/bower_components/waypoints/lib/jquery.waypoints.js') }}"></script>
+    <script src="{{ asset('ample/plugins/bower_components/counterup/jquery.counterup.min.js') }}"></script>
     <!--slimscroll JavaScript -->
-    <script src="{{asset('ample/js/jquery.slimscroll.js')}}"></script>
+    <script src="{{ asset('ample/js/jquery.slimscroll.js') }}"></script>
     <!--Wave Effects -->
     <!-- sparkline chart JavaScript -->
-    <script src="{{asset('ample/plugins/bower_components/jquery-sparkline/jquery.sparkline.min.js')}}"></script>
+    <script src="{{ asset('ample/plugins/bower_components/jquery-sparkline/jquery.sparkline.min.js') }}"></script>
     <!-- Custom Theme JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
         integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
     </script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-{{-- 
-    </script> --}}
+    {{-- </script> --}}
     <script src="{{ asset('assets/js/quiz.js') }}"></script>
-    {{--
-    <link rel="stylesheet" href="css/style.css"> --}}
+    {{-- <link rel="stylesheet" href="css/style.css"> --}}
     <script src="{{ asset('assets/js/menu.js') }}"></script>
     {{-- <script src="{{asset('ample/js/footable-init.js')}}"></script> --}}
     <!--Style Switcher -->
@@ -492,55 +495,59 @@ padding: 0px;
 
     @yield('scripts')
     <script type="text/javascript">
-        $(document).ready( function () {
-        if($('.datatable-custom').length > 0){
-            $('.datatable-custom').DataTable();
+        $(document).ready(function() {
+            if ($('.datatable-custom').length > 0) {
+                $('.datatable-custom').DataTable();
 
-        }
-
-        var btn = $('#button_top');
-
-        $(window).scroll(function() {
-          if ($(window).scrollTop() > 300) {
-            btn.addClass('show');
-        } else {
-            btn.removeClass('show');
-        }
-    });
-
-        btn.on('click', function(e) {
-          e.preventDefault();
-          $('html, body').animate({scrollTop:0}, '300');
-      });
-
-    } );
-
-    $(document).on("click", ".list .delete", function (event) {
-        var remvove = $(this).attr("data-remove");
-        var attr = $(this).attr("data-action");
-//confirm("Do you want to delete");
-//addWaitWithoutText(this);
-
-
-
-$.ajax({
-    type: "GET",
-    cache: false,
-    url: $(this).attr("data-url"),
-    dataType: "json",
-    headers: { "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content") },
-    success: function (res) {
-        if (res.flag == true) {
-            toastr["success"](res.msg, "Completed!");
-            if (res.action == "reload") {
-                window.location.reload();
-            } else {
-                $("." + remvove).remove();
             }
-        }
-    },
-});
-});
+
+            var btn = $('#button_top');
+
+            $(window).scroll(function() {
+                if ($(window).scrollTop() > 300) {
+                    btn.addClass('show');
+                } else {
+                    btn.removeClass('show');
+                }
+            });
+
+            btn.on('click', function(e) {
+                e.preventDefault();
+                $('html, body').animate({
+                    scrollTop: 0
+                }, '300');
+            });
+
+        });
+
+        $(document).on("click", ".list .delete", function(event) {
+            var remvove = $(this).attr("data-remove");
+            var attr = $(this).attr("data-action");
+            //confirm("Do you want to delete");
+            //addWaitWithoutText(this);
+
+
+
+            $.ajax({
+                type: "GET",
+                cache: false,
+                url: $(this).attr("data-url"),
+                dataType: "json",
+                headers: {
+                    "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content")
+                },
+                success: function(res) {
+                    if (res.flag == true) {
+                        toastr["success"](res.msg, "Completed!");
+                        if (res.action == "reload") {
+                            window.location.reload();
+                        } else {
+                            $("." + remvove).remove();
+                        }
+                    }
+                },
+            });
+        });
     </script>
 
 

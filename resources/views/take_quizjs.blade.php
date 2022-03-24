@@ -1,5 +1,27 @@
 <script>
-    hljs.highlightAll();
+    $(document).ready(function() {
+
+        var svg =
+            "<svg class='question__dots' xmlns='http://www.w3.org/2000/svg' width='54' height='14' viewBox='0 0 54 14'>" +
+            "<g fill='none' fill-rule='evenodd' transform='translate(1 1)'>" +
+            "<circle cx='6' cy='6' r='6' fill='#FF5F56' stroke='#E0443E' stroke-width='.5'>" +
+            "</circle>" +
+            "<circle cx='26' cy='6' r='6' fill='#FFBD2E' stroke='#DEA123' stroke-width='.5'>" +
+            "</circle>" +
+            "<circle cx='46' cy='6' r='6' fill='#27C93F' stroke='#1AAB29' stroke-width='.5'>" +
+            "</circle>" +
+            "</g>" +
+            "</svg>";
+        var codeTagExist = $('pre').find('code').length;
+        if (0 != codeTagExist) {
+            console.log(codeTagExist);
+            $('#question_title').addClass('ck-content');
+            $("code").before(svg);
+        } else {
+            $('#question_title').removeClass('ck-content');
+        }
+
+    });
 </script>
 <script type="text/javascript">
     var ans = "";
@@ -223,7 +245,26 @@
                 $('.js-btn-next').addClass('d-none');
 
                 $('.form-check-label').parent().css('border', '1px solid #13172f10')
-                // $('pre').css('background-color', '#272822');
+                $('pre').css('background-color', '#272822');
+                var svg1 =
+                    "<svg class='question__dots' xmlns='http://www.w3.org/2000/svg' width='54' height='14' viewBox='0 0 54 14'>" +
+                    "<g fill='none' fill-rule='evenodd' transform='translate(1 1)'>" +
+                    "<circle cx='6' cy='6' r='6' fill='#FF5F56' stroke='#E0443E' stroke-width='.5'>" +
+                    "</circle>" +
+                    "<circle cx='26' cy='6' r='6' fill='#FFBD2E' stroke='#DEA123' stroke-width='.5'>" +
+                    "</circle>" +
+                    "<circle cx='46' cy='6' r='6' fill='#27C93F' stroke='#1AAB29' stroke-width='.5'>" +
+                    "</circle>" +
+                    "</g>" +
+                    "</svg>";
+                var codeTagExist = $('pre').find('code').length;
+                if (0 != codeTagExist) {
+                    $('pre').css("background-color", "");
+                    $('#question_title').addClass('ck-content');
+                    $("code").before(svg1);
+                } else {
+                    $('#question_title').removeClass('ck-content');
+                }
                 $('pre > code').each(function() {
                     hljs.highlightBlock(this);
                 });
