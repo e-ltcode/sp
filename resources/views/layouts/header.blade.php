@@ -75,12 +75,12 @@
 margin: 0px;
 padding: 0px;
 }*/
-    .ck-content {
+    /* .ck-content {
         border: #585858;
         background-color: #585858;
-        /* position: relative; */
+        position: relative;
         padding-right: 15px;
-    }
+    } */
 
     /* .ck-content pre code {
         background: unset;

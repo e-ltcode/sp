@@ -14,8 +14,8 @@
             "</svg>";
         var codeTagExist = $('pre').find('code').length;
         if (0 != codeTagExist) {
-            console.log(codeTagExist);
-            $('#question_title').addClass('ck-content');
+            $('pre').css("background-color", "");
+            $('pre').css('background-color', '#585858');
             $("code").before(svg);
         } else {
             $('#question_title').removeClass('ck-content');
@@ -260,7 +260,7 @@
                 var codeTagExist = $('pre').find('code').length;
                 if (0 != codeTagExist) {
                     $('pre').css("background-color", "");
-                    $('#question_title').addClass('ck-content');
+                    $('pre').css('background-color', '#585858');
                     $("code").before(svg1);
                 } else {
                     $('#question_title').removeClass('ck-content');
