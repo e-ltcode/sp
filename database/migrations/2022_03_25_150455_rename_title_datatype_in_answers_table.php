@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class RenameQuizDescriptionInQuizesTable extends Migration
+class RenameTitleDatatypeInAnswersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class RenameQuizDescriptionInQuizesTable extends Migration
      */
     public function up()
     {
-        Schema::table('quizes', function (Blueprint $table) {
-            $table->text('quiz_description')->change();
+        Schema::table('answers', function (Blueprint $table) {
+            $table->text('title')->change();
         });
     }
 
