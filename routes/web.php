@@ -17,6 +17,7 @@ use App\Http\Controllers\Admin\AnswersController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\QuestionsController;
 use App\Http\Controllers\Admin\OrderItemsController;
+use App\Http\Controllers\FreeTestController;
 
 /*
 |--------------------------------------------------------------------------
@@ -125,7 +126,7 @@ Route::prefix('/')->middleware(['auth', 'common_auth'])->group(function () {
 });
 // Admin Courses Routes
 
-Route::get('/submitted', [MarketplaceController::class, 'thank_you']);
+Route::get('/submitted/{quizAttemptId}', [MarketplaceController::class, 'thank_you']);
 Route::get('/marketplace/add_to_cart', [MarketplaceController::class, 'add_to_cart']);
 // Route::get('/marketplace/add_to_cart?{premium?}', [MarketplaceController::class, 'add_to_cart']);
 Route::get('/marketplace/{check?}', [HomeController::class, 'index'])->name('marketplace');
@@ -166,3 +167,5 @@ Route::post('import', [QuizController::class, 'import']);
 Route::get('/logout', [LoginController::class, 'logout']);
 
 Route::get('/', [HomeController::class, 'home']);
+
+Route::get('/score-free-quiz/{quiz_id}', [FreeTestController::class, 'generate_quiz_attempt'])->name('score-free-quiz');

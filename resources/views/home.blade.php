@@ -2,7 +2,6 @@
 
 @section('content')
 
-{{-- @dd($paid_quizes ) --}}
 <div class="container py-3">
    <ul class="nav nav-pills" role="tablist">
       <li class="nav-item active topnav">
@@ -100,8 +99,7 @@
                         </div>
                      </div>
                      <hr>
-                     {{-- @dd(Auth::user()->order_items) --}}
-                     {{-- @dd($quiz); --}}
+
                      @if($quiz['status'] == 'completed' )
                      <a href="{{ url('generate_quiz_webattempt').'/'.$quiz['id'] }}/"
                         class="btn btn-success butn box pt-3">
@@ -111,19 +109,25 @@
                      <a href="{{ url('marketplace?questions=0') }}" class="btn btn-success butn box pt-3">
                         Not Available (no questions)
                      </a>
-                     {{-- @dd(count($quiz['questions'])) --}}
+
                      @elseif( $quiz['price'] == 0 || count($quiz['order_items'])>0)
-                     <a href="{{ url('generate_quiz_attempt').'/'.$quiz['id'] }}/"
-                        class="btn btn-success butn box pt-3">
-                        Take Test
-                     </a>
+                        @if (Auth::check())
+                            <a href="{{ url('generate_quiz_attempt').'/'.$quiz['id'] }}/"
+                                class="btn btn-success butn box pt-3">
+                                Take Test
+                            </a>
+                        @else
+                            <a href="{{ route('score-free-quiz',['quiz_id'=>$quiz['id']]) }}"
+                                class="btn btn-success butn box pt-3">
+                                Take Test
+                            </a>
+                        @endif
                      @else
                      <a href="{{ url('marketplace/add_to_cart').'?id='.$quiz['id'] }}"
                         class="btn btn-success butn box pt-3 add_to_cart">
                         Add to cart
                      </a>
                      @endif
-                     {{-- @dd($_GET) --}}
                   </div>
                </div>
             </div>
@@ -199,7 +203,6 @@
                      <a href="{{ url('marketplace?questions=0') }}" class="btn btn-success butn box pt-3">
                         Not Available (no questions)
                      </a>
-                     {{-- @dd($paid_quiz); --}}
                      @elseif( $paid_quiz['price'] == 0 || count($quiz['order_items'])>0)
                      <a href="{{ url('generate_quiz_attempt').'/'.$paid_quiz['id'] }}/"
                         class="btn btn-success butn box pt-3">
@@ -273,7 +276,6 @@
                         </div>
                      </div>
                      <hr>
-                     {{-- @dd(); --}}
                      @if($free_quiz['status'] == 'completed' )
                      <a href="{{ url('generate_quiz_attempt').'/'.$free_quiz['id'] }}/"
                         class="btn btn-success butn box pt-3">
@@ -285,10 +287,17 @@
                      </a>
 
                      @elseif( $free_quiz['price'] == 0 || count($quiz['order_items'])>0)
-                     <a href="{{ url('generate_quiz_attempt').'/'.$free_quiz['id'] }}/"
-                        class="btn btn-success butn box pt-3">
-                        Take Test
-                     </a>
+                        @if (Auth::check())
+                        <a href="{{ url('generate_quiz_attempt').'/'.$free_quiz['id'] }}/"
+                            class="btn btn-success butn box pt-3">
+                            Take Test
+                        </a>
+                        @else
+                        <a href="{{ route('score-free-quiz',['quiz_id'=>$free_quiz['id']]) }}"
+                            class="btn btn-success butn box pt-3">
+                            Take Test
+                        </a>
+                        @endif
                      @else
                      <a href="{{ url('marketplace/add_to_cart').'?id='.$free_quiz['id'] }}"
                         class="btn btn-success butn box pt-3">

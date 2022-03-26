@@ -138,7 +138,6 @@
         }).done(function(data) {
             var result = JSON.parse(data);
 
-            ;
 
             $('.brd-1').attr('data-index', result.skip);
             if (result.question.data !== null) {
@@ -269,7 +268,7 @@
                     hljs.highlightBlock(this);
                 });
             } else {
-                window.location.replace("{{ url('submitted') }}");
+                window.location.replace("{{ url('submitted/'.$quiz_attempt_id) }}");
             }
         });
     });

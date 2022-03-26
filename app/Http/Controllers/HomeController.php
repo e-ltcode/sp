@@ -30,9 +30,15 @@ class HomeController extends Controller
                 $query->where('created_by', Auth::user()->id);
             }])->withCount('questions')->withCount('quiz_attempts');
         } else {
-            $obj = Quiz::withCount('questions');
-            $paid_obj = Quiz::withCount('questions');
-            $free_obj = Quiz::withCount('questions');
+            $obj = Quiz::with(['order_items' => function ($query) {
+                $query->where('user_id', null);
+            }])->withCount('questions');
+            $paid_obj = Quiz::with(['order_items' => function ($query) {
+                $query->where('user_id', null);
+            }])->withCount('questions');
+            $free_obj = Quiz::with(['order_items' => function ($query) {
+                $query->where('user_id', null);
+            }])->withCount('questions');
         }
 
         $data['type'] = @$request->type;
@@ -54,7 +60,6 @@ class HomeController extends Controller
             $data['paid_quizes'] = $paid_obj->where('category_id', $data['cat_id'])->get();
             $data['free_quizes'] = $free_obj->where('category_id', $data['cat_id'])->get();
             $data['quizes'] = $obj->where('category_id', $data['cat_id'])->get();
-
         }
 
         $data['quizes'] = $obj->get();

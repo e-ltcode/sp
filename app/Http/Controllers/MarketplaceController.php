@@ -26,7 +26,7 @@ class MarketplaceController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('auth')->except('take_quiz', 'thank_you', 'quiz_attempts');
     }
 
     public function take_quiz(Request $request, $id)
@@ -48,7 +48,7 @@ class MarketplaceController extends Controller
                     'quiz_attampts_id' => $request->quiz_attempt_id,
                     'question_id' => $request->question_id,
                     'answer_id' => $request->ans_selected,
-                    'created_by' => Auth::user()->id,
+                    'created_by' => (Auth::check()) ? Auth::user()->id : null,
                 ];
                 $object->create($data_insert);
             }
@@ -94,12 +94,15 @@ class MarketplaceController extends Controller
         return view('profile_page', $data);
     }
 
-    public function thank_you()
+    public function thank_you($quizAttemptId)
     {
+        if (!Auth::check()) {
+            return $this->showFreeTestResult($quizAttemptId);
+        }
         $data = [];
         $data['categories'] = Category::all()->toArray();
         $data['parent_categories'] = Category::with('parent_category')->whereNull('parent_category_id')->get()->toArray();
-        // dd($data);
+
         return view('thank_you', $data);
     }
     public function generate_quiz_attempt(Request $request, $quiz_id)
@@ -194,7 +197,6 @@ class MarketplaceController extends Controller
                     ];
                     $object->insert($row);
                 }
-
             }
 
             $response = array('flag' => true, 'msg' => 'Category is added to cart.', 'action' => 'reload', 'url' => url('/marketplace'));
@@ -231,10 +233,31 @@ class MarketplaceController extends Controller
                     echo '<script>alert("Already in cart.")</script>';
                     $url = url("/marketplace");
                     echo '<script>window.location.href ="' . $url . '"</script>';
-
                 }
             }
         }
     }
+    public function showFreeTestResult($quizAttemptId)
+    {
+        $data = [];
+        $data['attempts'] = QuizAttempt::with('quiz.questions.answers', 'attempt_question.answer')->where('id', $quizAttemptId)->get()->toArray();
+        if (!empty($data['attempts'])) {
 
+            foreach ($data['attempts'] as $k => $v) {
+                $count_question = count($v['quiz']['questions']);
+                $data['attempts'][$k]['total_questions'] = $count_question;
+                $correct_counter = 0;
+                foreach ($v['attempt_question'] as $key => $val) {
+                    if ($val['answer']['is_correct'] == 1) {
+                        $correct_counter++;
+                    }
+                }
+                $data['attempts'][$k]['correct_questions'] = $correct_counter;
+            }
+        }
+        // dd($data['attempts']);
+        $data['categories'] = Category::all()->toArray();
+        $data['parent_categories'] = Category::with('parent_category')->whereNull('parent_category_id')->get()->toArray();
+        return view('quiz_attempts', $data);
+    }
 }
