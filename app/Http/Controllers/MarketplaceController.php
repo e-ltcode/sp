@@ -26,7 +26,7 @@ class MarketplaceController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth')->except('take_quiz', 'thank_you', 'quiz_attempts');
+        $this->middleware('auth')->except('take_quiz', 'thank_you', 'quiz_attempts', 'view_quiz');
     }
 
     public function take_quiz(Request $request, $id)
