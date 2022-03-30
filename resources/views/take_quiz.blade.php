@@ -22,10 +22,10 @@
                     </div>
 
                     <div style="display: inline-flex; position: absolute;right: 30px" class="learn_more_div">
-                        <div class="learn_more mb-2" style="margin-top: 18px; margin-left: 3px;">
+                        <div class="learn_more mb-2" style="margin-bottom: 10px; margin-left: 3px;">
                             @if ($quiz['questions'][0]['learn_more_url'])
                             <a href="{{ $quiz['questions'][0]['learn_more_url'] }}" target="_blank"
-                                style="color: #9d43ac" style="margin-bottom: 10px;"><b>Learn More</b></a>
+                                style="color: #9d43ac;"><b>Learn More</b></a>
                             @endif
                         </div>
                     </div>
