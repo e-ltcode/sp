@@ -156,7 +156,7 @@
     </div>
 </div> --}}
 <!-- feature (skew background) -->
-{{-- <div class="jumbotron jumbotron-fluid feature" id="feature-first">
+<!-- {{-- <div class="jumbotron jumbotron-fluid feature" id="feature-first">
     <div class="container my-5">
         <div class="row justify-content-between text-center text-md-left">
             <div data-aos="fade-right" data-aos-duration="1000" data-aos-once="true" class="col-md-6">
@@ -170,7 +170,7 @@
                 <img src="{{ asset('assets/images') }}/section1.png" alt="Take a look inside" class="mx-auto d-block">
             </div>
         </div>
-    </div>
+    </div> -->
 </div> --}}
 <!-- feature (green background) -->
 {{-- <div class="jumbotron jumbotron-fluid feature" id="feature-last">
